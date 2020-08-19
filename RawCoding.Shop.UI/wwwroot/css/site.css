@@ -1,0 +1,97 @@
+body {
+    min-height: 100vh;
+}
+
+[v-cloak] > * {
+    display: none;
+}
+
+* {
+    font-family: 'Nunito', sans-serif !important;
+    color: #1B0F1E;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.justify-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.justify-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.self-center {
+    align-self: center;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.text-blue {
+    color: #00AAFF;
+}
+
+.text-light-blue {
+    color: #00E6D8;
+}
+
+.bkg-black {
+    background-color: #1B0F1A;
+}
+
+.bkg-white {
+    background-color: #fff;
+}
+
+.bkg-text-blue {
+    background-color: #00AAFF;
+}
+
+.bkg-light-blue {
+    background-color: #00E6D8;
+}
+
+@media screen and (min-width: 1024px) {
+    .column {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .columns {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .column {
+        margin: 0 0.5rem 1rem;
+    }
+}
