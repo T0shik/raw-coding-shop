@@ -5,9 +5,12 @@
     <e p="C:\Users\Toshik\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_RawCoding.Shop.953784724.00" t="ExcludeRecursive" />
     <e p="C:\Users\Toshik\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_cdn.jsdelivr.net_npm_axios_dist_axios.js" t="IncludeRecursive" />
     <e p="C:\Users\Toshik\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_cdn.jsdelivr.net_npm_bulma@0.9.0_css_bulma.css" t="IncludeRecursive" />
+    <e p="C:\Users\Toshik\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_unpkg.com_flickity@2_dist_flickity.css" t="IncludeRecursive" />
+    <e p="C:\Users\Toshik\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_unpkg.com_flickity@2_dist_flickity.pkgd.js" t="IncludeRecursive" />
     <e p="D:\WS\Rider\RawCoding.Shop" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
-      <e p="RawCoding.Shop.Application" t="IncludeRecursive">
+      <e p="RawCoding.Shop.sln" t="IncludeFlat" />
+      <e p="src\RawCoding.Shop.Application" t="IncludeRecursive">
         <e p="Admin" t="Include">
           <e p="Orders" t="Include">
             <e p="GetOrder.cs" t="Include" />
@@ -51,11 +54,12 @@
         <e p="Products" t="Include">
           <e p="GetProduct.cs" t="Include" />
           <e p="GetProducts.cs" t="Include" />
+          <e p="ProductViewModel.cs" t="Include" />
         </e>
         <e p="RawCoding.Shop.Application.csproj" t="IncludeRecursive" />
         <e p="Service.cs" t="Include" />
       </e>
-      <e p="RawCoding.Shop.Database" t="IncludeRecursive">
+      <e p="src\RawCoding.Shop.Database" t="IncludeRecursive">
         <e p="ApplicationDbContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="CartManager.cs" t="Include" />
@@ -71,7 +75,7 @@
         <e p="RawCoding.Shop.Database.csproj" t="IncludeRecursive" />
         <e p="StockManager.cs" t="Include" />
       </e>
-      <e p="RawCoding.Shop.Domain" t="IncludeRecursive">
+      <e p="src\RawCoding.Shop.Domain" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Enums" t="Include">
           <e p="OrderStatus.cs" t="Include" />
@@ -100,8 +104,7 @@
         </e>
         <e p="RawCoding.Shop.Domain.csproj" t="IncludeRecursive" />
       </e>
-      <e p="RawCoding.Shop.sln" t="IncludeFlat" />
-      <e p="RawCoding.Shop.UI" t="IncludeRecursive">
+      <e p="src\RawCoding.Shop.UI" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
@@ -140,12 +143,16 @@
           <e p="Error.cshtml.cs" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="Index.cshtml.cs" t="Include" />
+          <e p="Not-Found.cshtml" t="Include" />
+          <e p="Not-Found.cshtml.cs" t="Include" />
           <e p="Shared" t="Include">
             <e p="_Bulma.cshtml" t="Include" />
             <e p="_CookieConsentPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_Vue.cshtml" t="Include" />
           </e>
+          <e p="{slug}.cshtml" t="Include" />
+          <e p="{slug}.cshtml.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
@@ -161,6 +168,8 @@
           <e p="css" t="Include">
             <e p="index.css" t="Include" />
             <e p="index.min.css" t="Include" />
+            <e p="product.css" t="Include" />
+            <e p="product.min.css" t="Include" />
             <e p="site.css" t="Include" />
             <e p="site.min.css" t="Include" />
           </e>
@@ -182,6 +191,7 @@
               <e p="users.js" t="Include" />
             </e>
             <e p="index.js" t="Include" />
+            <e p="product.js" t="Include" />
             <e p="site.js" t="Include" />
             <e p="site.min.js" t="Include" />
           </e>
