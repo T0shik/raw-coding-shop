@@ -8,33 +8,24 @@
 
 @if (showBanner)
 {
-    <nav id="cookieConsent" class="navbar navbar-default navbar-fixed-top" role="alert">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#cookieConsent .navbar-collapse">
-                    <span class="sr-only">Toggle cookie consent banner</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <span class="navbar-brand"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>
-            </div>
-            <div class="collapse navbar-collapse">
-                <p class="navbar-text">
-                    Use this space to summarize your privacy and cookie use policy.
-                </p>
-                <div class="navbar-right">
-                    <a asp-page="/Privacy" class="btn btn-info navbar-btn">Learn More</a>
-                    <button type="button" class="btn btn-default navbar-btn" data-cookie-string="@cookieString">Accept</button>
+    <div class="modal is-active" id="cookieConsent">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box bkg-white">
+                <div class="flex-column align-center">
+                    <p class="mb-2">
+                        We use cookies to save your cart.
+                    </p>
+                    <button type="button" class="button flow-color" data-cookie-string="@cookieString">Accept</button>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
     <script>
         (function () {
             document.querySelector("#cookieConsent button[data-cookie-string]").addEventListener("click", function (el) {
                 document.cookie = el.target.dataset.cookieString;
-                document.querySelector("#cookieConsent").classList.add("hidden");
+                document.getElementById("cookieConsent").classList.remove("is-active");
             }, false);
         })();
     </script>

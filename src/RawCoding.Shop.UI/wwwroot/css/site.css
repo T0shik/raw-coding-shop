@@ -93,6 +93,10 @@ body {
     background-color: #fcbe03 !important;
 }
 
+button.flow-color{
+    border: 1px solid #1B0F1A;
+}
+
 @media screen and (min-width: 1024px) {
     .column {
         padding: 1.5rem;

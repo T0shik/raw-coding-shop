@@ -22,9 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1396acd-53ed-4847-bb1d-d5001902a15a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.sln" beforeDir="false" />
+    <list default="true" id="c1396acd-53ed-4847-bb1d-d5001902a15a" name="Default Changelist" comment="stuff">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_CookieConsentPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_CookieConsentPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/{slug}.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/{slug}.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.min.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +70,8 @@
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/product.js" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/product.css" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/{slug}.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_CookieConsentPartial.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" />
       </list>
     </option>
@@ -132,8 +138,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598036009940</updated>
-      <workItem from="1598036018882" duration="9859000" />
+      <workItem from="1598036018882" duration="11331000" />
     </task>
+    <task id="LOCAL-00001" summary="stuff">
+      <created>1598045993297</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598045993297</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -158,6 +172,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="WindowStateProjectService">
     <state x="583" y="318" key="#Notifications" timestamp="1598036084655">
@@ -180,6 +196,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="336" y="97" key="SettingsEditor/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598040497703" />
+    <state x="452" y="207" key="Vcs.Push.Dialog.v2" timestamp="1598045997542">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="452" y="207" key="Vcs.Push.Dialog.v2/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598045997541" />
     <state x="100" y="100" width="1720" height="880" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1598037228601">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
