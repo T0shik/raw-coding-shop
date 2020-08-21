@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Shop";
+}
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/index.css"/>
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" href="~/css/index.min.css" asp-append-version="true"/>
+    </environment>
+}
+
+<div>
+    <div class="columns is-multiline">
+        @foreach (var product in Model.Products)
+        {
+            <div class="column is-6-tablet is-4-desktop">
+                <div class="card">
+                    <div onclick="window.location.href = '/@product.Slug'" class="card-image">
+                        @if (product.Images.Count == 1)
+                        {
+                            <figure class="image is-square">
+                                <img src="/images/@product.Images[0]" alt="">
+                            </figure>
+                        }
+                        else
+                        {
+                            <figure class="image front is-square">
+                                <img src="/images/@product.Images[0]" alt="">
+                            </figure>
+                            <figure class="image back is-square">
+                                <img src="/images/@product.Images[1]" alt="">
+                            </figure>
+                        }
+                    </div>
+                    <div onclick="window.location.href = '/@product.Slug'"
+                         class="card-content bkg-white justify-between align-end">
+                        <div class="title is-marginless is-4">@product.Name</div>
+                        <div class="header is-4">@product.Value</div>
+                    </div>
+                    <div class="line"></div>
+                    <div onclick="window.location.href = '/@product.Slug'" class="bkg-white justify-center">
+                        <button type="submit" class="button flow-color my-2">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

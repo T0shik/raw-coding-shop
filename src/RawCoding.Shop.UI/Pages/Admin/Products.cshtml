@@ -1,0 +1,85 @@
+﻿@page
+@{
+}
+
+<div id="app" class="container">
+    <div v-if="!editing">
+        <button class="button" @@click="newProduct">Add New Product</button>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Product</th>
+                <th>Value</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr v-for="(product, index) in products">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.value}}</td>
+                <td>
+                    <a @@click="editProduct(product.id, index)">Edit</a>
+                </td>
+                <td>
+                    <a @@click="deleteProduct(product.id, index)">Remove</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div v-else>
+        <div>
+            <button class="button is-success" @@click="createProduct" v-if="!form.id">Create Product</button>
+            <button class="button is-warning" @@click="updateProduct" v-else>Update Product</button>
+            <button class="button" @@click="cancel">Cancel</button>
+        </div>
+        <div class="field">
+            <label class="label">Product Name</label>
+            <div class="control">
+                <input class="input" v-model="form.name"/>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Product Description</label>
+            <div class="control">
+                <input class="input" v-model="form.description"/>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Price</label>
+            <div class="control">
+                <input class="input" v-model="form.value"/>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input ref="file" class="is-hidden" type="file" accept="image/*" @@change="addImage">
+                <button class="button" @@click="$refs.file.click()">Add Image</button>
+            </div>
+        </div>
+
+        <div class="columns" v-for="(img, index) in fileImages">
+            <div class="column is-2 flex justify-center align-center is-size-1">
+                {{index + 1}}
+            </div>
+            <div class="column">
+                <img width="150" height="150" :src="img"/>
+            </div>
+            <div class="column flex-column justify-center align-center">
+                <button class="button" @@click="moveImageUp(index)" v-if="index > 0">Up</button>
+                <button class="button" @@click="moveImageDown(index)" v-if="index < fileImages.length - 1">Down</button>
+            </div>
+            <div class="column flex justify-center align-center">
+                <button class="button is-danger" @@click="form.images.splice(index, 1)">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/js/admin/products.js"></script>
+}

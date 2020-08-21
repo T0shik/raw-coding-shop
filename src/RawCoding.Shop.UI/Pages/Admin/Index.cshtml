@@ -1,0 +1,34 @@
+@page
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "_AdminLayoutBase";
+}
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Admin Panel
+      </h1>
+      <h2 class="subtitle">
+        Select Section
+      </h2>
+    </div>
+  </div>
+</section>
+<nav class="level">
+    <div class="level-item has-text-centered">
+        <div>
+            <a asp-page="/Admin/Products" class="title">Products</a>
+        </div>
+    </div>
+    <div class="level-item has-text-centered">
+        <div>
+            <a asp-page="/Admin/Stock" class="title">Stock</a>
+        </div>
+    </div>
+    <div class="level-item has-text-centered">
+        <div>
+            <a asp-page="/Admin/Orders" class="title">Orders</a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="@ViewData["Description"]"/>
+    <meta name="keywords" content="@ViewData["Keywords"]"/>
+
+    <title>@ViewData["Title"] - Raw Coding</title>
+
+    <partial name="_Bulma"/>
+    @await RenderSectionAsync("Styles", required: false)
+
+</head>
+<body class="bkg-black">
+
+<div class="hero">
+    <div class="hero-body flex-column align-center">
+        <a class="logo" href="/">
+            <img src="~/logo_150x150.png" height="150">
+        </a>
+        <p class="text-white is-size-1 is-size-3-mobile is-uppercase">raw coding</p>
+    </div>
+</div>
+
+<div class="container">
+    @RenderBody()
+</div>
+
+<partial name="_Vue"/>
+
+@await RenderSectionAsync("Scripts", required: false)
+
+<environment include="Development">
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</environment>
+<environment exclude="Development">
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+</environment>
+
+</body>
+</html>

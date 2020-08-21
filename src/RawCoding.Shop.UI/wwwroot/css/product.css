@@ -1,0 +1,137 @@
+.carousel-screen .carousel-item.from-left {
+    animation: fadeInFromLeft .5s ease-out;
+}
+
+@-webkit-keyframes fadeInFromLeft {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.carousel-screen .carousel-item.from-right {
+    animation: fadeInFromRight .5s ease-out;
+}
+
+@-webkit-keyframes fadeInFromRight {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.carousel-screen .carousel-item.to-left {
+    animation: fadeToLeft .5s ease-out;
+}
+
+@-webkit-keyframes fadeToLeft {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+.carousel-screen .carousel-item.to-right {
+    animation: fadeToRight .5s ease-out;
+}
+
+@-webkit-keyframes fadeToRight {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-screen {
+    position: relative;
+}
+
+.carousel-screen .carousel-item.only {
+    position: relative !important;
+    left: 0 !important;
+}
+
+.carousel-screen .carousel-item:not(:nth-child(2)) {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.carousel-screen .carousel-item:not(:nth-child(2)):not(:nth-child(1)) {
+    left: 100%;
+}
+
+.carousel-screen .carousel-item:first-child {
+    left: -100%;
+}
+
+.carousel .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(27, 15, 26, 0);
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    transition: 100ms ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.carousel .nav-btn:hover {
+    background: rgba(27, 15, 26, 0.2);
+    transition: 150ms ease-in;
+}
+
+.carousel .nav-btn.left {
+    left: 10px;
+}
+
+.carousel .nav-btn.left::before {
+    content: '<';
+}
+
+.carousel .nav-btn.right {
+    right: 10px;
+}
+
+.carousel .nav-btn.right::before {
+    content: '>';
+}
+
+.carousel-pager {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+}
+
+.carousel-pager div {
+    background: rgba(27, 15, 26, 0.3);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    z-index: 5;
+    margin: 0 .5rem;
+}
+
+.carousel-pager div.selected {
+    background: rgba(27, 15, 26, 0.6);
+}

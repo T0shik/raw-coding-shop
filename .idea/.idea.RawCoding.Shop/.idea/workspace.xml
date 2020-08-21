@@ -4,109 +4,30 @@
     <projectFile>RawCoding.Shop.UI/Shop.UI.csproj</projectFile>
     <projectFile>src/RawCoding.Shop.UI/RawCoding.Shop.UI.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f71aad1b-afd4-46ef-8c5c-cecb2526dc63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/jsLibraryMappings.xml" afterDir="false" />
+    <list default="true" id="f71aad1b-afd4-46ef-8c5c-cecb2526dc63" name="Default Changelist" comment="move n product page">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Orders/GetOrder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Orders/GetOrders.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Orders/UpdateOrder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Products/CreateProudct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Products/DeleteProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Products/GetProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Products/GetProducts.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Products/UpdateProudct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Stocks/CreateStock.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Stocks/DeleteStock.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Stocks/GetStock.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Admin/Stocks/UpdateStock.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Cart/AddCustomerInformation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Cart/AddToCart.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Cart/GetCart.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Cart/GetCustomerInformation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Cart/GetOrder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Cart/RemoveFromCart.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Oders/CreateOrder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Oders/GetOrder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Products/GetProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Products/GetProducts.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/RawCoding.Shop.Application.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Application/Service.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Database/ApplicationDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Database/CartManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Database/OrderManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Database/ProductManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Database/RawCoding.Shop.Database.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Database/StockManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Enums/OrderStatus.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Interfaces/ICartManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Interfaces/IOrderManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Interfaces/IProductManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Interfaces/IStockManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Models/CartProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Models/CustomerInformation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Models/Image.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Models/Order.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Models/OrderProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Models/Product.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/Models/Stock.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.Domain/RawCoding.Shop.Domain.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Controllers/Admin/AccountController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Controllers/Admin/AdminBaseController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Controllers/Admin/OrdersController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Controllers/Admin/ProductsController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Controllers/Admin/StocksController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Admin/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Admin/Login.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Admin/Login.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Admin/Orders.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Admin/Products.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Admin/Stock.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Admin/_AdminLayout.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Admin/_AdminLayoutBase.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Admin/_ViewStart.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Error.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Index.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Shared/_Bulma.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Shared/_CookieConsentPartial.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/Shared/_Vue.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/_ViewImports.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Pages/_ViewStart.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/RawCoding.Shop.UI.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/ServiceRegister.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Shop.UI.csproj.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/ValidationContexts/AddCustomerInformationRequestValidation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/css/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/css/index.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/css/site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/css/site.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/images/book.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/images/book1.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/images/book3.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/images/pen.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/images/pen2.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/images/shirt.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/images/shirt3.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/js/admin/orders.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/js/admin/products.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/js/admin/stock.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/js/admin/users.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/js/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/js/site.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/js/site.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.UI/wwwroot/logo_150x150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawCoding.Shop.sln" beforeDir="false" afterPath="$PROJECT_DIR$/RawCoding.Shop.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,8 +206,17 @@
       <workItem from="1597600375338" duration="17733000" />
       <workItem from="1597860724647" duration="16530000" />
       <workItem from="1597950715640" duration="1405000" />
-      <workItem from="1597952210402" duration="10995000" />
+      <workItem from="1597952210402" duration="11120000" />
+      <workItem from="1598035192059" duration="737000" />
     </task>
+    <task id="LOCAL-00001" summary="move n product page">
+      <created>1597963577787</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1597963577787</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -298,22 +228,40 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="move n product page" />
+    <option name="LAST_COMMIT_MESSAGE" value="move n product page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="452" y="92" key="#Plugins" timestamp="1597954269906">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="452" y="92" key="#Plugins/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1597954269906" />
+    <state x="471" y="22" key="CommitChangelistDialog2" timestamp="1597963566542">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="471" y="22" key="CommitChangelistDialog2/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1597963566542" />
     <state x="551" y="234" width="816" height="846" key="EditFileWatcherDialog" timestamp="1597609808781">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="551" y="234" width="816" height="846" key="EditFileWatcherDialog/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1597609808781" />
-    <state x="687" y="235" key="FileChooserDialogImpl" timestamp="1597952559768">
+    <state x="687" y="235" key="FileChooserDialogImpl" timestamp="1598035238088">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="687" y="235" key="FileChooserDialogImpl/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1597952559768" />
+    <state x="687" y="235" key="FileChooserDialogImpl/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598035238088" />
     <state width="1920" height="397" key="GridCell.Tab.0.bottom" timestamp="1597877409066">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -402,6 +350,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="336" y="97" key="SettingsEditor/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1597963557077" />
+    <state x="452" y="207" key="Vcs.Push.Dialog.v2" timestamp="1597963579858">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="452" y="207" key="Vcs.Push.Dialog.v2/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1597963579858" />
     <state x="429" y="46" width="871" height="958" key="find.popup" timestamp="1597956338990">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -414,9 +366,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="701" y="364" width="552" height="491" key="scopes/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1597609799049" />
-    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1597963188138">
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1598035212399">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1597963188138" />
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598035212399" />
   </component>
 </project>

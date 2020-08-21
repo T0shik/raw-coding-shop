@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_AdminLayoutBase";
+}
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-3">
+            <div class="menu">
+                <p class="menu-label">Store Menu</p>
+                <ul class="menu-list">
+                    <li>
+                        <a asp-page="/Admin/Products">Products</a>
+                    </li>
+                    <li>
+                        <a asp-page="/Admin/Orders">Order Management</a>
+                    </li>
+                    <li>
+                        <a asp-page="/Admin/Stock">Stock</a>
+                    </li>
+                </ul>
+
+                <p class="menu-label"></p>
+                <ul class="menu-list">
+                    <li>
+                        <a asp-page="/Index">Back to Main</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="column is-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    @await RenderSectionAsync("Scripts", false)
+}
