@@ -148,6 +148,12 @@
             <e p="_CookieConsentPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_Vue.cshtml" t="Include" />
+            <e p="Components" t="Include">
+              <e p="Cart" t="Include">
+                <e p="Default.cshtml" t="Include" />
+                <e p="Default.cshtml.cs" t="Include" />
+              </e>
+            </e>
           </e>
           <e p="{slug}.cshtml" t="Include" />
           <e p="{slug}.cshtml.cs" t="Include" />
@@ -164,6 +170,8 @@
         </e>
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
+            <e p="cart.css" t="Include" />
+            <e p="cart.min.css" t="Include" />
             <e p="index.css" t="Include" />
             <e p="index.min.css" t="Include" />
             <e p="product.css" t="Include" />
@@ -188,14 +196,13 @@
               <e p="stock.js" t="Include" />
               <e p="users.js" t="Include" />
             </e>
-            <e p="index.js" t="Include" />
+            <e p="cart.js" t="Include" />
             <e p="product.js" t="Include" />
-            <e p="site.js" t="Include" />
-            <e p="site.min.js" t="Include" />
           </e>
           <e p="lib" t="Include">
             <e p="bulma.css" t="Include" />
             <e p="bulma.min.css" t="Include" />
+            <e p="modal-fx.min.js" t="Include" />
           </e>
           <e p="logo_150x150.png" t="Include" />
         </e>

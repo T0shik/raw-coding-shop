@@ -22,13 +22,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1396acd-53ed-4847-bb1d-d5001902a15a" name="Default Changelist" comment="stuff">
+    <list default="true" id="c1396acd-53ed-4847-bb1d-d5001902a15a" name="Default Changelist" comment="cookie consent">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/discord.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/watcherTasks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding.Shop/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/discord.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_CookieConsentPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_CookieConsentPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Bulma.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Bulma.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/_ViewImports.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/_ViewImports.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/{slug}.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/{slug}.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/site.min.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +57,13 @@
       <file url="file://$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/product.js" />
     </disable_hints>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -50,7 +74,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/lib/bulma.css" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Bulma.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Application/Products/ProductViewModel.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Application/Products/GetProducts.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Application/Products/GetProduct.cs" />
@@ -62,22 +85,31 @@
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Application/Admin/Stocks/CreateStock.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Application/Admin/Stocks/UpdateStock.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Extensions/ValueExtension.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/_ViewImports.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Models/Stock.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Program.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Index.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/index.css" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/product.js" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/product.css" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/{slug}.cshtml" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_CookieConsentPartial.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/Components/Cart/_Default.cshtml.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/Components/Cart/_Default.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/_ViewImports.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/Components/Cart/Default.cshtml.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/index.js" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/product.js" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/{slug}.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/cart.js" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Bulma.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Index.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/Components/Cart/Default.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/lib/modal-fx.css" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/cart.css" />
       </list>
     </option>
   </component>
   <component name="NamedScopeManager">
-    <scope name="Pages" pattern="" />
+    <scope name="wwwroot" pattern="file[riderModule]:src/RawCoding.Shop.UI/wwwroot/js//*" />
   </component>
   <component name="ProjectId" id="1gQ9ZmGy8fHTjSJxBe7KFATIeQY" />
   <component name="ProjectViewState">
@@ -90,13 +122,15 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/RawCoding.Shop.UI/node_modules/.bin/babel.cmd" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.RawCoding.Shop.UI: IIS Express">
     <configuration name="RawCoding.Shop.UI: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -138,7 +172,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598036009940</updated>
-      <workItem from="1598036018882" duration="11331000" />
+      <workItem from="1598036018882" duration="11427000" />
+      <workItem from="1598083806078" duration="730000" />
+      <workItem from="1598084584069" duration="7110000" />
     </task>
     <task id="LOCAL-00001" summary="stuff">
       <created>1598045993297</created>
@@ -147,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598045993297</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="cookie consent">
+      <created>1598047535947</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598047535947</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -157,7 +200,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -169,48 +212,58 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
+    <MESSAGE value="cookie consent" />
+    <option name="LAST_COMMIT_MESSAGE" value="cookie consent" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="792" y="328" key="#File_Watchers" timestamp="1598086793979">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="792" y="328" key="#File_Watchers/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598086793979" />
     <state x="583" y="318" key="#Notifications" timestamp="1598036084655">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="583" y="318" key="#Notifications/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598036084655" />
-    <state x="686" y="289" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1598037082440">
+    <state x="686" y="289" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1598086781980">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="686" y="289" key="#com.intellij.ide.macro.MacrosDialog/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598037082440" />
-    <state x="551" y="234" width="816" height="846" key="EditFileWatcherDialog" timestamp="1598037085595">
+    <state x="686" y="289" key="#com.intellij.ide.macro.MacrosDialog/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598086781980" />
+    <state x="495" y="201" width="816" height="846" key="EditFileWatcherDialog" timestamp="1598088062787">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="551" y="234" width="816" height="846" key="EditFileWatcherDialog/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598037085595" />
-    <state x="686" y="219" key="FileChooserDialogImpl" timestamp="1598036295852">
+    <state x="495" y="201" width="816" height="846" key="EditFileWatcherDialog/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598088062787" />
+    <state x="686" y="219" key="FileChooserDialogImpl" timestamp="1598087903480">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="686" y="219" key="FileChooserDialogImpl/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598036295852" />
-    <state x="336" y="97" key="SettingsEditor" timestamp="1598040497703">
+    <state x="686" y="219" key="FileChooserDialogImpl/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598087903480" />
+    <state x="336" y="97" key="SettingsEditor" timestamp="1598088105928">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="336" y="97" key="SettingsEditor/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598040497703" />
-    <state x="452" y="207" key="Vcs.Push.Dialog.v2" timestamp="1598045997542">
+    <state x="336" y="97" key="SettingsEditor/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598088105928" />
+    <state x="452" y="207" key="Vcs.Push.Dialog.v2" timestamp="1598047538360">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="452" y="207" key="Vcs.Push.Dialog.v2/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598045997541" />
+    <state x="452" y="207" key="Vcs.Push.Dialog.v2/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598047538360" />
     <state x="100" y="100" width="1720" height="880" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1598037228601">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598037228601" />
-    <state x="527" y="444" width="908" height="491" key="scopes" timestamp="1598036816499">
+    <state x="524" y="206" width="871" height="668" key="find.popup" timestamp="1598090504056">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="527" y="444" width="908" height="491" key="scopes/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598036816499" />
-    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1598044879262">
+    <state x="524" y="206" width="871" height="668" key="find.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598090504056" />
+    <state x="155" y="118" width="1222" height="740" key="scopes" timestamp="1598088009372">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598044879262" />
+    <state x="155" y="118" width="1222" height="740" key="scopes/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598088009372" />
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1598090508427">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598090508427" />
   </component>
 </project>
