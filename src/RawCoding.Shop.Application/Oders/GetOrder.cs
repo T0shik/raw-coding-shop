@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using RawCoding.Shop.Domain.Extensions;
 using RawCoding.Shop.Domain.Interfaces;
 
 namespace RawCoding.Shop.Application.Oders
@@ -31,12 +32,12 @@ namespace RawCoding.Shop.Application.Oders
                     {
                         y.Stock.Product.Name,
                         y.Stock.Product.Description,
-                        Value = $"£ {y.Stock.Product.Value:N2}",
+                        Value = $"£ {y.Stock.Value.ToMoney()}",
                         y.Qty,
                         StockDescription = y.Stock.Product.StockDescription,
                     }),
 
-                    TotalValue = order.OrderStocks.Sum(y => y.Stock.Product.Value).ToString("N2")
+                    TotalValue = order.OrderStocks.Sum(y => y.Stock.Value).ToMoney()
                 });
     }
 }

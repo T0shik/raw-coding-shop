@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using RawCoding.Shop.Domain.Models;
 
 namespace RawCoding.Shop.Domain.Interfaces
 {
     public interface ICartManager
     {
-        void AddProduct(CartProduct cartProduct);
+        Task<int> UpdateCart(IList<CartProduct> cartProducts);
         void RemoveProduct(int stockId, int qty);
-        IEnumerable<TResult> GetCart<TResult>(Func<CartProduct, TResult> selector);
+        IList<CartProduct> GetCart(string cartId);
+        IEnumerable<CartProduct> GetCartWithStockAndProducts(string cartId);
         void ClearCart();
 
         void AddCustomerInformation(CustomerInformation customer);

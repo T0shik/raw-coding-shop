@@ -36,7 +36,6 @@ namespace RawCoding.Shop.UI.Controllers.Admin
             {
                 Name = form.Name,
                 Description = form.Description,
-                Value = form.Value
             };
             await foreach (var image in SaveImages(form.Images))
             {
@@ -50,7 +49,6 @@ namespace RawCoding.Shop.UI.Controllers.Admin
         {
             public string Name { get; set; }
             public string Description { get; set; }
-            public int Value { get; set; }
             public IEnumerable<IFormFile> Images { get; set; }
         }
 

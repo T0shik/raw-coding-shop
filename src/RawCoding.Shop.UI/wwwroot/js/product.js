@@ -96,3 +96,9 @@ var moveDot = function (n) {
     dots[position].classList.add(__selected__)
 }
 
+var addToCart = function () {
+    cart.addProduct({
+        qty: document.getElementById('Input_Qty').value | 0,
+        stockId: document.getElementById('Input_StockId').value | 0,
+    })
+}

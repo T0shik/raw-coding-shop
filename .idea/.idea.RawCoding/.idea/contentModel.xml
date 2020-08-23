@@ -3,6 +3,7 @@
   <component name="ContentModelStore">
     <e p="C:\Users\Toshik\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Toshik\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_RawCoding.1719074688.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Toshik\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_cdn.jsdelivr.net_npm_vue_dist_vue.js" t="IncludeRecursive" />
     <e p="D:\WS\Rider\RawCoding" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="RawCoding.sln" t="IncludeFlat" />
@@ -27,14 +28,13 @@
             <e p="UpdateStock.cs" t="Include" />
           </e>
         </e>
+        <e p="BaseResponse.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Cart" t="Include">
-          <e p="AddCustomerInformation.cs" t="Include" />
-          <e p="AddToCart.cs" t="Include" />
           <e p="GetCart.cs" t="Include" />
-          <e p="GetCustomerInformation.cs" t="Include" />
           <e p="GetOrder.cs" t="Include" />
           <e p="RemoveFromCart.cs" t="Include" />
+          <e p="UpdateCart.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -114,6 +114,7 @@
             <e p="ProductsController.cs" t="Include" />
             <e p="StocksController.cs" t="Include" />
           </e>
+          <e p="CartController.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -145,6 +146,7 @@
           <e p="Not-Found.cshtml.cs" t="Include" />
           <e p="Shared" t="Include">
             <e p="_Bulma.cshtml" t="Include" />
+            <e p="_Cart.cshtml" t="Include" />
             <e p="_CookieConsentPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_Vue.cshtml" t="Include" />
@@ -164,10 +166,8 @@
         </e>
         <e p="RawCoding.Shop.UI.csproj" t="IncludeRecursive" />
         <e p="ServiceRegister.cs" t="Include" />
+        <e p="ShopConstants.cs" t="Include" />
         <e p="Startup.cs" t="Include" />
-        <e p="ValidationContexts" t="Include">
-          <e p="AddCustomerInformationRequestValidation.cs" t="Include" />
-        </e>
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
             <e p="cart.css" t="Include" />
@@ -180,6 +180,9 @@
             <e p="site.min.css" t="Include" />
           </e>
           <e p="favicon.ico" t="Include" />
+          <e p="icons" t="Include">
+            <e p="cart-outline.svg" t="Include" />
+          </e>
           <e p="images" t="Include">
             <e p="book.JPG" t="Include" />
             <e p="book1.JPG" t="Include" />
@@ -200,9 +203,13 @@
             <e p="product.js" t="Include" />
           </e>
           <e p="lib" t="Include">
+            <e p="axios.js" t="Include" />
             <e p="bulma.css" t="Include" />
             <e p="bulma.min.css" t="Include" />
             <e p="modal-fx.min.js" t="Include" />
+            <e p="promises.js" t="Include" />
+            <e p="vue.js" t="Include" />
+            <e p="vue.min.js" t="Include" />
           </e>
           <e p="logo_150x150.png" t="Include" />
         </e>

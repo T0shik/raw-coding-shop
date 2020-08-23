@@ -27,7 +27,6 @@ namespace RawCoding.Shop.Application.Admin.Products
                 request.Id,
                 request.Name,
                 request.Description,
-                request.Value
             };
         }
     }

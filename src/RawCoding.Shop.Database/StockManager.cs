@@ -39,16 +39,31 @@ namespace RawCoding.Shop.Database
             return _ctx.SaveChangesAsync();
         }
 
-        public bool EnoughStock(int stockId, int qty)
+        public bool HasStock(int stockId, int qty)
         {
-            return _ctx.Stock.FirstOrDefault(x => x.Id == stockId).Qty >= qty;
+            var stock = _ctx.Stock?.AsNoTracking()
+                .FirstOrDefault(x => x.Id == stockId);
+
+            if (stock == null) return false;
+
+            return stock.Qty >= qty;
         }
 
         public Stock GetStockWithProduct(int stockId)
         {
             return _ctx.Stock
+                .AsNoTracking()
                 .Include(x => x.Product)
                 .FirstOrDefault(x => x.Id == stockId);
+        }
+
+        public IEnumerable<Stock> GetStockWithProduct(int[] stockIds)
+        {
+            return _ctx.Stock
+                .AsNoTracking()
+                .Where(x => stockIds.Contains(x.Id))
+                .Include(x => x.Product)
+                .ToList();
         }
     }
 }

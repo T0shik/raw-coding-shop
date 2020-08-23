@@ -11,6 +11,7 @@ namespace RawCoding.Shop.Domain.Interfaces
         Task<int> UpdateStockRange(IEnumerable<Stock> stockList);
 
         Stock GetStockWithProduct(int stockId);
-        bool EnoughStock(int stockId, int qty);
+        IEnumerable<Stock> GetStockWithProduct(int[] stockIds);
+        bool HasStock(int stockId, int qty);
     }
 }

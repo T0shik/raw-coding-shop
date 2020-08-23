@@ -12,16 +12,10 @@ namespace RawCoding.Shop.Application.Cart
             _cartManager = cartManager;
         }
 
-        public object Do()
+        public object Do(string cartId)
         {
             var listOfProducts = _cartManager
-                .GetCart(x => new
-                {
-                    x.ProductId,
-                    x.StockId,
-                    Value = (int) (x.Value * 100),
-                    x.Qty
-                });
+                .GetCartWithStockAndProducts(cartId);
 
             var customerInformation = _cartManager.GetCustomerInformation();
 

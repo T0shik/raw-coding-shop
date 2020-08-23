@@ -1,0 +1,28 @@
+<div id="cart-app">
+    <button class="cart-button flow-color" @@click="open = true">
+        <img src="~/icons/cart-outline.svg" alt="Cart Icon">
+    </button>
+    <div class="modal modal-fx-3dRotateFromRight" :class="active" id="cart-container">
+        <div class="modal-background" @@click="open = false"></div>
+        <div class="modal-content cart-menu">
+            <p class="title is-size-3 has-text-centered mt-3">
+                Cart
+            </p>
+            <div class="columns mt-4 is-mobile" v-for="item in cart.items" :key="item.stockId">
+                <div class="column">
+                    <figure class="image is-square">
+                        <img :src="'/images/' + item.image" alt="">
+                    </figure>
+                </div>
+                <div class="column">
+                    <p>{{item.productName}}</p>
+                    <p>{{item.stockDescription}}</p>
+                    <p>Costs: {{item.value}}</p>
+                    <p>Qty: {{item.qty}}</p>
+                    <p>Price: {{item.totalValue}}</p>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" @@click="open = false"></button>
+    </div>
+</div>

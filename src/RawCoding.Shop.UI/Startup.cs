@@ -1,3 +1,5 @@
+using System;
+using System.Security.Claims;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RawCoding.Shop.Database;
 using Stripe;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
 
@@ -50,6 +53,23 @@ namespace RawCoding.Shop.UI
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.ConfigureApplicationCookie(options => { options.LoginPath = "/Admin/Login"; });
+
+            services.AddAuthentication()
+                .AddCookie(ShopConstants.Schemas.Guest,
+                    config =>
+                    {
+                        config.Cookie.Name = ShopConstants.Schemas.Guest;
+                        config.ExpireTimeSpan = TimeSpan.FromDays(365);
+                    });
+
+            services.AddAuthorization(config =>
+            {
+                config.AddPolicy(ShopConstants.Policies.Customer, x =>
+                {
+                    x.AddAuthenticationSchemes(ShopConstants.Schemas.Guest);
+                    x.RequireAuthenticatedUser();
+                });
+            });
 
             services.AddAuthorization(options =>
             {
@@ -102,12 +122,39 @@ namespace RawCoding.Shop.UI
                 return Task.CompletedTask;
             });
 
+            //todo move the user generation to authentication policy
+            app.Use(async (context, next) =>
+            {
+                if (!context.User.Identity.IsAuthenticated)
+                {
+                    var identity = new ClaimsIdentity(new[]
+                    {
+                        new Claim(ClaimTypes.Role, ShopConstants.Roles.Guest),
+                        new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString()),
+                    }, ShopConstants.Schemas.Guest);
+
+                    var claimsPrinciple = new ClaimsPrincipal(identity);
+
+                    await context.SignInAsync(
+                        ShopConstants.Schemas.Guest,
+                        claimsPrinciple,
+                        new AuthenticationProperties
+                        {
+                            IsPersistent = true
+                        });
+                }
+
+                await next();
+            });
+
             app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapDefaultControllerRoute()
+                    .RequireAuthorization(ShopConstants.Policies.Customer);
                 endpoints.MapRazorPages();
             });
         }

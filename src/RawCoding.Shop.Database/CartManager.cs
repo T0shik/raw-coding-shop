@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using RawCoding.Shop.Domain.Interfaces;
 using RawCoding.Shop.Domain.Models;
 
@@ -7,9 +10,17 @@ namespace RawCoding.Shop.Database
 {
     public class CartManager : ICartManager
     {
-        public void AddProduct(CartProduct cartProduct)
+        private readonly ApplicationDbContext _ctx;
+
+        public CartManager(ApplicationDbContext ctx)
         {
-            throw new NotImplementedException();
+            _ctx = ctx;
+        }
+
+        public Task<int> UpdateCart(IList<CartProduct> cartProducts)
+        {
+            _ctx.UpdateRange(cartProducts);
+            return _ctx.SaveChangesAsync();
         }
 
         public void RemoveProduct(int stockId, int qty)
@@ -17,10 +28,24 @@ namespace RawCoding.Shop.Database
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TResult> GetCart<TResult>(Func<CartProduct, TResult> selector)
+        public IList<CartProduct> GetCart(string cartId)
         {
-            throw new NotImplementedException();
+            return _ctx.CartProducts
+                .Where(x => x.CartId == cartId && !x.Complete)
+                .ToList();
         }
+
+        public IEnumerable<CartProduct> GetCartWithStockAndProducts(string cartId)
+        {
+            return _ctx.CartProducts
+                .Where(x => x.CartId == cartId && !x.Complete)
+                .Include(x => x.Stock)
+                .ThenInclude(x => x.Product)
+                .ThenInclude(x => x.Images)
+                .AsNoTracking()
+                .ToList();
+        }
+
 
         public void ClearCart()
         {

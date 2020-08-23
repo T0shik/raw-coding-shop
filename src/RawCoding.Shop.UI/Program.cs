@@ -34,13 +34,12 @@ namespace RawCoding.Shop.UI
                             Description = "Test Product",
                             Series = "Original",
                             Slug = "original-test",
-                            Value = 1000,
                             StockDescription = "Size",
                             Stock = new List<Stock>
                             {
-                                new Stock {Description = "Small"},
-                                new Stock {Description = "Medium"},
-                                new Stock {Description = "Large"},
+                                new Stock {Description = "Small", Value = 1000, Qty = 100,},
+                                new Stock {Description = "Medium", Value = 1000, Qty = 100,},
+                                new Stock {Description = "Large", Value = 1000, Qty = 1,},
                             },
                             Images = new List<Image>
                             {
@@ -55,10 +54,13 @@ namespace RawCoding.Shop.UI
                         {
                             Name = "Test2",
                             Description = "Test Product 22",
-                            Value = 2220,
+
                             Series = "Original",
                             Slug = "original-test2",
-                            Stock = new List<Stock> {new Stock {Description = "Default"},},
+                            Stock = new List<Stock>
+                            {
+                                new Stock {Value = 2220, Description = "Default", Qty = 100,},
+                            },
                             Images = new List<Image>
                             {
                                 new Image {Index = 0, Path = "pen.jpg"},
@@ -70,10 +72,12 @@ namespace RawCoding.Shop.UI
                         {
                             Name = "Test 33",
                             Description = "Test Product 313",
-                            Value = 333,
                             Series = "Original",
                             Slug = "original-test-33",
-                            Stock = new List<Stock> {new Stock {Description = "Default"},},
+                            Stock = new List<Stock>
+                            {
+                                new Stock {Value = 333, Description = "Default", Qty = 100,},
+                            },
                             Images = new List<Image>
                             {
                                 new Image {Index = 0, Path = "shirt.jpg"},
@@ -93,7 +97,7 @@ namespace RawCoding.Shop.UI
 
                         userManger.CreateAsync(adminUser, "password").GetAwaiter().GetResult();
 
-                        var adminClaim = new Claim("Role", "Admin");
+                        var adminClaim = new Claim(ClaimTypes.Role, ShopConstants.Roles.Admin);
 
                         userManger.AddClaimAsync(adminUser, adminClaim).GetAwaiter().GetResult();
                     }

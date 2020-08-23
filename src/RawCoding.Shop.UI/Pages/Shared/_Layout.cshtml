@@ -27,9 +27,13 @@
     @RenderBody()
 </div>
 
-<vc:cart/>
-
+@* <script src="~/lib/promises.js" asp-append-version="true"></script> *@
+<partial name="_Cart"/>
 <partial name="_CookieConsentPartial"/>
+<partial name="_Vue"/>
+<script src="~/lib/axios.js" asp-append-version="true"></script>
+<script src="~/lib/modal-fx.min.js" asp-append-version="true"></script>
+<script src="~/js/cart.js" asp-append-version="true"></script>
 
 @await RenderSectionAsync("Scripts", required: false)
 

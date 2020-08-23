@@ -1,5 +1,26 @@
+.cart-button {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 3rem;
+    right: 3rem;
+    border-radius: 50%;
+    width: 69px;
+    height: 69px;
+    overflow: hidden;
+    padding: .75rem;
+    z-index: 40;
+}
 
+.cart-button:focus{
+    outline: none;
+}
 
+.cart-button img {
+    width: 100%;
+    height: 100%;
+}
 
 /*
  * CART LAYOUT
@@ -8,6 +29,11 @@
 #cart-container .modal-close::before,
 #cart-container .modal-close::after {
     background-color: #1B0F1E;
+}
+
+#cart-container .columns {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .modal-content.cart-menu {

@@ -19,7 +19,6 @@ namespace RawCoding.Shop.Application.Admin.Products
 
             product.Name = request.Name;
             product.Description = request.Description;
-            product.Value = request.Value;
 
             await _productManager.UpdateProduct(product);
 
@@ -28,7 +27,6 @@ namespace RawCoding.Shop.Application.Admin.Products
                 product.Id,
                 product.Name,
                 product.Description,
-                product.Value
             };
         }
 

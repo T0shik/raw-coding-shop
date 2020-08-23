@@ -1,4 +1,6 @@
 .card {
+    display: block;
+    text-decoration: none;
     max-width: 420px;
     margin: auto;
     border-radius: 5px;
