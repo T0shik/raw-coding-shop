@@ -8,7 +8,22 @@
 
     <title>@ViewData["Title"] - Raw Coding</title>
 
-    <partial name="_Bulma"/>
+    <style>
+        [v-cloak] > * {
+            display: none;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;600;800;900&display=swap" rel="stylesheet">
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bulma.css"/>
+        <link rel="stylesheet" href="~/css/site.css"/>
+        <link rel="stylesheet" href="~/css/cart.css"/>
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" href="~/lib/bulma.min.css" asp-append-version="true"/>
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
+        <link rel="stylesheet" href="~/css/cart.min.css" asp-append-version="true"/>
+    </environment>
     @await RenderSectionAsync("Styles", required: false)
 
 </head>

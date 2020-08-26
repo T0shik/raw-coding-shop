@@ -145,7 +145,6 @@
           <e p="Not-Found.cshtml" t="Include" />
           <e p="Not-Found.cshtml.cs" t="Include" />
           <e p="Shared" t="Include">
-            <e p="_Bulma.cshtml" t="Include" />
             <e p="_Cart.cshtml" t="Include" />
             <e p="_CookieConsentPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />

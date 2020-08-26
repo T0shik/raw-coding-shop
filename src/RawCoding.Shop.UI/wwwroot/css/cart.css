@@ -13,7 +13,11 @@
     z-index: 40;
 }
 
-.cart-button:focus{
+.cart-button:hover {
+    cursor: pointer;
+}
+
+.cart-button:focus {
     outline: none;
 }
 
@@ -31,9 +35,16 @@
     background-color: #1B0F1E;
 }
 
+.cart-item-container {
+    overflow: auto;
+}
+
+.cart-item-container .column {
+    padding: .5rem;
+}
+
 #cart-container .columns {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
 }
 
 .modal-content.cart-menu {

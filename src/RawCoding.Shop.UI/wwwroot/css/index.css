@@ -61,14 +61,6 @@
     width: 100%;
 }
 
-.line {
-    display: block;
-    height: 4px;
-    width: 100%;
-    background: rgb(0, 230, 216);
-    background: linear-gradient(-45deg, rgba(0, 230, 216, 1) 0%, rgba(0, 170, 255, 1) 89%, rgba(0, 212, 255, 1) 100%);
-}
-
 .button-buy {
     font-weight: 600;
 }

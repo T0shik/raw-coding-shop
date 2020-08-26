@@ -1,5 +1,6 @@
 using System;
 using System.Security.Claims;
+using System.Text.Encodings.Web;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace RawCoding.Shop.UI
 {
@@ -54,12 +57,16 @@ namespace RawCoding.Shop.UI
 
             services.ConfigureApplicationCookie(options => { options.LoginPath = "/Admin/Login"; });
 
-            services.AddAuthentication()
+            services.AddAuthentication(options =>
+                {
+                    // options.DefaultChallengeScheme = ShopConstants.Schemas.Guest;
+                })
                 .AddCookie(ShopConstants.Schemas.Guest,
                     config =>
                     {
                         config.Cookie.Name = ShopConstants.Schemas.Guest;
                         config.ExpireTimeSpan = TimeSpan.FromDays(365);
+                        config.LoginPath = "/api/cart/guest-auth";
                     });
 
             services.AddAuthorization(config =>
@@ -122,31 +129,6 @@ namespace RawCoding.Shop.UI
                 return Task.CompletedTask;
             });
 
-            //todo move the user generation to authentication policy
-            app.Use(async (context, next) =>
-            {
-                if (!context.User.Identity.IsAuthenticated)
-                {
-                    var identity = new ClaimsIdentity(new[]
-                    {
-                        new Claim(ClaimTypes.Role, ShopConstants.Roles.Guest),
-                        new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString()),
-                    }, ShopConstants.Schemas.Guest);
-
-                    var claimsPrinciple = new ClaimsPrincipal(identity);
-
-                    await context.SignInAsync(
-                        ShopConstants.Schemas.Guest,
-                        claimsPrinciple,
-                        new AuthenticationProperties
-                        {
-                            IsPersistent = true
-                        });
-                }
-
-                await next();
-            });
-
             app.UseAuthentication();
 
             app.UseAuthorization();
@@ -155,7 +137,8 @@ namespace RawCoding.Shop.UI
             {
                 endpoints.MapDefaultControllerRoute()
                     .RequireAuthorization(ShopConstants.Policies.Customer);
-                endpoints.MapRazorPages();
+                endpoints.MapRazorPages()
+                    .RequireAuthorization(ShopConstants.Policies.Customer);
             });
         }
 
@@ -165,5 +148,22 @@ namespace RawCoding.Shop.UI
                 StatusCodes.Status404NotFound => "/not-found",
                 _ => "/not-found"
             };
+
+        // public class CustomerSchemeOptions : AuthenticationSchemeOptions
+        // {
+        // }
+        //
+        // public class CustomerAuthenticationHandler : AuthenticationHandler<CustomerSchemeOptions>
+        // {
+        //     public CustomerAuthenticationHandler(IOptionsMonitor<CustomerSchemeOptions> options, ILoggerFactory logger,
+        //         UrlEncoder encoder, ISystemClock clock) : base(options, logger, encoder, clock)
+        //     {
+        //     }
+        //
+        //     protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+        //     {
+        //         return Task.CompletedTask(AuthenticateResult.Success(new AuthenticationTicket()));
+        //     }
+        // }
     }
 }

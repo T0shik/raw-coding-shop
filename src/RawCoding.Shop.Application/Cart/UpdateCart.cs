@@ -28,7 +28,13 @@ namespace RawCoding.Shop.Application.Cart
 
         public async Task<BaseResponse> Do(Form request)
         {
-            if (!_stockManager.HasStock(request.StockId, request.Qty))
+            var stock = _stockManager.GetStock(request.StockId);
+            if (stock == null)
+            {
+                return new BaseResponse("Product not found", false);
+            }
+
+            if (stock.Qty < request.Qty)
             {
                 return new BaseResponse("Not Enough Stock", false);
             }
@@ -50,7 +56,10 @@ namespace RawCoding.Shop.Application.Cart
                 product.Qty += request.Qty;
             }
 
+            stock.Qty -= request.Qty;
+
             await _cartManager.UpdateCart(cart);
+            await _stockManager.UpdateStockRange(new[] {stock});
 
             return new BaseResponse("Product Added");
         }

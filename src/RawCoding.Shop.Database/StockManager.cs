@@ -16,6 +16,11 @@ namespace RawCoding.Shop.Database
             _ctx = ctx;
         }
 
+        public Stock GetStock(int stockId)
+        {
+            return _ctx.Stock.AsNoTracking().FirstOrDefault(x => x.Id == stockId);
+        }
+
         public Task<int> CreateStock(Stock stock)
         {
             _ctx.Stock.Add(stock);
@@ -37,16 +42,6 @@ namespace RawCoding.Shop.Database
             _ctx.Stock.UpdateRange(stockList);
 
             return _ctx.SaveChangesAsync();
-        }
-
-        public bool HasStock(int stockId, int qty)
-        {
-            var stock = _ctx.Stock?.AsNoTracking()
-                .FirstOrDefault(x => x.Id == stockId);
-
-            if (stock == null) return false;
-
-            return stock.Qty >= qty;
         }
 
         public Stock GetStockWithProduct(int stockId)

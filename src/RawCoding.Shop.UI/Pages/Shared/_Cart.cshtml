@@ -1,26 +1,45 @@
-<div id="cart-app">
+<div id="cart-app" v-cloak>
+    <div class="popup box bkg-black" :class="{'is-active': popup.active}">
+        <span :class="popupStyle">{{popup.message}}</span>
+    </div>
     <button class="cart-button flow-color" @@click="open = true">
         <img src="~/icons/cart-outline.svg" alt="Cart Icon">
     </button>
     <div class="modal modal-fx-3dRotateFromRight" :class="active" id="cart-container">
         <div class="modal-background" @@click="open = false"></div>
-        <div class="modal-content cart-menu">
-            <p class="title is-size-3 has-text-centered mt-3">
+        <div class="modal-content cart-menu flex-column">
+            <p class="title is-size-3 has-text-centered mt-4">
                 Cart
             </p>
-            <div class="columns mt-4 is-mobile" v-for="item in cart.items" :key="item.stockId">
-                <div class="column">
-                    <figure class="image is-square">
-                        <img :src="'/images/' + item.image" alt="">
-                    </figure>
+            <div class="cart-item-container">
+                <div class="columns mt-4 is-mobile" v-for="item in cart.items" :key="item.stockId">
+                    <div class="column">
+                        <figure class="image is-square">
+                            <img :src="'/images/' + item.image" alt="">
+                        </figure>
+                    </div>
+                    <div class="column flex-column py-3">
+                        <p class="is-size-4 is-bold">{{item.productName}}</p>
+                        <p class="heading mb-3">{{item.stockDescription}}</p>
+                        <p class="justify-between">
+                            <span>Costs:</span> <span class="is-bold">{{item.value}}</span>
+                        </p>
+                        <p class="justify-between">
+                            <span>Qty:</span> <span class="is-bold">{{item.qty}}</span>
+                        </p>
+                        <a class="has-text-danger" @@click="removeProduct(item)">Remove</a>
+                        <p class="mt-auto justify-between">
+                            <span>Total:</span> <span class="is-bold">{{item.totalValue}}</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="column">
-                    <p>{{item.productName}}</p>
-                    <p>{{item.stockDescription}}</p>
-                    <p>Costs: {{item.value}}</p>
-                    <p>Qty: {{item.qty}}</p>
-                    <p>Price: {{item.totalValue}}</p>
-                </div>
+            </div>
+            <div class="mt-auto justify-end py-1 px-1 is-size-4">
+                Total: <span class="is-bold ml-3">{{cart.total}}</span>
+            </div>
+            <div class="line "></div>
+            <div class="flex justify-center py-4">
+                <button class="button flow-color" :disabled="loading || cart.items.length === 0">Checkout</button>
             </div>
         </div>
         <button class="modal-close is-large" aria-label="close" @@click="open = false"></button>

@@ -23,9 +23,21 @@ namespace RawCoding.Shop.Database
             return _ctx.SaveChangesAsync();
         }
 
-        public void RemoveProduct(int stockId, int qty)
+        public async Task<int> RemoveStock(int stockId, string cartId)
         {
-            throw new NotImplementedException();
+            var stock = _ctx.CartProducts
+                .FirstOrDefault(x => x.StockId == stockId
+                                     && x.CartId == cartId);
+
+            if (stock == null)
+            {
+                return -1;
+            }
+
+            _ctx.CartProducts.Remove(stock);
+            await _ctx.SaveChangesAsync();
+
+            return stock.Qty;
         }
 
         public IList<CartProduct> GetCart(string cartId)

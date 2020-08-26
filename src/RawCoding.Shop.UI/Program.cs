@@ -52,6 +52,27 @@ namespace RawCoding.Shop.UI
 
                         context.Add(new Product
                         {
+                            Name = "Out Of Stock",
+                            Description = "Test Out Of Stock Product",
+                            Series = "Original",
+                            Slug = "original-out-of-stock",
+                            StockDescription = "Size",
+                            Stock = new List<Stock>
+                            {
+                                new Stock {Description = "Small", Value = 1000, Qty = 0,},
+                                new Stock {Description = "Medium", Value = 1000, Qty = 0,},
+                                new Stock {Description = "Large", Value = 1000, Qty = 0,},
+                            },
+                            Images = new List<Image>
+                            {
+                                new Image {Index = 0, Path = "book.jpg"},
+                                new Image {Index = 2, Path = "pen.jpg"},
+                                new Image {Index = 3, Path = "shirt.jpg"},
+                            }
+                        });
+
+                        context.Add(new Product
+                        {
                             Name = "Test2",
                             Description = "Test Product 22",
 
