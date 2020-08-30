@@ -8,7 +8,7 @@
 
 @if (showBanner)
 {
-    <div class="modal is-active" id="cookieConsent">
+    <div class="modal" id="cookieConsent">
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="box bkg-white">
@@ -23,6 +23,9 @@
     </div>
     <script>
         (function () {
+            if(document.cookie.indexOf(".AspNet.Consent=yes") < 0){
+                document.getElementById('cookieConsent').classList.add('is-active')
+            }
             document.querySelector("#cookieConsent button[data-cookie-string]").addEventListener("click", function (el) {
                 document.cookie = el.target.dataset.cookieString;
                 document.getElementById("cookieConsent").classList.remove("is-active");

@@ -8,9 +8,11 @@
 
 @section Styles {
     <environment include="Development">
+        <link rel="stylesheet" href="~/css/cart.css"/>
         <link rel="stylesheet" href="~/css/product.css"/>
     </environment>
     <environment include="Production">
+        <link rel="stylesheet" href="~/css/cart.min.css" asp-append-version="true"/>
         <link rel="stylesheet" href="~/css/product.min.css" asp-append-version="true"/>
     </environment>
 }
@@ -91,6 +93,13 @@
     </div>
 </div>
 
-@section Scripts{
+<partial name="_Cart"/>
+
+@section Scripts
+{
+    <partial name="_Vue"/>
+    <script src="~/lib/axios.js" asp-append-version="true"></script>
+    <script src="~/lib/modal-fx.min.js" asp-append-version="true"></script>
+    <script src="~/js/cart.js" asp-append-version="true"></script>
     <script src="js/product.js" asp-append-version="true"></script>
 }

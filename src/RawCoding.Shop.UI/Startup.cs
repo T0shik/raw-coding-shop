@@ -1,4 +1,5 @@
 using System;
+using System.Configuration;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using FluentValidation.AspNetCore;
@@ -41,6 +42,8 @@ namespace RawCoding.Shop.UI
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.Configure<StripeSettings>(_config.GetSection(nameof(StripeSettings)));
 
             // services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(_config["DefaultConnection"]));
 

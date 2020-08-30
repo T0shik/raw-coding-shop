@@ -5,6 +5,7 @@
     margin: auto;
     border-radius: 5px;
     transition: 180ms ease-out;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 1024px) {
@@ -23,13 +24,17 @@
     border-bottom-right-radius: 5px;
 }
 
-.card:hover {
+.card.out-of-stock *:not(.ribbon) {
+    filter: grayscale(1);
+}
+
+.card.in-stock:hover {
     cursor: pointer;
     box-shadow: 0 1px 6px 0 #00E6D8;
     transition: 360ms ease-in;
 }
 
-.card:hover .image.front {
+.card.in-stock:hover .image.front {
     opacity: 0;
     transition: opacity 360ms ease-out;
 }
@@ -68,4 +73,26 @@
 .button-buy:hover * {
     color: #00AAFF;
     font-weight: 600;
+}
+
+.ribbon{
+    width: 200px;
+    position: absolute;
+    top: 25px;
+    left: -50px;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 1px;
+    color: #f0f0f0;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    z-index: 2;
+}
+
+.ribbon.red {
+    background: #e43;
+}
+
+.ribbon.orange {
+    background: #e82;
 }

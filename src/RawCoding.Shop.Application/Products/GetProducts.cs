@@ -26,7 +26,8 @@ namespace RawCoding.Shop.Application.Products
                     MultiplePrices = x.Stock.Select(y => y.Value).Distinct().Count() > 1,
                     Value = x.Stock.Min(y => y.Value).ToMoney(),
 
-                    Stock = x.Stock.Sum(y => y.Qty),
+                    LimitedStock = x.Stock.Any(y => y.Qty == 0),
+                    OutOfStock = x.Stock.All(y => y.Qty == 0),
                     Images = x.Images.Select(y => y.Path)
                         .Take(2)
                         .ToList()
@@ -40,7 +41,8 @@ namespace RawCoding.Shop.Application.Products
             public bool MultiplePrices { get; set; }
             public string Value { get; set; }
             public string Slug { get; set; }
-            public int Stock { get; set; }
+            public bool LimitedStock { get; set; }
+            public bool OutOfStock { get; set; }
             public List<string> Images { get; set; }
         }
     }

@@ -66,8 +66,28 @@ namespace RawCoding.Shop.UI
                             Images = new List<Image>
                             {
                                 new Image {Index = 0, Path = "book.jpg"},
-                                new Image {Index = 2, Path = "pen.jpg"},
-                                new Image {Index = 3, Path = "shirt.jpg"},
+                                new Image {Index = 1, Path = "pen.jpg"},
+                                new Image {Index = 2, Path = "shirt.jpg"},
+                            }
+                        });
+
+
+                        context.Add(new Product
+                        {
+                            Name = "Limited",
+                            Description = "Test Limited Product",
+                            Series = "Original",
+                            Slug = "original-limited",
+                            StockDescription = "Size",
+                            Stock = new List<Stock>
+                            {
+                                new Stock {Description = "Small", Value = 1000, Qty = 10,},
+                                new Stock {Description = "Medium", Value = 1000, Qty = 0,},
+                            },
+                            Images = new List<Image>
+                            {
+                                new Image {Index = 0, Path = "book.jpg"},
+                                new Image {Index = 1, Path = "shirt.jpg"},
                             }
                         });
 

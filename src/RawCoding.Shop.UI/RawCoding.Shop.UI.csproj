@@ -1,20 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>7f67124c-d998-4d64-befe-757dff53f62d</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="9.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.7" />
-    <PackageReference Include="Stripe.net" Version="37.31.0" />
+    <PackageReference Include="Stripe.net" Version="37.35.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\RawCoding.Shop.Application\RawCoding.Shop.Application.csproj" />
     <ProjectReference Include="..\RawCoding.Shop.Database\RawCoding.Shop.Database.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <Content Update="Pages\Admin\_AdminLayoutBase.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
@@ -26,7 +24,6 @@
       <Pack>false</Pack>
     </Content>
   </ItemGroup>
-
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Checkout\CustomerInformation.cshtml" />
     <_ContentIncludedByDefault Remove="Pages\Checkout\Payment.cshtml" />
@@ -87,7 +84,6 @@
     <_ContentIncludedByDefault Remove="wwwroot\lib\bulma-0.7.2\sass\utilities\mixins.sass" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\bulma-0.7.2\sass\utilities\_all.sass" />
   </ItemGroup>
-
   <ItemGroup>
     <UpToDateCheckInput Remove="Pages\Checkout\CustomerInformation.cshtml" />
     <UpToDateCheckInput Remove="Pages\Checkout\Payment.cshtml" />

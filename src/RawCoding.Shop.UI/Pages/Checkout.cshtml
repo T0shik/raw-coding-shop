@@ -1,0 +1,124 @@
+@page
+@model RawCoding.Shop.UI.Pages.Checkout
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Checkout";
+}
+
+@section Styles
+{
+    <style>
+        #card-element {
+            background: #fff;
+            padding: 1rem;
+        }
+    </style>
+    <script src="https://js.stripe.com/v3/"></script>
+}
+
+<div class="pb-6">
+    <form id="payment-form" class="columns">
+        <div class="column has-background-light is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop is-4-fullhd is-offset-4-fullhd">
+            <p class="heading has-text-centered is-size-5">Delivery Information</p>
+            <div class="field">
+                <label class="label">Full Name</label>
+                <div class="control">
+                    <input class="input" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Address 1</label>
+                <div class="control">
+                    <input class="input" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Address 2</label>
+                <div class="control">
+                    <input class="input" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">City</label>
+                <div class="control">
+                    <input class="input" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Country</label>
+                <div class="control">
+                    <input class="input" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Postcode</label>
+                <div class="control">
+                    <input class="input" type="text">
+                </div>
+            </div>
+            <p class="heading has-text-centered is-size-5">Payment Details</p>
+            <div class="field">
+                <div id="card-element"></div>
+                <div id="card-errors" class="has-text-danger" role="alert"></div>
+            </div>
+            <div class="field justify-center">
+                <button id="submit" class="flow-color button">Pay</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{
+    <partial name="Shared/_Vue"/>
+    <script>
+        var stripe = Stripe('@Model.PublicKey');
+        var elements = stripe.elements();
+
+        var style = {
+          base: {
+            color: "#32325d",
+          }
+        };
+
+        var card = elements.create("card", { style: style });
+        card.mount("#card-element");
+
+        card.on('change', function(event) {
+          var displayError = document.getElementById('card-errors');
+          if (event.error) {
+            displayError.textContent = event.error.message;
+          } else {
+            displayError.textContent = '';
+          }
+        });
+
+        var form = document.getElementById('payment-form');
+
+        form.addEventListener('submit', function(ev) {
+          ev.preventDefault();
+          stripe.confirmCardPayment('@Model.ClientSecret', {
+            payment_method: {
+              card: card,
+              billing_details: {
+                name: 'Jenny Rosen'
+              }
+            }
+          }).then(function(result) {
+            if (result.error) {
+              console.log(result.error.message);
+            } else {
+              // The payment has been processed!
+              if (result.paymentIntent.status === 'succeeded') {
+                // Show a success message to your customer
+                // There's a risk of the customer closing the window before callback
+                // execution. Set up a webhook or plugin to listen for the
+                // payment_intent.succeeded event that handles any business critical
+                // post-payment actions.
+              }
+            }
+          });
+        });
+    </script>
+}

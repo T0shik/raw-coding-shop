@@ -86,6 +86,7 @@ body {
 .flow-color,
 .flow-color * {
     color: #1B0F1A !important;
+    font-weight: 600;
     background-color: #fcbe03 !important;
 }
 
@@ -103,12 +104,11 @@ button.flow-color {
     }
 }
 
-@media screen and (max-width: 768px) {
-    .columns {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
+.columns {
+    margin: 0 !important;
+}
 
+@media screen and (max-width: 768px) {
     .column {
         margin: 0 0.5rem 0;
     }

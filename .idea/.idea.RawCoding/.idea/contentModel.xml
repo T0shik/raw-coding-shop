@@ -138,6 +138,8 @@
             <e p="Products.cshtml" t="Include" />
             <e p="Stock.cshtml" t="Include" />
           </e>
+          <e p="Checkout.cshtml" t="Include" />
+          <e p="Checkout.cshtml.cs" t="Include" />
           <e p="Error.cshtml" t="Include" />
           <e p="Error.cshtml.cs" t="Include" />
           <e p="Index.cshtml" t="Include" />
@@ -147,6 +149,7 @@
           <e p="Shared" t="Include">
             <e p="_Cart.cshtml" t="Include" />
             <e p="_CookieConsentPartial.cshtml" t="Include" />
+            <e p="_CSS.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_Vue.cshtml" t="Include" />
             <e p="Components" t="Include">
@@ -167,6 +170,7 @@
         <e p="ServiceRegister.cs" t="Include" />
         <e p="ShopConstants.cs" t="Include" />
         <e p="Startup.cs" t="Include" />
+        <e p="StripeSettings.cs" t="Include" />
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
             <e p="cart.css" t="Include" />

@@ -17,6 +17,11 @@
     created() {
         this.loadCart()
     },
+    watch: {
+        open: function (v) {
+            document.getElementsByTagName('html')[0].style.overflowY = v ? 'hidden' : 'scroll';
+        }
+    },
     methods: {
         addProduct(item) {
             return this.actionWrap(() => axios.post('/api/cart', item, {withCredentials: true}))
@@ -50,6 +55,10 @@
                     this.loadCart();
                     this.loading = false;
                 })
+        },
+        gotoCheckout() {
+            if (this.disabled) return;
+            window.location = '/checkout'
         }
     },
     computed: {
@@ -65,6 +74,9 @@
         },
         totalCount() {
             return this.cart.items.reduce((a, c) => a.qty + c.qty)
+        },
+        disabled() {
+            return this.loading || this.cart.items.length === 0
         }
     }
 })

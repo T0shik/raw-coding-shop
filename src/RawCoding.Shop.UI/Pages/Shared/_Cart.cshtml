@@ -39,7 +39,8 @@
             </div>
             <div class="line "></div>
             <div class="flex justify-center py-4">
-                <button class="button flow-color" :disabled="loading || cart.items.length === 0">Checkout</button>
+                <button class="button flow-color" :disabled="disabled"
+                        @@click="gotoCheckout">Checkout</button>
             </div>
         </div>
         <button class="modal-close is-large" aria-label="close" @@click="open = false"></button>

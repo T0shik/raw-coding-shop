@@ -6,9 +6,11 @@
 
 @section Styles {
     <environment include="Development">
+        <link rel="stylesheet" href="~/css/cart.css"/>
         <link rel="stylesheet" href="~/css/index.css"/>
     </environment>
     <environment include="Production">
+        <link rel="stylesheet" href="~/css/cart.min.css" asp-append-version="true"/>
         <link rel="stylesheet" href="~/css/index.min.css" asp-append-version="true"/>
     </environment>
 }
@@ -17,8 +19,9 @@
     <div class="columns is-multiline">
         @foreach (var product in Model.Products)
         {
+            var active = product.OutOfStock ? "out-of-stock" : "in-stock";
             <div class="column is-6-tablet is-4-desktop">
-                <a class="card" href="/@product.Slug">
+                <a class="card @active" href="/@product.Slug">
                     <div class="card-image">
                         @if (product.Images.Count == 1)
                         {
@@ -41,8 +44,26 @@
                         <div class="header is-4">@product.Value</div>
                     </div>
                     <div class="line"></div>
+                    @if (product.OutOfStock)
+                    {
+                        <div class="ribbon red">Out Of Stock</div>
+                    }
+                    else if (product.LimitedStock)
+                    {
+                        <div class="ribbon orange">Limited</div>
+                    }
                 </a>
             </div>
         }
     </div>
 </div>
+
+<partial name="_Cart"/>
+
+@section Scripts
+{
+    <partial name="_Vue"/>
+    <script src="~/lib/axios.js" asp-append-version="true"></script>
+    <script src="~/lib/modal-fx.min.js" asp-append-version="true"></script>
+    <script src="~/js/cart.js" asp-append-version="true"></script>
+}

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.Extensions.Options
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -17,20 +18,17 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bulma.css"/>
         <link rel="stylesheet" href="~/css/site.css"/>
-        <link rel="stylesheet" href="~/css/cart.css"/>
     </environment>
     <environment include="Production">
         <link rel="stylesheet" href="~/lib/bulma.min.css" asp-append-version="true"/>
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
-        <link rel="stylesheet" href="~/css/cart.min.css" asp-append-version="true"/>
     </environment>
     @await RenderSectionAsync("Styles", required: false)
-
 </head>
 <body class="bkg-black">
 
 <div class="hero">
-    <div class="hero-body flex-column align-center">
+    <div class="hero-body flex-column align-center py-3">
         <a class="logo" href="/">
             <img src="~/logo_150x150.png" height="150">
         </a>
@@ -42,13 +40,7 @@
     @RenderBody()
 </div>
 
-@* <script src="~/lib/promises.js" asp-append-version="true"></script> *@
-<partial name="_Cart"/>
 <partial name="_CookieConsentPartial"/>
-<partial name="_Vue"/>
-<script src="~/lib/axios.js" asp-append-version="true"></script>
-<script src="~/lib/modal-fx.min.js" asp-append-version="true"></script>
-<script src="~/js/cart.js" asp-append-version="true"></script>
 
 @await RenderSectionAsync("Scripts", required: false)
 
