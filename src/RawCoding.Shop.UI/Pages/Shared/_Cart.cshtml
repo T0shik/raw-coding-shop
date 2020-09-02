@@ -11,7 +11,7 @@
             <p class="title is-size-3 has-text-centered mt-4">
                 Cart
             </p>
-            <div class="cart-item-container">
+            <div class="cart-item-container mx-2">
                 <div class="columns mt-4 is-mobile" v-for="item in cart.items" :key="item.stockId">
                     <div class="column">
                         <figure class="image is-square">
@@ -34,15 +34,27 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-auto justify-end py-1 px-1 is-size-4">
+            <div class="mt-auto justify-end py-1 px-2 is-size-4 mx-2">
                 Total: <span class="is-bold ml-3">{{cart.total}}</span>
             </div>
             <div class="line "></div>
             <div class="flex justify-center py-4">
                 <button class="button flow-color" :disabled="disabled"
-                        @@click="gotoCheckout">Checkout</button>
+                        @@click="gotoCheckout">
+                    Checkout
+                </button>
             </div>
         </div>
         <button class="modal-close is-large" aria-label="close" @@click="open = false"></button>
+    </div>
+    <div class="full-screen-loader" :class="{'is-active': fullScreenLoader}">
+        <div class="flex justify-center align-center dot-loader">
+            <img src="~/logo_150x150.png" alt="">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <img src="~/icons/stripe.svg" alt="">
+        </div>
+        <div class="mt-4 text-white is-size-3-mobile is-size-2">Connecting to Stripe</div>
     </div>
 </div>

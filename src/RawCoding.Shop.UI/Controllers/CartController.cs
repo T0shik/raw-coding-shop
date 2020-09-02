@@ -1,12 +1,16 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using RawCoding.Shop.Application.Cart;
 using RawCoding.Shop.Domain.Interfaces;
+using Stripe;
+using Stripe.Checkout;
 
 namespace RawCoding.Shop.UI.Controllers
 {
@@ -43,6 +47,51 @@ namespace RawCoding.Shop.UI.Controllers
                 });
 
             return Redirect(returnUrl ?? "/");
+        }
+
+        [HttpGet("checkout")]
+        public IActionResult Do(
+            [FromServices] IOptionsMonitor<StripeSettings> optionsMonitor,
+            [FromServices] GetCart getCart)
+        {
+            StripeConfiguration.ApiKey = optionsMonitor.CurrentValue.SecretKey;
+            var userId = User?.Claims?.FirstOrDefault(x => x.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
+            var options = new SessionCreateOptions
+            {
+                PaymentMethodTypes = new List<string>
+                {
+                    "card",
+                },
+                ShippingAddressCollection = new SessionShippingAddressCollectionOptions
+                {
+                    AllowedCountries = new List<string>
+                    {
+                        "CA",
+                        "GB",
+                    },
+                },
+                LineItems = getCart.Do(userId, x => new SessionLineItemOptions
+                {
+                    Amount = x.Stock.Value,
+                    Currency = "gbp",
+                    Name = x.Stock.Product.Name,
+                    Description = x.Stock.Description,
+                    Quantity = x.Qty,
+                }).ToList(),
+                Mode = "payment",
+                SuccessUrl = "https://localhost:5001/payment/success",
+                CancelUrl = "https://localhost:5001/payment/canceled",
+
+                Metadata = new Dictionary<string, string>
+                {
+                    {"integration_check", "accept_a_payment"},
+                },
+            };
+
+            var service = new SessionService();
+            var session = service.Create(options);
+
+            return Ok(session.Id);
         }
 
         [HttpGet]

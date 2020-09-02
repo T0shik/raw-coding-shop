@@ -115,6 +115,7 @@
             <e p="StocksController.cs" t="Include" />
           </e>
           <e p="CartController.cs" t="Include" />
+          <e p="StripeController.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -138,14 +139,18 @@
             <e p="Products.cshtml" t="Include" />
             <e p="Stock.cshtml" t="Include" />
           </e>
-          <e p="Checkout.cshtml" t="Include" />
-          <e p="Checkout.cshtml.cs" t="Include" />
           <e p="Error.cshtml" t="Include" />
           <e p="Error.cshtml.cs" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="Index.cshtml.cs" t="Include" />
           <e p="Not-Found.cshtml" t="Include" />
           <e p="Not-Found.cshtml.cs" t="Include" />
+          <e p="Payment" t="Include">
+            <e p="Canceled.cshtml" t="Include" />
+            <e p="Canceled.cshtml.cs" t="Include" />
+            <e p="Success.cshtml" t="Include" />
+            <e p="Success.cshtml.cs" t="Include" />
+          </e>
           <e p="Shared" t="Include">
             <e p="_Cart.cshtml" t="Include" />
             <e p="_CookieConsentPartial.cshtml" t="Include" />
@@ -185,6 +190,7 @@
           <e p="favicon.ico" t="Include" />
           <e p="icons" t="Include">
             <e p="cart-outline.svg" t="Include" />
+            <e p="stripe.svg" t="Include" />
           </e>
           <e p="images" t="Include">
             <e p="book.JPG" t="Include" />

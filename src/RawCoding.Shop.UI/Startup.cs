@@ -138,8 +138,8 @@ namespace RawCoding.Shop.UI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute()
-                    .RequireAuthorization(ShopConstants.Policies.Customer);
+                endpoints.MapDefaultControllerRoute();
+
                 endpoints.MapRazorPages()
                     .RequireAuthorization(ShopConstants.Policies.Customer);
             });
