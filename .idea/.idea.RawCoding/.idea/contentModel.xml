@@ -43,7 +43,7 @@
             </e>
           </e>
         </e>
-        <e p="Oders" t="Include">
+        <e p="Orders" t="Include">
           <e p="CreateOrder.cs" t="Include" />
           <e p="GetOrder.cs" t="Include" />
         </e>
@@ -85,11 +85,11 @@
           <e p="IStockManager.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
+          <e p="Cart.cs" t="Include" />
           <e p="CartProduct.cs" t="Include" />
           <e p="CustomerInformation.cs" t="Include" />
           <e p="Image.cs" t="Include" />
           <e p="Order.cs" t="Include" />
-          <e p="OrderProduct.cs" t="Include" />
           <e p="Product.cs" t="Include" />
           <e p="Stock.cs" t="Include" />
         </e>
@@ -145,6 +145,10 @@
           <e p="Index.cshtml.cs" t="Include" />
           <e p="Not-Found.cshtml" t="Include" />
           <e p="Not-Found.cshtml.cs" t="Include" />
+          <e p="Orders" t="Include">
+            <e p="{id}.cshtml" t="Include" />
+            <e p="{id}.cshtml.cs" t="Include" />
+          </e>
           <e p="Payment" t="Include">
             <e p="Canceled.cshtml" t="Include" />
             <e p="Canceled.cshtml.cs" t="Include" />

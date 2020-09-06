@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace RawCoding.Shop.Domain.Models
+﻿namespace RawCoding.Shop.Domain.Models
 {
     public class Stock
     {
@@ -10,7 +8,5 @@ namespace RawCoding.Shop.Domain.Models
         public string Description { get; set; }
         public int Value { get; set; }
         public Product Product { get; set; }
-
-        public IList<OrderStock> OrderStocks { get; set; } = new List<OrderStock>();
     }
 }

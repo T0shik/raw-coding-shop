@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
-using System.Xml.Linq;
 using RawCoding.Shop.Domain.Extensions;
 using RawCoding.Shop.Domain.Interfaces;
 using RawCoding.Shop.Domain.Models;
@@ -21,11 +19,11 @@ namespace RawCoding.Shop.Application.Cart
 
         public object Do(string cartId)
         {
-            var cart = _cartManager.GetCartWithStockAndProducts(cartId);
+            var cartProducts = _cartManager.GetCartProducts(cartId);
 
             return new
             {
-                Items = cart.Select(x => new
+                Items = cartProducts.Select(x => new
                 {
                     x.StockId,
                     x.Qty,
@@ -35,13 +33,13 @@ namespace RawCoding.Shop.Application.Cart
                     Value = x.Stock.Value.ToMoney(),
                     TotalValue = (x.Qty * x.Stock.Value).ToMoney(),
                 }),
-                Total = cart.Select(x => x.Qty * x.Stock.Value).Sum().ToMoney()
+                Total = cartProducts.Select(x => x.Qty * x.Stock.Value).Sum().ToMoney()
             };
         }
 
         public IEnumerable<T> Do<T>(string cartId, Func<CartProduct, T> selector)
         {
-            return _cartManager.GetCartWithStockAndProducts(cartId).Select(selector);
+            return _cartManager.GetCartProducts(cartId).Select(selector);
         }
     }
 }

@@ -39,12 +39,13 @@ namespace RawCoding.Shop.Application.Cart
                 return new BaseResponse("Not Enough Stock", false);
             }
 
-            var cart = _cartManager.GetCart(request.CartId);
+            var cart = _cartManager.GetCart(request.CartId)
+                       ?? await _cartManager.CreateCart(request.CartId);
 
-            var product = cart.FirstOrDefault(x => x.StockId == request.StockId);
+            var product = cart.Products.FirstOrDefault(x => x.StockId == request.StockId);
             if (product == null)
             {
-                cart.Add(new CartProduct
+                cart.Products.Add(new CartProduct
                 {
                     CartId = request.CartId,
                     StockId = request.StockId,
@@ -59,7 +60,6 @@ namespace RawCoding.Shop.Application.Cart
             stock.Qty -= request.Qty;
 
             await _cartManager.UpdateCart(cart);
-            await _stockManager.UpdateStockRange(new[] {stock});
 
             return new BaseResponse("Product Added");
         }

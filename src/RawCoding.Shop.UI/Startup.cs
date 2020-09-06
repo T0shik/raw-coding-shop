@@ -1,7 +1,4 @@
 using System;
-using System.Configuration;
-using System.Security.Claims;
-using System.Text.Encodings.Web;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,11 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using RawCoding.Shop.Database;
 using Stripe;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace RawCoding.Shop.UI
 {
@@ -138,7 +132,8 @@ namespace RawCoding.Shop.UI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapDefaultControllerRoute()
+                    .RequireAuthorization(ShopConstants.Policies.Customer);
 
                 endpoints.MapRazorPages()
                     .RequireAuthorization(ShopConstants.Policies.Customer);

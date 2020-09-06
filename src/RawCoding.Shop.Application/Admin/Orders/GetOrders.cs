@@ -14,20 +14,13 @@ namespace RawCoding.Shop.Application.Admin.Orders
             _orderManager = orderManager;
         }
 
-        public class Response
-        {
-            public int Id { get; set; }
-            public string OrderRef { get; set; }
-            public string Email { get; set; }
-        }
-
-        public IEnumerable<Response> Do(int status) =>
+        public IEnumerable<object> Do(int status) =>
             _orderManager.GetOrdersByStatus((OrderStatus)status,
-                x => new Response
+                x => new
                 {
-                    Id = x.Id,
-                    OrderRef = x.OrderRef,
-                    Email = x.Email
+                    x.Id,
+                    OrderRef = x.Id,
+                    x.Email
                 });
     }
 }

@@ -13,7 +13,7 @@ namespace RawCoding.Shop.Application.Admin.Orders
             _orderManager = orderManager;
         }
 
-        public Task<int> DoAsync(int id)
+        public Task<int> DoAsync(string id)
         {
             return _orderManager.AdvanceOrder(id);
         }

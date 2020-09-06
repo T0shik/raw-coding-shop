@@ -1,10 +1,12 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using RawCoding.Shop.Application.Orders;
+using RawCoding.Shop.Domain.Models;
 using Stripe;
 using Stripe.Checkout;
 
@@ -21,11 +23,10 @@ namespace RawCoding.Shop.UI.Controllers
             _logger = logger;
         }
 
-        // Stripe Api Events: https://stripe.com/docs/api/events/types
-
-        [HttpPost("")]
+        [HttpPost]
         public async Task<IActionResult> Index(
-            [FromServices] IOptionsMonitor<StripeSettings> optionsMonitor)
+            [FromServices] IOptionsMonitor<StripeSettings> optionsMonitor,
+            [FromServices] CreateOrder createOrder)
         {
             StripeConfiguration.ApiKey = optionsMonitor.CurrentValue.SecretKey;
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
@@ -42,7 +43,7 @@ namespace RawCoding.Shop.UI.Controllers
                 {
                     var paymentMethod = stripeEvent.Data.Object as PaymentIntent;
                 }
-                if (stripeEvent.Type == Events.ChargeSucceeded)
+                else if (stripeEvent.Type == Events.ChargeSucceeded)
                 {
                     var paymentMethod = stripeEvent.Data.Object as Charge;
                 }
@@ -60,7 +61,26 @@ namespace RawCoding.Shop.UI.Controllers
                 }
                 else if (stripeEvent.Type == Events.CheckoutSessionCompleted)
                 {
-                    var paymentMethod = stripeEvent.Data.Object as Session;
+                    var checkoutSession = stripeEvent.Data.Object as Session;
+                    var order = new Domain.Models.Order
+                    {
+                        StripeReference = checkoutSession.Id,
+                        CartId = checkoutSession.Metadata["user_id"],
+
+                        Email = checkoutSession.CustomerEmail,
+                        Name = checkoutSession.Shipping.Name,
+                        Phone = checkoutSession.Shipping.Phone,
+
+                        Address1 = checkoutSession.Shipping.Address.Line1,
+                        Address2 = checkoutSession.Shipping.Address.Line2,
+                        City = checkoutSession.Shipping.Address.City,
+                        Country = checkoutSession.Shipping.Address.Country,
+                        PostCode = checkoutSession.Shipping.Address.PostalCode,
+                        State = checkoutSession.Shipping.Address.State,
+                    };
+                    await createOrder.Do(order);
+                    _logger.LogInformation("created order {0},{1}: {2}", order.Id, Environment.NewLine,
+                        JsonConvert.SerializeObject(order));
                 }
                 else
                 {

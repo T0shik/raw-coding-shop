@@ -15,7 +15,7 @@ namespace RawCoding.Shop.Application.Cart
         public object Do(string cartId)
         {
             var listOfProducts = _cartManager
-                .GetCartWithStockAndProducts(cartId);
+                .GetCartProducts(cartId);
 
             var customerInformation = _cartManager.GetCustomerInformation();
 

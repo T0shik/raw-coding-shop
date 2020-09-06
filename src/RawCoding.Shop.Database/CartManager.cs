@@ -17,7 +17,18 @@ namespace RawCoding.Shop.Database
             _ctx = ctx;
         }
 
-        public Task<int> UpdateCart(IList<CartProduct> cartProducts)
+        public async Task<Cart> CreateCart(string cartId)
+        {
+            var cart = new Cart
+            {
+                Id = cartId,
+            };
+            _ctx.Add(cart);
+            await _ctx.SaveChangesAsync();
+            return cart;
+        }
+
+        public Task<int> UpdateCart(Cart cartProducts)
         {
             _ctx.UpdateRange(cartProducts);
             return _ctx.SaveChangesAsync();
@@ -40,17 +51,17 @@ namespace RawCoding.Shop.Database
             return stock.Qty;
         }
 
-        public IList<CartProduct> GetCart(string cartId)
+        public Cart GetCart(string cartId)
         {
-            return _ctx.CartProducts
-                .Where(x => x.CartId == cartId && !x.Complete)
-                .ToList();
+            return _ctx.Carts
+                .Include(x => x.Products)
+                .FirstOrDefault(x => x.Id == cartId);
         }
 
-        public IEnumerable<CartProduct> GetCartWithStockAndProducts(string cartId)
+        public IList<CartProduct> GetCartProducts(string cartId)
         {
             return _ctx.CartProducts
-                .Where(x => x.CartId == cartId && !x.Complete)
+                .Where(x => x.CartId == cartId)
                 .Include(x => x.Stock)
                 .ThenInclude(x => x.Product)
                 .ThenInclude(x => x.Images)

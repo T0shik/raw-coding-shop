@@ -63,7 +63,7 @@
             if (this.fullScreenLoader) return;
             this.fullScreenLoader = true;
 
-            return axios.get('api/cart/checkout', {withCredentials: true})
+            return axios.get('/api/cart/checkout', {withCredentials: true})
                 .then(function (response) {
                     return stripe.redirectToCheckout({sessionId: response.data});
                 })

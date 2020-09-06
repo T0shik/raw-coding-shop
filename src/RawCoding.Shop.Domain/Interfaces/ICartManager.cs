@@ -6,10 +6,11 @@ namespace RawCoding.Shop.Domain.Interfaces
 {
     public interface ICartManager
     {
-        Task<int> UpdateCart(IList<CartProduct> cartProducts);
+        Task<Cart> CreateCart(string cartId);
+        Task<int> UpdateCart(Cart cartProducts);
         Task<int> RemoveStock(int stockId, string cartId);
-        IList<CartProduct> GetCart(string cartId);
-        IEnumerable<CartProduct> GetCartWithStockAndProducts(string cartId);
+        Cart GetCart(string cartId);
+        IList<CartProduct> GetCartProducts(string cartId);
         void ClearCart();
 
         void AddCustomerInformation(CustomerInformation customer);

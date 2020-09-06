@@ -1,0 +1,27 @@
+@page
+@model RawCoding.Shop.UI.Pages.Orders.OrderPage
+
+@{
+    ViewData["Title"] = $"Order {Model.Order.Id}";
+    Layout = "_Layout";
+}
+
+<div class="text-white">
+    <div>Name: @Model.Order.Name</div>
+    <div>Email: @Model.Order.Email</div>
+    <div>Phone: @Model.Order.Phone</div>
+
+    <div>Address1: @Model.Order.Address1</div>
+    <div>Address2: @Model.Order.Address2</div>
+    <div>City: @Model.Order.City</div>
+    <div>Country: @Model.Order.Country</div>
+    <div>PostCode: @Model.Order.PostCode</div>
+    <div>State: @Model.Order.State</div>
+
+    <div>Status: @Model.Order.Status</div>
+
+    @foreach (var p in Model.Order.Cart.Products)
+    {
+        <div>@p.Stock.Product.Name - @p.Stock.Description - @p.Qty</div>
+    }
+</div>

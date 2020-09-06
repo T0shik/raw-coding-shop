@@ -21,7 +21,7 @@ namespace RawCoding.Shop.Database
 
         public bool OrderReferenceExists(string reference)
         {
-            return _ctx.Orders.Any(x => x.OrderRef == reference);
+            return _ctx.Orders.Any(x => x.Id == reference);
         }
 
         public IEnumerable<TResult> GetOrdersByStatus<TResult>(OrderStatus status,
@@ -33,28 +33,14 @@ namespace RawCoding.Shop.Database
                 .ToList();
         }
 
-        private TResult GetOrder<TResult>(
-            Expression<Func<Order, bool>> condition,
-            Expression<Func<Order, TResult>> selector)
+        public Order GetOrderById(string id)
         {
             return _ctx.Orders
-                .Where(condition)
-                .Include(x => x.OrderStocks)
+                .Include(x => x.Cart)
+                .ThenInclude(x => x.Products)
                 .ThenInclude(x => x.Stock)
                 .ThenInclude(x => x.Product)
-                .Select(selector)
-                .FirstOrDefault();
-        }
-
-        public TResult GetOrderById<TResult>(int id, Expression<Func<Order, TResult>> selector)
-        {
-            return GetOrder(order => order.Id == id, selector);
-        }
-
-        public TResult GetOrderByReference<TResult>(string reference,
-            Expression<Func<Order, TResult>> selector)
-        {
-            return GetOrder(x => x.OrderRef == reference, selector);
+                .FirstOrDefault(order => order.Id == id);
         }
 
         public Task<int> CreateOrder(Order order)
@@ -64,7 +50,7 @@ namespace RawCoding.Shop.Database
             return _ctx.SaveChangesAsync();
         }
 
-        public Task<int> AdvanceOrder(int id)
+        public Task<int> AdvanceOrder(string id)
         {
             _ctx.Orders.FirstOrDefault(x => x.Id == id).Status++;
 

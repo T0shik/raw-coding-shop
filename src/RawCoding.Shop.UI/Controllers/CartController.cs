@@ -30,21 +30,24 @@ namespace RawCoding.Shop.UI.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Auth(string returnUrl = null)
         {
+            var userId = Guid.NewGuid().ToString();
             var identity = new ClaimsIdentity(new[]
             {
                 new Claim(ClaimTypes.Role, ShopConstants.Roles.Guest),
-                new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.NameIdentifier, userId),
             }, ShopConstants.Schemas.Guest);
 
             var claimsPrinciple = new ClaimsPrincipal(identity);
 
-            await HttpContext.SignInAsync(
+            var signInAsync = HttpContext.SignInAsync(
                 ShopConstants.Schemas.Guest,
                 claimsPrinciple,
                 new AuthenticationProperties
                 {
                     IsPersistent = true
                 });
+
+            await signInAsync;
 
             return Redirect(returnUrl ?? "/");
         }
@@ -84,7 +87,7 @@ namespace RawCoding.Shop.UI.Controllers
 
                 Metadata = new Dictionary<string, string>
                 {
-                    {"integration_check", "accept_a_payment"},
+                    {"user_id", userId},
                 },
             };
 
