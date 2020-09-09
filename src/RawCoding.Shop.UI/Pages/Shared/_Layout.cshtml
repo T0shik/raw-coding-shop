@@ -44,8 +44,6 @@
     @RenderBody()
 </div>
 
-<partial name="_Cart"/>
-
 <partial name="_CookieConsentPartial"/>
 @inject IOptionsMonitor<StripeSettings> stripeSettings
 
@@ -55,7 +53,6 @@
 
 <partial name="_Vue"/>
 <script src="~/lib/modal-fx.min.js" asp-append-version="true"></script>
-<script src="~/js/cart.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 
 </body>

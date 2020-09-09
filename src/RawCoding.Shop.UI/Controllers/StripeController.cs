@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using RawCoding.Shop.Application.Cart;
 using RawCoding.Shop.Application.Orders;
 using RawCoding.Shop.Domain.Models;
 using Stripe;
@@ -26,7 +27,8 @@ namespace RawCoding.Shop.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(
             [FromServices] IOptionsMonitor<StripeSettings> optionsMonitor,
-            [FromServices] CreateOrder createOrder)
+            [FromServices] CreateOrder createOrder,
+            [FromServices] GetCart getCart)
         {
             StripeConfiguration.ApiKey = optionsMonitor.CurrentValue.SecretKey;
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
@@ -62,21 +64,11 @@ namespace RawCoding.Shop.UI.Controllers
                 else if (stripeEvent.Type == Events.CheckoutSessionCompleted)
                 {
                     var checkoutSession = stripeEvent.Data.Object as Session;
+
                     var order = new Domain.Models.Order
                     {
                         StripeReference = checkoutSession.Id,
-                        CartId = checkoutSession.Metadata["user_id"],
-
-                        Email = checkoutSession.CustomerEmail,
-                        Name = checkoutSession.Shipping.Name,
-                        Phone = checkoutSession.Shipping.Phone,
-
-                        Address1 = checkoutSession.Shipping.Address.Line1,
-                        Address2 = checkoutSession.Shipping.Address.Line2,
-                        City = checkoutSession.Shipping.Address.City,
-                        Country = checkoutSession.Shipping.Address.Country,
-                        PostCode = checkoutSession.Shipping.Address.PostalCode,
-                        State = checkoutSession.Shipping.Address.State,
+                        CartId = await getCart.Id(checkoutSession.Metadata["user_id"]),
                     };
                     await createOrder.Do(order);
                     _logger.LogInformation("created order {0},{1}: {2}", order.Id, Environment.NewLine,

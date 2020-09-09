@@ -147,5 +147,22 @@ button.flow-color {
     transition: 128ms ease-in;
 }
 
+.field-horizontal {
+    display: flex;
+    align-items: center;
+}
+
+.field-horizontal > .field {
+    width: 100%;
+}
+
+.field-horizontal label {
+    max-width: 80px;
+    width: 100%;
+    text-align: right;
+    margin-right: .5rem;
+    margin-bottom: .25rem !important;
+    font-weight: bold;
+}
 
 

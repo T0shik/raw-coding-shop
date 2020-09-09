@@ -21,24 +21,30 @@ namespace RawCoding.Shop.Database
         {
             var cart = new Cart
             {
-                Id = cartId,
+                UserId = cartId,
             };
             _ctx.Add(cart);
             await _ctx.SaveChangesAsync();
             return cart;
         }
 
-        public Task<int> UpdateCart(Cart cartProducts)
+        public Task<int> UpdateCart(Cart cart)
         {
-            _ctx.UpdateRange(cartProducts);
+            _ctx.Carts.Update(cart);
             return _ctx.SaveChangesAsync();
         }
 
-        public async Task<int> RemoveStock(int stockId, string cartId)
+        public async Task<int> RemoveStock(int stockId, string userId)
         {
+            var cart = _ctx.Carts.AsNoTracking().FirstOrDefault(x => x.UserId == userId);
+
+            if (cart == null)
+            {
+                return -1;
+            }
+
             var stock = _ctx.CartProducts
-                .FirstOrDefault(x => x.StockId == stockId
-                                     && x.CartId == cartId);
+                .FirstOrDefault(x => x.StockId == stockId && x.CartId == cart.Id);
 
             if (stock == null)
             {
@@ -51,14 +57,36 @@ namespace RawCoding.Shop.Database
             return stock.Qty;
         }
 
-        public Cart GetCart(string cartId)
+        public async Task<int> GetCartId(string userId)
+        {
+            var cart = _ctx.Carts?.AsNoTracking()
+                           .FirstOrDefault(x => x.UserId == userId && !x.Closed)
+                       ?? await CreateCart(userId);
+
+            return cart.Id;
+        }
+
+        public Task<Cart> GetCart(string userId)
+        {
+            var cart = _ctx.Carts
+                .Include(x => x.Products)
+                .FirstOrDefault(x => x.UserId == userId && !x.Closed);
+
+            return cart == null ? CreateCart(userId) : Task.FromResult(cart);
+        }
+
+        public Cart GetCartFull(string userId)
         {
             return _ctx.Carts
                 .Include(x => x.Products)
-                .FirstOrDefault(x => x.Id == cartId);
+                .ThenInclude(x => x.Stock)
+                .ThenInclude(x => x.Product)
+                .ThenInclude(x => x.Images)
+                .AsNoTracking()
+                .FirstOrDefault(x => x.UserId == userId && !x.Closed);
         }
 
-        public IList<CartProduct> GetCartProducts(string cartId)
+        public IList<CartProduct> GetCartProducts(int cartId)
         {
             return _ctx.CartProducts
                 .Where(x => x.CartId == cartId)

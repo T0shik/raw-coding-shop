@@ -83,6 +83,7 @@
     <_ContentIncludedByDefault Remove="wwwroot\lib\bulma-0.7.2\sass\utilities\initial-variables.sass" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\bulma-0.7.2\sass\utilities\mixins.sass" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\bulma-0.7.2\sass\utilities\_all.sass" />
+    <_ContentIncludedByDefault Remove="Pages\Shared\Components\Cart\Default.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <UpToDateCheckInput Remove="Pages\Checkout\CustomerInformation.cshtml" />

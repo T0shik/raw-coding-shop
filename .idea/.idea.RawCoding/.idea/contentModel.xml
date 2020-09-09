@@ -139,6 +139,8 @@
             <e p="Products.cshtml" t="Include" />
             <e p="Stock.cshtml" t="Include" />
           </e>
+          <e p="Checkout.cshtml" t="Include" />
+          <e p="Checkout.cshtml.cs" t="Include" />
           <e p="Error.cshtml" t="Include" />
           <e p="Error.cshtml.cs" t="Include" />
           <e p="Index.cshtml" t="Include" />
@@ -152,6 +154,8 @@
           <e p="Payment" t="Include">
             <e p="Canceled.cshtml" t="Include" />
             <e p="Canceled.cshtml.cs" t="Include" />
+            <e p="Redirect.cshtml" t="Include" />
+            <e p="Redirect.cshtml.cs" t="Include" />
             <e p="Success.cshtml" t="Include" />
             <e p="Success.cshtml.cs" t="Include" />
           </e>
@@ -161,12 +165,6 @@
             <e p="_CSS.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_Vue.cshtml" t="Include" />
-            <e p="Components" t="Include">
-              <e p="Cart" t="Include">
-                <e p="Default.cshtml" t="Include" />
-                <e p="Default.cshtml.cs" t="Include" />
-              </e>
-            </e>
           </e>
           <e p="{slug}.cshtml" t="Include" />
           <e p="{slug}.cshtml.cs" t="Include" />
@@ -219,6 +217,15 @@
             <e p="axios.js" t="Include" />
             <e p="bulma.css" t="Include" />
             <e p="bulma.min.css" t="Include" />
+            <e p="intlTellInput" t="Include">
+              <e p="flags.png" t="Include" />
+              <e p="flags@2x.png" t="Include" />
+              <e p="intlTelInput.css" t="Include" />
+              <e p="intlTelInput.js" t="Include" />
+              <e p="intlTelInput.min.css" t="Include" />
+              <e p="intlTelInput.min.js" t="Include" />
+              <e p="utils.js" t="Include" />
+            </e>
             <e p="modal-fx.min.js" t="Include" />
             <e p="promises.js" t="Include" />
             <e p="vue.js" t="Include" />

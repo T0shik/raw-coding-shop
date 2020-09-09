@@ -28,6 +28,7 @@ namespace RawCoding.Shop.Database
             Expression<Func<Order, TResult>> selector)
         {
             return _ctx.Orders
+                .Include(x => x.Cart)
                 .Where(x => x.Status == status)
                 .Select(selector)
                 .ToList();

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using RawCoding.Shop.Domain.Models;
 using RawCoding.Shop.Domain.Interfaces;
@@ -21,7 +22,7 @@ namespace RawCoding.Shop.Application.Cart
 
         public class Form
         {
-            public string CartId { get; set; }
+            public string UserId { get; set; }
             public int StockId { get; set; }
             public int Qty { get; set; }
         }
@@ -39,15 +40,13 @@ namespace RawCoding.Shop.Application.Cart
                 return new BaseResponse("Not Enough Stock", false);
             }
 
-            var cart = _cartManager.GetCart(request.CartId)
-                       ?? await _cartManager.CreateCart(request.CartId);
+            var cart = await _cartManager.GetCart(request.UserId);
 
             var product = cart.Products.FirstOrDefault(x => x.StockId == request.StockId);
             if (product == null)
             {
                 cart.Products.Add(new CartProduct
                 {
-                    CartId = request.CartId,
                     StockId = request.StockId,
                     Qty = request.Qty,
                 });
@@ -62,6 +61,15 @@ namespace RawCoding.Shop.Application.Cart
             await _cartManager.UpdateCart(cart);
 
             return new BaseResponse("Product Added");
+        }
+
+        public async Task Do(string cartId, Action<Domain.Models.Cart> mutation)
+        {
+            var cart = await _cartManager.GetCart(cartId);
+
+            mutation(cart);
+
+            await _cartManager.UpdateCart(cart);
         }
     }
 }

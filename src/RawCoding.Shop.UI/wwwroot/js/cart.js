@@ -60,24 +60,25 @@
                 })
         },
         gotoCheckout() {
-            if (this.fullScreenLoader) return;
-            this.fullScreenLoader = true;
-
-            return axios.get('/api/cart/checkout', {withCredentials: true})
-                .then(function (response) {
-                    return stripe.redirectToCheckout({sessionId: response.data});
-                })
-                .then(function (result) {
-                    // If `redirectToCheckout` fails due to a browser or network
-                    // error, you should display the localized error message to your
-                    // customer using `error.message`.
-                    if (result.error) {
-                        alert(result.error.message);
-                    }
-                })
-                .catch(function (error) {
-                    console.error('Error:', error);
-                });
+            window.location = '/checkout'
+            // if (this.fullScreenLoader) return;
+            // this.fullScreenLoader = true;
+            //
+            // return axios.get('/api/cart/checkout', {withCredentials: true})
+            //     .then(function (response) {
+            //         return stripe.redirectToCheckout({sessionId: response.data});
+            //     })
+            //     .then(function (result) {
+            //         // If `redirectToCheckout` fails due to a browser or network
+            //         // error, you should display the localized error message to your
+            //         // customer using `error.message`.
+            //         if (result.error) {
+            //             alert(result.error.message);
+            //         }
+            //     })
+            //     .catch(function (error) {
+            //         console.error('Error:', error);
+            //     });
         }
     },
     computed: {
@@ -95,7 +96,7 @@
             return this.cart.items.reduce((a, c) => a.qty + c.qty)
         },
         disabled() {
-            return this.loading || this.cart.items.length === 0
+            return this.loading || !this.cart || this.cart.items.length === 0
         }
     }
 })

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RawCoding.Shop.Domain.Extensions;
 using RawCoding.Shop.Domain.Interfaces;
 using RawCoding.Shop.Domain.Models;
@@ -17,8 +18,9 @@ namespace RawCoding.Shop.Application.Cart
             _cartManager = cartManager;
         }
 
-        public object Do(string cartId)
+        public async Task<object> Do(string userId)
         {
+            var cartId = await _cartManager.GetCartId(userId);
             var cartProducts = _cartManager.GetCartProducts(cartId);
 
             return new
@@ -37,9 +39,31 @@ namespace RawCoding.Shop.Application.Cart
             };
         }
 
-        public IEnumerable<T> Do<T>(string cartId, Func<CartProduct, T> selector)
+        public IEnumerable<T> Do<T>(string userId, Func<CartProduct, T> selector)
         {
-            return _cartManager.GetCartProducts(cartId).Select(selector);
+            var cart = _cartManager.GetCart(userId);
+            if (cart == null)
+            {
+                return Enumerable.Empty<T>();
+            }
+
+            return _cartManager.GetCartProducts(cart.Id).Select(selector);
+        }
+
+
+        public Task<Domain.Models.Cart> Get(string cartId)
+        {
+            return _cartManager.GetCart(cartId);
+        }
+
+        public Domain.Models.Cart Full(string cartId)
+        {
+            return _cartManager.GetCartFull(cartId);
+        }
+
+        public Task<int> Id(string userId)
+        {
+            return _cartManager.GetCartId(userId);
         }
     }
 }

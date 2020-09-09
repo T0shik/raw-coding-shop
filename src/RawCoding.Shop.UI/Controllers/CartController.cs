@@ -98,15 +98,15 @@ namespace RawCoding.Shop.UI.Controllers
         }
 
         [HttpGet]
-        public object GetCart([FromServices] GetCart getCart)
+        public async Task<IActionResult> GetCart([FromServices] GetCart getCart)
         {
             var userId = User?.Claims?.FirstOrDefault(x => x.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
             if (string.IsNullOrEmpty(userId))
             {
-                return Enumerable.Empty<object>();
+                return BadRequest("Cookie Policy not accepted");
             }
 
-            return getCart.Do(userId);
+            return Ok(await getCart.Do(userId));
         }
 
         [HttpPost]
@@ -121,7 +121,7 @@ namespace RawCoding.Shop.UI.Controllers
                 return BadRequest("Cookie Policy not accepted");
             }
 
-            request.CartId = userId;
+            request.UserId = userId;
             var result = await updateCart.Do(request);
 
             if (result.Success)

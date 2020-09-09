@@ -1,0 +1,16 @@
+@page
+@model RawCoding.Shop.UI.Pages.Payment.Redirect
+
+@{
+    ViewData["Title"] = "Redirecting to Payment";
+    Layout = "_Layout";
+}
+
+<h1>Redirecting</h1>
+
+@section Scripts
+{
+    <script>
+        stripe.redirectToCheckout({sessionId: "@Model.SessionId"});
+    </script>
+}

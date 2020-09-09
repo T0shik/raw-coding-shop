@@ -20,7 +20,7 @@ namespace RawCoding.Shop.Application.Admin.Orders
                 {
                     x.Id,
                     OrderRef = x.Id,
-                    x.Email
+                    x.Cart.Email
                 });
     }
 }

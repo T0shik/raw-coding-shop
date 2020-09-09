@@ -12,10 +12,11 @@ namespace RawCoding.Shop.Application.Cart
             _cartManager = cartManager;
         }
 
-        public object Do(string cartId)
+        public object Do(string userId)
         {
+            var cart = _cartManager.GetCart(userId);
             var listOfProducts = _cartManager
-                .GetCartProducts(cartId);
+                .GetCartProducts(cart.Id);
 
             var customerInformation = _cartManager.GetCustomerInformation();
 
