@@ -7,6 +7,8 @@ namespace RawCoding.Shop.Domain.Models
     {
         public int Id { get; set; }
         public string UserId { get; set; }
+
+        public bool DeliveryInformationComplete { get; set; }
         public bool Closed { get; set; }
 
         public string Name { get; set; }

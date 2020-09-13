@@ -32,7 +32,6 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Cart" t="Include">
           <e p="GetCart.cs" t="Include" />
-          <e p="GetOrder.cs" t="Include" />
           <e p="RemoveFromCart.cs" t="Include" />
           <e p="UpdateCart.cs" t="Include" />
         </e>

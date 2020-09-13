@@ -94,6 +94,15 @@ namespace RawCoding.Shop.Database
             return cart == null ? CreateCart(userId) : Task.FromResult(cart);
         }
 
+        public Task<Cart> GetCartWithStock(string userId)
+        {
+            return _ctx.Carts
+                .Include(x => x.Products)
+                .ThenInclude(x => x.Stock)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.UserId == userId && !x.Closed);
+        }
+
         public Cart GetCartFull(string userId)
         {
             return _ctx.Carts
@@ -114,22 +123,6 @@ namespace RawCoding.Shop.Database
                 .ThenInclude(x => x.Images)
                 .AsNoTracking()
                 .ToList();
-        }
-
-
-        public void ClearCart()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddCustomerInformation(CustomerInformation customer)
-        {
-            throw new NotImplementedException();
-        }
-
-        public CustomerInformation GetCustomerInformation()
-        {
-            throw new NotImplementedException();
         }
     }
 }

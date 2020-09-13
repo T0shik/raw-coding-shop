@@ -66,10 +66,9 @@ namespace RawCoding.Shop.Application.Cart
             return _cartManager.GetCartId(userId);
         }
 
-
-        public Task<bool> Empty(string userId)
+        public Task<Domain.Models.Cart> WithStock(string userId)
         {
-            return _cartManager.Empty(userId);
+            return _cartManager.GetCartWithStock(userId);
         }
     }
 }

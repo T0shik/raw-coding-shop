@@ -20,10 +20,12 @@ namespace RawCoding.Shop.UI.Pages.Checkout
             [FromServices] IWebHostEnvironment env)
         {
             var userId = User.GetUserId();
-            if (await getCart.Empty(userId))
+            var cart = await getCart.Get(userId);
+            if (cart.Products.Count <= 0)
             {
                 return RedirectToPage("/Index");
             }
+
             Form = new CheckoutForm();
 
             if (env.IsDevelopment())
@@ -37,6 +39,18 @@ namespace RawCoding.Shop.UI.Pages.Checkout
                 Form.Country = "Country";
                 Form.PostCode = "QQ1 2RR";
                 Form.State = "";
+            }
+            else if (cart.DeliveryInformationComplete)
+            {
+                Form.Name = cart.Name;
+                Form.Email = cart.Email;
+                Form.Phone = cart.Phone;
+                Form.Address1 = cart.Address1;
+                Form.Address2 = cart.Address2;
+                Form.City = cart.City;
+                Form.Country = cart.Country;
+                Form.PostCode = cart.PostCode;
+                Form.State = cart.State;
             }
 
             return Page();
@@ -62,6 +76,7 @@ namespace RawCoding.Shop.UI.Pages.Checkout
                 cart.Country = Form.Country;
                 cart.PostCode = Form.PostCode;
                 cart.State = Form.State;
+                cart.DeliveryInformationComplete = true;
             });
 
             return RedirectToPage("/Checkout/Payment");

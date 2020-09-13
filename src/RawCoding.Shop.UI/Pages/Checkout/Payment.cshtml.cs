@@ -21,8 +21,8 @@ namespace RawCoding.Shop.UI.Pages.Checkout
             var userId = User.GetUserId();
             StripeConfiguration.ApiKey = optionsMonitor.CurrentValue.SecretKey;
 
-            var cartItems = (await getCart.Do(userId, c => c)).ToList();
-            if (cartItems.Count <= 0)
+            var cart = await getCart.WithStock(userId);
+            if (cart == null || cart.Products.Count <= 0)
             {
                 return RedirectToPage("/Index");
             }
@@ -30,8 +30,23 @@ namespace RawCoding.Shop.UI.Pages.Checkout
             var paymentIntents = new PaymentIntentService();
             var paymentIntent = await paymentIntents.CreateAsync(new PaymentIntentCreateOptions
             {
-                Amount = cartItems.Sum(x => x.Qty * x.Stock.Value),
+                Amount = cart.Products.Sum(x => x.Qty * x.Stock.Value),
                 Currency = "gbp",
+                ReceiptEmail = cart.Email,
+                Shipping = new ChargeShippingOptions
+                {
+                    Name = cart.Name,
+                    Phone = cart.Phone,
+                    Address = new AddressOptions
+                    {
+                        Line1 = cart.Address1,
+                        Line2 = cart.Address2,
+                        City = cart.City,
+                        Country = cart.Country,
+                        PostalCode = cart.PostCode,
+                        State = cart.State,
+                    }
+                }
             });
 
             ClientSecret = paymentIntent.ClientSecret;
