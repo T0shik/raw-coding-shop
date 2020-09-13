@@ -51,6 +51,10 @@ body {
     color: #fff !important;
 }
 
+.text-red {
+    color: #e43 !important;
+}
+
 .text-white.expand * {
     color: #fff !important;
 }

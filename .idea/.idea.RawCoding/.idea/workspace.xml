@@ -23,15 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1396acd-53ed-4847-bb1d-d5001902a15a" name="Default Changelist" comment="sesh">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.Application/Cart/GetCart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.Application/Cart/GetCart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.Application/Cart/GetOrder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.Database/CartManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.Database/CartManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Interfaces/ICartManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Interfaces/ICartManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Models/Cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Models/Cart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Delivery.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Delivery.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.min.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +108,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Orders/{id}.cshtml.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/lib/intlTellInput/intlTelInput.css" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Application/Admin/Orders/GetOrders.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Database/OrderManager.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Orders/{id}.cshtml" />
@@ -153,7 +146,6 @@
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Success.cshtml.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Canceled.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Canceled.cshtml.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Startup.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Success.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Models/Cart.cs" />
@@ -163,6 +155,8 @@
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Database/CartManager.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Application/Cart/GetCart.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml" />
       </list>
     </option>
   </component>
@@ -253,7 +247,7 @@
       <workItem from="1599242163724" duration="247000" />
       <workItem from="1599409135963" duration="13952000" />
       <workItem from="1599671438573" duration="12511000" />
-      <workItem from="1600017365159" duration="11295000" />
+      <workItem from="1600017365159" duration="11909000" />
     </task>
     <task id="LOCAL-00001" summary="stuff">
       <created>1598045993297</created>
@@ -485,19 +479,19 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="524" y="206" width="871" height="668" key="find.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1600026636615" />
-    <state x="540" y="251" key="run.anything.popup" timestamp="1599674315358">
+    <state x="540" y="251" key="run.anything.popup" timestamp="1600029509712">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="540" y="251" key="run.anything.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1599674315358" />
+    <state x="540" y="251" key="run.anything.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1600029509712" />
     <state x="155" y="118" width="1222" height="740" key="scopes" timestamp="1598088009372">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="155" y="118" width="1222" height="740" key="scopes/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598088009372" />
-    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1600028134313">
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1600029522470">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1489" y="36" width="840" height="828" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1598811214480" />
-    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1600028134313" />
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1600029522470" />
     <state x="431" y="36" width="840" height="828" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1598260586209" />
   </component>
   <component name="XDebuggerManager">
