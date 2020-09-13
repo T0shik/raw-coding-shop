@@ -2,6 +2,7 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Shop";
+    Layout = "Shared/_StoreLayout";
 }
 
 @section Styles {
@@ -55,10 +56,3 @@
         }
     </div>
 </div>
-
-<partial name="_Cart"/>
-
-@section Scripts
-{
-    <script src="~/js/cart.js" asp-append-version="true"></script>
-}

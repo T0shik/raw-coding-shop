@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
@@ -7,25 +6,21 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using RawCoding.Shop.Application.Cart;
-using RawCoding.Shop.Domain.Models;
+using RawCoding.Shop.UI.Extensions;
 
-namespace RawCoding.Shop.UI.Pages
+namespace RawCoding.Shop.UI.Pages.Checkout
 {
-    public class Checkout : PageModel
+    public class Delivery : PageModel
     {
         [BindProperty] public CheckoutForm Form { get; set; }
 
-        public IList<CartProduct> Products { get; set; }
-
-        public IActionResult OnGet(
+        public async Task<IActionResult> OnGet(
             [FromServices] GetCart getCart,
             [FromServices] IWebHostEnvironment env)
         {
-            var userId = User?.Claims?.FirstOrDefault(x => x.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
-            Products = getCart.Do(userId, c => c).ToList();
-            if (Products.Count == 0)
+            var userId = User.GetUserId();
+            if (await getCart.Empty(userId))
             {
                 return RedirectToPage("/Index");
             }
@@ -69,7 +64,7 @@ namespace RawCoding.Shop.UI.Pages
                 cart.State = Form.State;
             });
 
-            return RedirectToPage("/Payment/Redirect");
+            return RedirectToPage("/Checkout/Payment");
         }
 
         public class CheckoutForm

@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RawCoding.Shop.UI.Pages.Payment
+namespace RawCoding.Shop.UI.Pages.Checkout
 {
-    public class Success : PageModel
+    public class Canceled : PageModel
     {
         public void OnGet()
         {

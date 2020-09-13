@@ -117,6 +117,9 @@
           <e p="CartController.cs" t="Include" />
           <e p="StripeController.cs" t="Include" />
         </e>
+        <e p="Extensions" t="Include">
+          <e p="HttpContextExtensions.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -139,8 +142,17 @@
             <e p="Products.cshtml" t="Include" />
             <e p="Stock.cshtml" t="Include" />
           </e>
-          <e p="Checkout.cshtml" t="Include" />
-          <e p="Checkout.cshtml.cs" t="Include" />
+          <e p="Checkout" t="Include">
+            <e p="_PaymentLayout.cshtml" t="Include" />
+            <e p="Canceled.cshtml" t="Include" />
+            <e p="Canceled.cshtml.cs" t="Include" />
+            <e p="Delivery.cshtml" t="Include" />
+            <e p="Delivery.cshtml.cs" t="Include" />
+            <e p="Payment.cshtml" t="Include" />
+            <e p="Payment.cshtml.cs" t="Include" />
+            <e p="Success.cshtml" t="Include" />
+            <e p="Success.cshtml.cs" t="Include" />
+          </e>
           <e p="Error.cshtml" t="Include" />
           <e p="Error.cshtml.cs" t="Include" />
           <e p="Index.cshtml" t="Include" />
@@ -151,19 +163,12 @@
             <e p="{id}.cshtml" t="Include" />
             <e p="{id}.cshtml.cs" t="Include" />
           </e>
-          <e p="Payment" t="Include">
-            <e p="Canceled.cshtml" t="Include" />
-            <e p="Canceled.cshtml.cs" t="Include" />
-            <e p="Redirect.cshtml" t="Include" />
-            <e p="Redirect.cshtml.cs" t="Include" />
-            <e p="Success.cshtml" t="Include" />
-            <e p="Success.cshtml.cs" t="Include" />
-          </e>
           <e p="Shared" t="Include">
             <e p="_Cart.cshtml" t="Include" />
             <e p="_CookieConsentPartial.cshtml" t="Include" />
             <e p="_CSS.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
+            <e p="_StoreLayout.cshtml" t="Include" />
             <e p="_Vue.cshtml" t="Include" />
           </e>
           <e p="{slug}.cshtml" t="Include" />

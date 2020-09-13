@@ -28,7 +28,6 @@ namespace RawCoding.Shop.UI
             _env = env;
         }
 
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
@@ -87,7 +86,7 @@ namespace RawCoding.Shop.UI
             services.Configure<RouteOptions>(options =>
             {
                 options.LowercaseUrls = true;
-                options.LowercaseQueryStrings = true;
+                options.LowercaseQueryStrings = false;
             });
 
             services.AddControllers()

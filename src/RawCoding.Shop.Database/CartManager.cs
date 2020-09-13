@@ -17,6 +17,18 @@ namespace RawCoding.Shop.Database
             _ctx = ctx;
         }
 
+        public Task Close(int cartId)
+        {
+            var cart = _ctx.Carts.FirstOrDefault(x => x.Id == cartId);
+            if (cart == null)
+            {
+                return Task.CompletedTask;
+            }
+
+            cart.Closed = true;
+            return _ctx.SaveChangesAsync();
+        }
+
         public async Task<Cart> CreateCart(string cartId)
         {
             var cart = new Cart
@@ -64,6 +76,13 @@ namespace RawCoding.Shop.Database
                        ?? await CreateCart(userId);
 
             return cart.Id;
+        }
+
+        public Task<bool> Empty(string userId)
+        {
+            return _ctx.Carts
+                .Include(x => x.Products)
+                .AnyAsync(x => !x.Closed && x.UserId == userId && x.Products.Count == 0);
         }
 
         public Task<Cart> GetCart(string userId)

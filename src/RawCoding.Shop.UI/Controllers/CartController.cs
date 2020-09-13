@@ -53,7 +53,7 @@ namespace RawCoding.Shop.UI.Controllers
         }
 
         [HttpGet("checkout")]
-        public IActionResult Do(
+        public async Task<IActionResult> Do(
             [FromServices] IOptionsMonitor<StripeSettings> optionsMonitor,
             [FromServices] GetCart getCart)
         {
@@ -73,14 +73,14 @@ namespace RawCoding.Shop.UI.Controllers
                         "GB",
                     },
                 },
-                LineItems = getCart.Do(userId, x => new SessionLineItemOptions
+                LineItems = (await getCart.Do(userId, x => new SessionLineItemOptions
                 {
                     Amount = x.Stock.Value,
                     Currency = "gbp",
                     Name = x.Stock.Product.Name,
                     Description = x.Stock.Description,
                     Quantity = x.Qty,
-                }).ToList(),
+                })).ToList(),
                 Mode = "payment",
                 SuccessUrl = "https://localhost:5001/payment/success",
                 CancelUrl = "https://localhost:5001/payment/canceled",

@@ -39,10 +39,9 @@
             </div>
             <div class="line "></div>
             <div class="flex justify-center py-4">
-                <button class="button flow-color" :disabled="disabled"
-                        @@click="gotoCheckout">
+                <a class="button flow-color" :disabled="disabled" asp-page="/Checkout/Delivery">
                     Checkout
-                </button>
+                </a>
             </div>
         </div>
         <button class="modal-close is-large" aria-label="close" @@click="open = false"></button>

@@ -1,0 +1,26 @@
+@{
+    Layout = "_Layout";
+}
+
+@section Styles
+{
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/cart.css"/>
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" href="~/css/cart.min.css" asp-append-version="true"/>
+    </environment>
+    @await RenderSectionAsync("Styles", required: false)
+}
+
+@RenderBody()
+
+<partial name="_Cart"/>
+
+@section Scripts
+{
+    <partial name="_Vue"/>
+    <script src="~/lib/modal-fx.min.js" asp-append-version="true"></script>
+    <script src="~/js/cart.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+}

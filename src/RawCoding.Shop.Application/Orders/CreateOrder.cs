@@ -9,25 +9,22 @@ namespace RawCoding.Shop.Application.Orders
     public class CreateOrder
     {
         private readonly IOrderManager _orderManager;
-        private readonly IStockManager _stockManager;
+        private readonly ICartManager _cartManager;
 
-        // todo stock manager should extract the order here.
         public CreateOrder(
             IOrderManager orderManager,
-            IStockManager stockManager)
+            ICartManager cartManager)
         {
             _orderManager = orderManager;
-            _stockManager = stockManager;
+            _cartManager = cartManager;
         }
-
 
         public Task Do(Order order)
         {
             order.Id = CreateOrderReference();
-
             // todo send email
-
-            return _orderManager.CreateOrder(order);
+            // todo stock manager should extract the order here.
+            return Task.WhenAll(_cartManager.Close(order.CartId), _orderManager.CreateOrder(order));
         }
 
         private string CreateOrderReference()

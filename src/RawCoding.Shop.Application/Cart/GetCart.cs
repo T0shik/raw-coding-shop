@@ -39,9 +39,9 @@ namespace RawCoding.Shop.Application.Cart
             };
         }
 
-        public IEnumerable<T> Do<T>(string userId, Func<CartProduct, T> selector)
+        public async Task<IEnumerable<T>> Do<T>(string userId, Func<CartProduct, T> selector)
         {
-            var cart = _cartManager.GetCart(userId);
+            var cart = await _cartManager.GetCart(userId);
             if (cart == null)
             {
                 return Enumerable.Empty<T>();
@@ -64,6 +64,12 @@ namespace RawCoding.Shop.Application.Cart
         public Task<int> Id(string userId)
         {
             return _cartManager.GetCartId(userId);
+        }
+
+
+        public Task<bool> Empty(string userId)
+        {
+            return _cartManager.Empty(userId);
         }
     }
 }

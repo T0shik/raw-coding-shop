@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = Model.SelectedProduct.Name;
-    Layout = "Shared/_Layout";
+    Layout = "Shared/_StoreLayout";
 }
 
 @section Styles {
@@ -91,10 +91,7 @@
     </div>
 </div>
 
-<partial name="_Cart"/>
-
 @section Scripts
 {
-    <script src="~/js/cart.js" asp-append-version="true"></script>
     <script src="js/product.js" asp-append-version="true"></script>
 }

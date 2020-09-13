@@ -1,5 +1,4 @@
-﻿@using Microsoft.Extensions.Options
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -18,12 +17,10 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bulma.css"/>
         <link rel="stylesheet" href="~/css/site.css"/>
-        <link rel="stylesheet" href="~/css/cart.css"/>
     </environment>
     <environment include="Production">
         <link rel="stylesheet" href="~/lib/bulma.min.css" asp-append-version="true"/>
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
-        <link rel="stylesheet" href="~/css/cart.min.css" asp-append-version="true"/>
     </environment>
     @await RenderSectionAsync("Styles", required: false)
 
@@ -32,7 +29,7 @@
 <body class="bkg-black">
 
 <div class="hero">
-    <div class="hero-body flex-column align-center py-3">
+    <div class="hero-body flex justify-center align-center py-3">
         <a class="logo" href="/">
             <img src="~/logo_150x150.png" height="150">
         </a>
@@ -45,14 +42,6 @@
 </div>
 
 <partial name="_CookieConsentPartial"/>
-@inject IOptionsMonitor<StripeSettings> stripeSettings
-
-<script>
-    var stripe = Stripe('@stripeSettings.CurrentValue.PublicKey');
-</script>
-
-<partial name="_Vue"/>
-<script src="~/lib/modal-fx.min.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 
 </body>

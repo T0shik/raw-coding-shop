@@ -1,0 +1,140 @@
+@page
+@model RawCoding.Shop.UI.Pages.Checkout.Delivery
+
+@{
+    ViewData["Title"] = "Delivery";
+    Layout = "_PaymentLayout";
+}
+
+@section Styles {
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/intlTellInput/intlTelInput.css"/>
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" href="~/lib/intlTellInput/intlTelInput.min.css" asp-append-version="true"/>
+    </environment>
+    <style>
+        .iti__flag {background-image: url("/lib/intlTellInput/flags.png");}
+
+        @@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          .iti__flag {background-image: url("/lib/intlTellInput/flags@2x.png");}
+        }
+    </style>
+}
+
+<form method="post" id="delivery-form">
+    <h1 class="title has-text-centered is-size-5-mobile is-size-4 is-uppercase">Delivery Information</h1>
+    <div class="field-horizontal">
+        <label>Name</label>
+        <div class="field">
+            <div class="control">
+                <input class="input" asp-for="Form.Name">
+            </div>
+            <span class="help is-danger" asp-validation-for="Form.Name"></span>
+        </div>
+    </div>
+    <div class="field-horizontal">
+        <label>Phone</label>
+        <div class="field">
+            <div class="control">
+                <input class="input" asp-for="Form.Phone" id="phone">
+            </div>
+            <span class="help is-danger" asp-validation-for="Form.Phone" id="phone-validation"></span>
+        </div>
+    </div>
+    <div class="field-horizontal">
+        <label>Email</label>
+        <div class="field">
+            <div class="control">
+                <input class="input" asp-for="Form.Email">
+            </div>
+            <span class="help is-danger" asp-validation-for="Form.Email"></span>
+        </div>
+    </div>
+    <hr>
+    <div class="field-horizontal">
+        <label>Address1</label>
+        <div class="field">
+            <div class="control">
+                <input class="input" asp-for="Form.Address1">
+            </div>
+            <span class="help is-danger" asp-validation-for="Form.Address1"></span>
+        </div>
+    </div>
+    <div class="field-horizontal">
+        <label>Address2</label>
+        <div class="field">
+            <div class="control">
+                <input class="input" asp-for="Form.Address2">
+            </div>
+            <span class="help is-danger" asp-validation-for="Form.Address2"></span>
+        </div>
+    </div>
+    <div class="field-horizontal">
+        <label>City</label>
+        <div class="field">
+            <div class="control">
+                <input class="input" asp-for="Form.City">
+            </div>
+            <span class="help is-danger" asp-validation-for="Form.City"></span>
+        </div>
+    </div>
+    <div class="field-horizontal">
+        <label>Country</label>
+        <div class="field">
+            <div class="control">
+                <input class="input" asp-for="Form.Country">
+            </div>
+            <span class="help is-danger" asp-validation-for="Form.Country"></span>
+        </div>
+    </div>
+    <div class="field-horizontal">
+        <label>PostCode</label>
+        <div class="field">
+            <div class="control">
+                <input class="input" asp-for="Form.PostCode">
+            </div>
+            <span class="help is-danger" asp-validation-for="Form.PostCode"></span>
+        </div>
+    </div>
+    <div class="field-horizontal">
+        <label>State</label>
+        <div class="field">
+            <div class="control">
+                <input class="input" asp-for="Form.State">
+            </div>
+            <span class="help is-danger" asp-validation-for="Form.State"></span>
+        </div>
+    </div>
+    <div class="field has-text-centered mt-4">
+        <button type="submit" class="button flow-color">Go To Payment</button>
+    </div>
+</form>
+
+@section Scripts
+{
+    <environment include="Development">
+        <script src="~/lib/intlTellInput/intlTelInput.js"></script>
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" href="~/lib/intlTellInput/intlTelInput.min.css" asp-append-version="true"/>
+    </environment>
+    <script src="~/lib/intlTellInput/utils.js"></script>
+    <script>
+      var phoneInput = document.getElementById("phone");
+      var phoneInputValidation = document.getElementById("phone-validation");
+      var telInput =window.intlTelInput(phoneInput, {
+          nationalMode: true
+      });
+
+      var deliveryForm = document.getElementById('delivery-form')
+      deliveryForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if(telInput.isValidNumber()){
+              deliveryForm.submit();
+          } else {
+              phoneInputValidation.textContent = 'Invalid Number'
+          }
+      })
+    </script>
+}

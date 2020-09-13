@@ -60,7 +60,7 @@
                 })
         },
         gotoCheckout() {
-            window.location = '/checkout'
+            window.location = '/checkout/delivery'
             // if (this.fullScreenLoader) return;
             // this.fullScreenLoader = true;
             //
