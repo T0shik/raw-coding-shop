@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using RawCoding.Shop.Domain.Enums;
+﻿using RawCoding.Shop.Domain.Enums;
 
 namespace RawCoding.Shop.Domain.Models
 {

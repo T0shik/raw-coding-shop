@@ -104,6 +104,7 @@
       <e p="src\RawCoding.Shop.UI" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
+        <e p="appsettings.Production.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="Admin" t="Include">
@@ -115,6 +116,7 @@
           </e>
           <e p="CartController.cs" t="Include" />
           <e p="StripeController.cs" t="Include" />
+          <e p="TestController.cs" t="Include" />
         </e>
         <e p="Extensions" t="Include">
           <e p="HttpContextExtensions.cs" t="Include" />
@@ -182,6 +184,17 @@
         <e p="ShopConstants.cs" t="Include" />
         <e p="Startup.cs" t="Include" />
         <e p="StripeSettings.cs" t="Include" />
+        <e p="Workers" t="Include">
+          <e p="Email" t="Include">
+            <e p="EmailChannel.cs" t="Include" />
+            <e p="EmailRequest.cs" t="Include" />
+            <e p="EmailService.cs" t="Include" />
+            <e p="EmailSettings.cs" t="Include" />
+            <e p="IEmailQueue.cs" t="Include" />
+            <e p="IEmailSink.cs" t="Include" />
+            <e p="RegisterEmailService.cs" t="Include" />
+          </e>
+        </e>
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
             <e p="cart.css" t="Include" />

@@ -7,7 +7,6 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RawCoding.Shop.Application.Cart;
 using RawCoding.Shop.Application.Orders;
-using RawCoding.Shop.Domain.Models;
 using Stripe;
 using Stripe.Checkout;
 

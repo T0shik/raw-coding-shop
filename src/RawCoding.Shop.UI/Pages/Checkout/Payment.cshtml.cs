@@ -16,7 +16,8 @@ namespace RawCoding.Shop.UI.Pages.Checkout
 
         public async Task<IActionResult> OnGet(
             [FromServices] IOptionsMonitor<StripeSettings> optionsMonitor,
-            [FromServices] GetCart getCart)
+            [FromServices] GetCart getCart,
+            [FromServices] PaymentIntentService paymentIntentService)
         {
             var userId = User.GetUserId();
             StripeConfiguration.ApiKey = optionsMonitor.CurrentValue.SecretKey;
@@ -27,8 +28,7 @@ namespace RawCoding.Shop.UI.Pages.Checkout
                 return RedirectToPage("/Index");
             }
 
-            var paymentIntents = new PaymentIntentService();
-            var paymentIntent = await paymentIntents.CreateAsync(new PaymentIntentCreateOptions
+            var paymentIntent = await paymentIntentService.CreateAsync(new PaymentIntentCreateOptions
             {
                 Amount = cart.Products.Sum(x => x.Qty * x.Stock.Value),
                 Currency = "gbp",
@@ -57,8 +57,17 @@ namespace RawCoding.Shop.UI.Pages.Checkout
         public async Task<IActionResult> OnPostAsync(
             string paymentId,
             [FromServices] CreateOrder createOrder,
-            [FromServices] GetCart getCart)
+            [FromServices] GetCart getCart,
+            [FromServices] PaymentIntentService paymentIntentService)
         {
+            var payment = await paymentIntentService.GetAsync(paymentId);
+
+            if (payment == null)
+            {
+                //todo do some kinda notification that this went wrong.
+                return RedirectToPage();
+            }
+
             var order = new Domain.Models.Order
             {
                 StripeReference = paymentId,

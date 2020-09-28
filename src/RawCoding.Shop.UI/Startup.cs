@@ -12,6 +12,7 @@ using Stripe;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
+using RawCoding.Shop.UI.Workers.Email;
 
 namespace RawCoding.Shop.UI
 {
@@ -97,6 +98,10 @@ namespace RawCoding.Shop.UI
                 options.Conventions.AuthorizeFolder("/Admin", "Admin");
                 options.Conventions.AllowAnonymousToPage("/Admin/Login");
             });
+
+            services.AddEmailService(_config);
+
+            services.AddScoped<PaymentIntentService>();
         }
 
         public void Configure(IApplicationBuilder app)
