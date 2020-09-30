@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RawCoding.Shop.Database;
+using RawCoding.Shop.Domain.Enums;
 using RawCoding.Shop.Domain.Models;
 
 namespace RawCoding.Shop.UI
@@ -125,13 +126,42 @@ namespace RawCoding.Shop.UI
                             }
                         });
 
+                        context.Add(new Order
+                        {
+                            Id = "dummy",
+                            StripeReference = "dummy",
+                            Status = OrderStatus.Pending,
+                            Cart = new Cart
+                            {
+                                DeliveryInformationComplete = true,
+                                Closed = true,
+
+                                Name = nameof(Cart.Name),
+                                Email = nameof(Cart.Email),
+                                Phone = nameof(Cart.Phone),
+
+                                Address1 = nameof(Cart.Address1),
+                                Address2 = nameof(Cart.Address2),
+                                City = nameof(Cart.City),
+                                Country = nameof(Cart.Country),
+                                PostCode = nameof(Cart.PostCode),
+                                State = nameof(Cart.State),
+
+                                Products = new List<CartProduct>
+                                {
+                                    new CartProduct {StockId = 1, Qty = 1},
+                                    new CartProduct {StockId = 2, Qty = 3},
+                                    new CartProduct {StockId = 3, Qty = 6},
+                                },
+                            },
+                        });
 
                         context.SaveChanges();
                     }
 
                     if (!context.Users.Any())
                     {
-                        var adminUser = new IdentityUser()
+                        var adminUser = new IdentityUser
                         {
                             UserName = "Admin"
                         };

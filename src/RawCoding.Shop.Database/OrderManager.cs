@@ -41,6 +41,7 @@ namespace RawCoding.Shop.Database
                 .ThenInclude(x => x.Products)
                 .ThenInclude(x => x.Stock)
                 .ThenInclude(x => x.Product)
+                .ThenInclude(x => x.Images)
                 .FirstOrDefault(order => order.Id == id);
         }
 

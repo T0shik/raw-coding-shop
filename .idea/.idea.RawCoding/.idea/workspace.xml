@@ -25,18 +25,27 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1396acd-53ed-4847-bb1d-d5001902a15a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/shop-test-email.http" afterDir="false" />
+    <list default="true" id="c1396acd-53ed-4847-bb1d-d5001902a15a" name="Default Changelist" comment="email service">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RawCoding/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.Application/Admin/Orders/GetOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.Application/Admin/Orders/GetOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.Database/CartManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.Database/CartManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RawCoding.sln" beforeDir="false" afterPath="$PROJECT_DIR$/RawCoding.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-test-email.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.Database/OrderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.Database/OrderManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Models/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Models/Order.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Controllers/StripeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Controllers/StripeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Extensions/HttpContextExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Extensions/HttpContextExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Controllers/TestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Controllers/TestController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/_PaymentLayout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/_PaymentLayout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Orders/{id}.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Orders/{id}.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/RawCoding.Shop.UI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/RawCoding.Shop.UI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/cart.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/cart.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.min.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +60,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTTP Request" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -109,25 +118,37 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/02302FA0-5670-48AD-AFB3-8EA71630DE37/16C/EventUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6773E12-C9A9-4474-A148-DAB639DFD650/69/9d05b795/IMailKitProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6773E12-C9A9-4474-A148-DAB639DFD650/58/0b8c54ee/SenderInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9B75F723-8C22-4648-AA94-E16AD14335D4/12/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/02302FA0-5670-48AD-AFB3-8EA71630DE37/1A5/PaymentIntentCreateOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/80165E8A-0917-4ACB-A113-AE0CA0D22E37/68/NullView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9B75F723-8C22-4648-AA94-E16AD14335D4/13/RazorViewEngine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EFD75AE7-E525-4CDA-8271-857372C0D356/8/AuthorizationEndpointConventionBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CEB7C5F-5743-4F3C-9F25-EC758C7444A3/93/0b79a2c4/ICredentialsByHost.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/80165E8A-0917-4ACB-A113-AE0CA0D22E37/1D/ViewEngineResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F1959F25-FBBF-4B45-A014-B19B25E8E348/5/AuthenticationHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8547C7E9-C7A2-4E6E-8A1D-9EE87362D6F9/2D7/SessionLineItemOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CEB7C5F-5743-4F3C-9F25-EC758C7444A3/51/fd86a404/ICredentials.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/80165E8A-0917-4ACB-A113-AE0CA0D22E37/C3/IView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4CEB7C5F-5743-4F3C-9F25-EC758C7444A3/F/CredentialCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9F96358D-BA1A-4158-A1AE-08813FDC8D18/13/DenyAnonymousAuthorizationRequirement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9B75F723-8C22-4648-AA94-E16AD14335D4/3B/IRazorPage.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9B75F723-8C22-4648-AA94-E16AD14335D4/3E/IRazorViewEngine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/02302FA0-5670-48AD-AFB3-8EA71630DE37/1B7/PaymentIntentService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8547C7E9-C7A2-4E6E-8A1D-9EE87362D6F9/145/SessionLineItemPriceDataOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9B75F723-8C22-4648-AA94-E16AD14335D4/11/RazorPageResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/02302FA0-5670-48AD-AFB3-8EA71630DE37/310/SessionCreateOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/04BC620C-EA71-4C94-84D1-3814AC579B53/61/IFilterMetadata.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/80165E8A-0917-4ACB-A113-AE0CA0D22E37/46/ViewContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6773E12-C9A9-4474-A148-DAB639DFD650/8a/c7e1acb3/ServicesCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EDEB014F-C7DB-4629-8BDC-33A2C056B060/32/SmtpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45BB5383-7869-4F29-9AAD-280F263DDCDB/11/ffde7799/ILogger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/45BB5383-7869-4F29-9AAD-280F263DDCDB/4/LoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/868FEADA-C378-43FD-877F-C0B11FD0221D/56/RazorEngine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/80165E8A-0917-4ACB-A113-AE0CA0D22E37/C4/IViewEngine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/735EA350-B8D8-4C0C-8757-F93F828137D1/3F/PageApplicationModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6773E12-C9A9-4474-A148-DAB639DFD650/87/a38b52ac/IEmailService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EDEB014F-C7DB-4629-8BDC-33A2C056B060/2E/MailMessage.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/04BC620C-EA71-4C94-84D1-3814AC579B53/1/ActionContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/product.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4065B38D-0F9F-44D9-8F53-F4C9102AF396/9c/7ddc8f5d/ICollection`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8547C7E9-C7A2-4E6E-8A1D-9EE87362D6F9/1DC/SessionLineItemPriceDataProductDataOptions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -139,25 +160,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Canceled.cshtml" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Success.cshtml" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Success.cshtml.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Delivery.cshtml.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Payment.cshtml" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Delivery.cshtml" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_PaymentLayout.cshtml" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Filters/CartNotEmptyFilter.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Extensions/HttpContextExtensions.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/_ViewImports.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/js/cart.js" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Cart.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Index.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/{slug}.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Not-Found.cshtml" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_StoreLayout.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Delivery.cshtml" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/_PaymentLayout.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Application/Orders/CreateOrder.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Success.cshtml.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Canceled.cshtml" />
@@ -169,8 +179,6 @@
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Interfaces/ICartManager.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Database/CartManager.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.Application/Cart/GetCart.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailPipe.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/IEmailPipe.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailMessage.cs" />
@@ -184,12 +192,25 @@
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/RawCoding.Shop.UI.csproj" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailOptions.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/RegisterEmailService.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Startup.cs" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailSettings.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Controllers/TestController.cs" />
-        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailService.cs" />
         <option value="$USER_HOME$/AppData/Roaming/Microsoft/UserSecrets/7f67124c-d998-4d64-befe-757dff53f62d/secrets.json" />
         <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/appsettings.Production.json" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailService.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/cart.css" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/_Layout.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/Payment.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/wwwroot/css/payment.css" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Checkout/_PaymentLayout.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.Domain/Models/Order.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Orders/{id}.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.Database/OrderManager.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Program.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Pages/Shared/Emails/_OrderConfirmation.cshtml" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Infrastructure/ViewRenderService.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailRequest.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Startup.cs" />
+        <option value="$PROJECT_DIR$/src/RawCoding.Shop.UI/Controllers/TestController.cs" />
       </list>
     </option>
   </component>
@@ -207,7 +228,8 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/RawCoding.Shop.UI/node_modules/.bin/babel.cmd" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTTP Request" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/scripts" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -216,7 +238,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Presentation Assistant" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RestClientSettings">
@@ -298,7 +320,8 @@
       <workItem from="1599671438573" duration="12511000" />
       <workItem from="1600017365159" duration="12135000" />
       <workItem from="1600623089385" duration="9002000" />
-      <workItem from="1601315666581" duration="6322000" />
+      <workItem from="1601315666581" duration="7061000" />
+      <workItem from="1601485538084" duration="11533000" />
     </task>
     <task id="LOCAL-00001" summary="stuff">
       <created>1598045993297</created>
@@ -342,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599684349572</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="email service">
+      <created>1601323042894</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601323042895</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -374,7 +404,8 @@
     <MESSAGE value="cart &amp; quality of life" />
     <MESSAGE value="stripe integration stuff" />
     <MESSAGE value="sesh" />
-    <option name="LAST_COMMIT_MESSAGE" value="sesh" />
+    <MESSAGE value="email service" />
+    <option name="LAST_COMMIT_MESSAGE" value="email service" />
   </component>
   <component name="WindowStateProjectService">
     <state x="792" y="328" key="#File_Watchers" timestamp="1598086793979">
@@ -401,111 +432,111 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="495" y="201" width="816" height="846" key="EditFileWatcherDialog/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598088062787" />
-    <state x="686" y="219" key="FileChooserDialogImpl" timestamp="1599160316222">
+    <state x="686" y="219" key="FileChooserDialogImpl" timestamp="1601485963254">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="686" y="219" key="FileChooserDialogImpl/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1599160316222" />
+    <state x="686" y="219" key="FileChooserDialogImpl/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601485963254" />
     <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1598265460756" />
-    <state width="1920" height="248" key="GridCell.Tab.0.bottom" timestamp="1601322777648">
+    <state width="1920" height="438" key="GridCell.Tab.0.bottom" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="192" key="GridCell.Tab.0.bottom/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600631280222" />
-    <state width="1920" height="248" key="GridCell.Tab.0.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322777648" />
-    <state width="1920" height="248" key="GridCell.Tab.0.center" timestamp="1601322777648">
+    <state width="1920" height="438" key="GridCell.Tab.0.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.0.center" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="192" key="GridCell.Tab.0.center/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600631280221" />
-    <state width="1920" height="248" key="GridCell.Tab.0.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322777648" />
-    <state width="1920" height="248" key="GridCell.Tab.0.left" timestamp="1601322777648">
+    <state width="1920" height="438" key="GridCell.Tab.0.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.0.left" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="192" key="GridCell.Tab.0.left/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600631280221" />
-    <state width="1920" height="248" key="GridCell.Tab.0.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322777648" />
-    <state width="1920" height="248" key="GridCell.Tab.0.right" timestamp="1601322777648">
+    <state width="1920" height="438" key="GridCell.Tab.0.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.0.right" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="192" key="GridCell.Tab.0.right/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600631280222" />
-    <state width="1920" height="248" key="GridCell.Tab.0.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322777648" />
-    <state width="1920" height="438" key="GridCell.Tab.1.bottom" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.0.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.1.bottom" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.1.bottom/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853255" />
-    <state width="1920" height="438" key="GridCell.Tab.1.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.1.center" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.1.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.1.center" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.1.center/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853255" />
-    <state width="1920" height="438" key="GridCell.Tab.1.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.1.left" timestamp="1601322586519">
+    <state width="1920" height="438" key="GridCell.Tab.1.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.1.left" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.1.left/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853255" />
-    <state width="1920" height="438" key="GridCell.Tab.1.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586519" />
-    <state width="1920" height="438" key="GridCell.Tab.1.right" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.1.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.1.right" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.1.right/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853255" />
-    <state width="1920" height="438" key="GridCell.Tab.1.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.2.bottom" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.1.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.2.bottom" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.2.bottom/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853256" />
-    <state width="1920" height="438" key="GridCell.Tab.2.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.2.center" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.2.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.2.center" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.2.center/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853255" />
-    <state width="1920" height="438" key="GridCell.Tab.2.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.2.left" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.2.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.2.left" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.2.left/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853255" />
-    <state width="1920" height="438" key="GridCell.Tab.2.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.2.right" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.2.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.2.right" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.2.right/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853256" />
-    <state width="1920" height="438" key="GridCell.Tab.2.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.3.bottom" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.2.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.3.bottom" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.3.bottom/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853256" />
-    <state width="1920" height="438" key="GridCell.Tab.3.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.3.center" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.3.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.3.center" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.3.center/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853256" />
-    <state width="1920" height="438" key="GridCell.Tab.3.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.3.left" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.3.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.3.left" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.3.left/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853256" />
-    <state width="1920" height="438" key="GridCell.Tab.3.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.3.right" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.3.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.3.right" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.3.right/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853256" />
-    <state width="1920" height="438" key="GridCell.Tab.3.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.4.bottom" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.3.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.4.bottom" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.4.bottom/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853257" />
-    <state width="1920" height="438" key="GridCell.Tab.4.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.4.center" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.4.bottom/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.4.center" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.4.center/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853256" />
-    <state width="1920" height="438" key="GridCell.Tab.4.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.4.left" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.4.center/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.4.left" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.4.left/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853256" />
-    <state width="1920" height="438" key="GridCell.Tab.4.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
-    <state width="1920" height="438" key="GridCell.Tab.4.right" timestamp="1601322586520">
+    <state width="1920" height="438" key="GridCell.Tab.4.left/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
+    <state width="1920" height="438" key="GridCell.Tab.4.right" timestamp="1601324104327">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1536" height="344" key="GridCell.Tab.4.right/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600630853256" />
-    <state width="1920" height="438" key="GridCell.Tab.4.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601322586520" />
+    <state width="1920" height="438" key="GridCell.Tab.4.right/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601324104327" />
     <state x="452" y="206" key="Rider.ProjectTemplateDialog.Size" timestamp="1599160492323">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -518,10 +549,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="734" y="169" key="RollbackChangesDialog/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598208071096" />
-    <state x="336" y="97" key="SettingsEditor" timestamp="1599067347750">
+    <state x="336" y="97" key="SettingsEditor" timestamp="1601495897708">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="336" y="97" key="SettingsEditor/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1599067347750" />
+    <state x="336" y="97" key="SettingsEditor/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601495897708" />
     <state x="452" y="207" key="Vcs.Push.Dialog.v2" timestamp="1599684352021">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -551,10 +582,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="880" key="dock-window-3/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1599420569315" />
-    <state x="524" y="206" width="871" height="668" key="find.popup" timestamp="1600026636615">
+    <state x="524" y="206" width="871" height="668" key="find.popup" timestamp="1601485772735">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="524" y="206" width="871" height="668" key="find.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1600026636615" />
+    <state x="524" y="206" width="871" height="668" key="find.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601485772735" />
     <state x="540" y="251" key="run.anything.popup" timestamp="1600029509712">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -563,11 +594,11 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="155" y="118" width="1222" height="740" key="scopes/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1598088009372" />
-    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1601319134852">
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1601497020197">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-1489" y="36" width="840" height="828" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@-1920.0.1536.864" timestamp="1600631470677" />
-    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601319134852" />
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup/-1920.0.1536.864/0.0.1920.1080@0.0.1920.1080" timestamp="1601497020197" />
     <state x="431" y="36" width="840" height="828" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1598260586209" />
   </component>
   <component name="XDebuggerManager">
@@ -598,32 +629,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/RawCoding.Shop.Database/OrderManager.cs</url>
-          <line>38</line>
-          <properties documentPath="D:\WS\Rider\RawCoding\src\RawCoding.Shop.Database\OrderManager.cs" initialLine="38">
-            <startOffsets>
-              <option value="1061" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1309" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/RawCoding.Shop.UI/Workers/Email/EmailService.cs</url>
-          <line>47</line>
-          <properties documentPath="D:\WS\Rider\RawCoding\src\RawCoding.Shop.UI\Workers\Email\EmailService.cs" initialLine="47">
-            <startOffsets>
-              <option value="1672" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1716" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

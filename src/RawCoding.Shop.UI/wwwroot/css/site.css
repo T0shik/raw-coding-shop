@@ -130,6 +130,15 @@ button.flow-color {
     font-weight: 600;
 }
 
+.logo img {
+    height: 150px;
+}
+
+@media screen and (max-width: 768px) {
+    .logo img {
+        height: 100px;
+    }
+}
 
 /* Popup */
 
@@ -168,5 +177,4 @@ button.flow-color {
     margin-bottom: .25rem !important;
     font-weight: bold;
 }
-
 

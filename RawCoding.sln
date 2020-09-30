@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawCoding.Shop.Domain", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawCoding.Shop.UI", "src\RawCoding.Shop.UI\RawCoding.Shop.UI.csproj", "{E628C214-3BF7-4BC6-A329-603229F2BAAA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BC1D261E-9786-4893-8A08-539A4EC7C1FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,5 +41,11 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3AAEC713-0029-48ED-B8D6-FD0D096A6866}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5B82F549-99B9-4E02-B8E2-6C276E51D660} = {BC1D261E-9786-4893-8A08-539A4EC7C1FC}
+		{1A311709-3501-478B-B091-EEC36CB66FFE} = {BC1D261E-9786-4893-8A08-539A4EC7C1FC}
+		{0A3078DA-AE09-40B9-BD97-5587B1775CED} = {BC1D261E-9786-4893-8A08-539A4EC7C1FC}
+		{E628C214-3BF7-4BC6-A329-603229F2BAAA} = {BC1D261E-9786-4893-8A08-539A4EC7C1FC}
 	EndGlobalSection
 EndGlobal

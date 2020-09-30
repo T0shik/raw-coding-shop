@@ -25,3 +25,8 @@
         <div>@p.Stock.Product.Name - @p.Stock.Description - @p.Qty</div>
     }
 </div>
+
+
+<environment include="Development">
+    <partial name="Shared/Emails/_OrderConfirmation" model="@Model.Order" />
+</environment>

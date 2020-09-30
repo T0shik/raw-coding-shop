@@ -6,10 +6,9 @@ namespace RawCoding.Shop.Domain.Models
     {
         public string Id { get; set; }
         public string StripeReference { get; set; }
+        public OrderStatus Status { get; set; }
 
         public int CartId { get; set; }
         public Cart Cart { get; set; }
-
-        public OrderStatus Status { get; set; }
     }
 }

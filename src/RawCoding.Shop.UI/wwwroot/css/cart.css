@@ -13,6 +13,13 @@
     z-index: 40;
 }
 
+@media screen and (max-width: 768px) {
+    .cart-button {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
 .cart-button:hover {
     cursor: pointer;
 }
@@ -51,7 +58,8 @@
     max-height: 100vh;
     height: 100%;
     background: #fff;
-    width: 420px;
+    max-width: 420px;
+    width: 100%;
     margin: 0 0 0 auto;
 }
 

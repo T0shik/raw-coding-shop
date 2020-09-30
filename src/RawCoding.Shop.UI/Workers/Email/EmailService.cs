@@ -64,7 +64,7 @@ namespace RawCoding.Shop.UI.Workers.Email
         }
         private static MailMessage CreateMessage(EmailSettings settings, EmailRequest request)
         {
-            return new MailMessage("shop@raw-coding.dev", request.To)
+            return new MailMessage(settings.SenderEmail, request.To)
             {
                 Subject = request.Subject,
                 Body = "<div>Test Email</div>",
