@@ -12,6 +12,7 @@ using Stripe;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
+using RawCoding.S3;
 using RawCoding.Shop.UI.Workers.Email;
 
 namespace RawCoding.Shop.UI
@@ -73,16 +74,13 @@ namespace RawCoding.Shop.UI
                     x.AddAuthenticationSchemes(ShopConstants.Schemas.Guest);
                     x.RequireAuthenticatedUser();
                 });
-            });
-
-            services.AddAuthorization(options =>
+            }).AddAuthorization(options =>
             {
                 options.AddPolicy("Admin", policy => policy.RequireClaim("Role", "Admin"));
             });
 
             StripeConfiguration.ApiKey = _config.GetSection("Stripe")["SecretKey"];
 
-            services.AddApplicationServices();
 
             services.Configure<RouteOptions>(options =>
             {
@@ -99,9 +97,12 @@ namespace RawCoding.Shop.UI
                 options.Conventions.AllowAnonymousToPage("/Admin/Login");
             });
 
-            services.AddEmailService(_config);
+            services.AddApplicationServices()
+                .AddEmailService(_config)
+                .AddRawCodingS3Client(() => _config.GetSection(nameof(S3StorageSettings)).Get<S3StorageSettings>())
+                .AddScoped<PaymentIntentService>();
 
-            services.AddScoped<PaymentIntentService>();
+            services.AddHttpClient();
         }
 
         public void Configure(IApplicationBuilder app)

@@ -67,8 +67,8 @@ namespace RawCoding.Shop.UI.Workers.Email
             return new MailMessage(settings.SenderEmail, request.To)
             {
                 Subject = request.Subject,
-                Body = "<div>Test Email</div>",
-                IsBodyHtml = true,
+                Body = request.Message,
+                IsBodyHtml = request.Html,
             };
         }
     }

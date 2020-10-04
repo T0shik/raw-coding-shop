@@ -10,7 +10,7 @@ namespace RawCoding.Shop.Domain.Models
         public string Slug { get; set; }
         public string Description { get; set; }
         public string StockDescription { get; set; }
-        public IList<Image> Images { get; set; } = new List<Image>();
+        public List<Image> Images { get; set; } = new List<Image>();
         public IList<Stock> Stock { get; set; } = new List<Stock>();
     }
 }

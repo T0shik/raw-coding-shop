@@ -9,6 +9,22 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="RawCoding.sln" t="IncludeFlat" />
       <e p="src" t="Include">
+        <e p="RawCoding.S3" t="IncludeRecursive">
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="ContentType.cs" t="Include" />
+          <e p="ContentTypeFactory.cs" t="Include" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp3.1" t="Include">
+                <e p="RawCoding.S3.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="RawCoding.S3.csproj" t="IncludeRecursive" />
+          <e p="RegisterService.cs" t="Include" />
+          <e p="S3Client.cs" t="Include" />
+          <e p="S3StorageSettings.cs" t="Include" />
+        </e>
         <e p="RawCoding.Shop.Application" t="IncludeRecursive">
           <e p="Admin" t="Include">
             <e p="Orders" t="Include">
@@ -213,6 +229,9 @@
               <e p="site.css" t="Include" />
               <e p="site.min.css" t="Include" />
             </e>
+            <e p="email-templates" t="Include">
+              <e p="order.liquid" t="Include" />
+            </e>
             <e p="favicon.ico" t="Include" />
             <e p="icons" t="Include">
               <e p="cart-outline.svg" t="Include" />
@@ -255,7 +274,6 @@
               <e p="vue.js" t="Include" />
               <e p="vue.min.js" t="Include" />
             </e>
-            <e p="logo_150x150.png" t="Include" />
           </e>
         </e>
       </e>

@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RawCoding.S3;
 using RawCoding.Shop.Application.Admin.Products;
 using RawCoding.Shop.Domain.Models;
 
@@ -30,19 +33,35 @@ namespace RawCoding.Shop.UI.Controllers.Admin
         [HttpPost]
         public async Task<object> CreateProduct(
             [FromForm] TempForm form,
-            [FromServices] CreateProduct createProduct)
+            [FromServices] CreateProduct createProduct,
+            [FromServices] S3Client s3Client)
         {
             var product = new Product
             {
                 Name = form.Name,
                 Description = form.Description,
             };
-            await foreach (var image in SaveImages(form.Images))
+
+            var results = await Task.WhenAll(UploadFiles());
+
+            product.Images.AddRange(results.Select((path, index) => new Image
             {
-                product.Images.Add(image);
-            }
+                Index = index,
+                Path = path,
+            }));
 
             return await createProduct.Do(product);
+
+            IEnumerable<Task<string>> UploadFiles()
+            {
+                var index = 0;
+                foreach (var image in form.Images)
+                {
+                    var fileName = $"{DateTime.Now.Ticks}_{index++}{Path.GetExtension(image.FileName)}";
+                    //todo, resolve content type mimi, or do it from file name
+                    yield return s3Client.SavePublicFile($"images/{fileName}", ContentType.Jpg, image.OpenReadStream());
+                }
+            }
         }
 
         public class TempForm
@@ -52,28 +71,6 @@ namespace RawCoding.Shop.UI.Controllers.Admin
             public IEnumerable<IFormFile> Images { get; set; }
         }
 
-        private async IAsyncEnumerable<Image> SaveImages(IEnumerable<IFormFile> images)
-        {
-            var index = 0;
-            foreach (var image in images)
-            {
-                var fileName = $"{DateTime.Now.Ticks}_{index}{Path.GetExtension(image.FileName)}";
-                var path = Path.Combine(_env.WebRootPath, "images", fileName);
-
-                await using (var fileStream = System.IO.File.Create(path))
-                {
-                    await image.CopyToAsync(fileStream);
-                }
-
-                yield return new Image
-                {
-                    Path = fileName,
-                    Index = index,
-                };
-
-                index++;
-            }
-        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id, [FromServices] DeleteProduct deleteProduct) =>
