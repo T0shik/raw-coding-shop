@@ -58,8 +58,7 @@ namespace RawCoding.Shop.UI.Controllers.Admin
                 foreach (var image in form.Images)
                 {
                     var fileName = $"{DateTime.Now.Ticks}_{index++}{Path.GetExtension(image.FileName)}";
-                    //todo, resolve content type mimi, or do it from file name
-                    yield return s3Client.SavePublicFile($"images/{fileName}", ContentType.Jpg, image.OpenReadStream());
+                    yield return s3Client.SavePublicFile($"images/{fileName}", image.OpenReadStream());
                 }
             }
         }

@@ -22,7 +22,7 @@
                 @foreach (var image in Model.SelectedProduct.Images.Select(x => x.Path))
                 {
                     <figure class="carousel-item image is-square">
-                        <img src="/images/@image" alt="">
+                        <img src="@image" alt="">
                     </figure>
                 }
             </div>

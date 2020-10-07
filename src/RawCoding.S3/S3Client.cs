@@ -26,6 +26,21 @@ namespace RawCoding.S3
                 config);
         }
 
+        public async Task<string> SavePublicFile(string fileName, Stream fileStream)
+        {
+            var extension = Path.GetExtension(fileName);
+            await _client.PutObjectAsync(new PutObjectRequest
+            {
+                BucketName = _settings.Bucket,
+                Key = $"{_settings.RootPath}/{fileName}",
+                ContentType = ContentTypeFactory.ResolveContentType(extension),
+                InputStream = fileStream,
+                CannedACL = S3CannedACL.PublicRead,
+            });
+
+            return ImagePath(fileName);
+        }
+
         public async Task<string> SavePublicFile(string fileName, ContentType contentType, Stream fileStream)
         {
             await _client.PutObjectAsync(new PutObjectRequest

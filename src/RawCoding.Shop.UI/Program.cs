@@ -44,10 +44,10 @@ namespace RawCoding.Shop.UI
                             },
                             Images = new List<Image>
                             {
-                                new Image {Index = 0, Path = "book.jpg"},
-                                new Image {Index = 1, Path = "book3.jpg"},
-                                new Image {Index = 2, Path = "pen.jpg"},
-                                new Image {Index = 3, Path = "shirt.jpg"},
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book.jpg"},
+                                new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book2.jpg"},
+                                new Image {Index = 2, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/pen.jpg"},
+                                new Image {Index = 3, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
                             }
                         });
 
@@ -66,9 +66,9 @@ namespace RawCoding.Shop.UI
                             },
                             Images = new List<Image>
                             {
-                                new Image {Index = 0, Path = "book.jpg"},
-                                new Image {Index = 1, Path = "pen.jpg"},
-                                new Image {Index = 2, Path = "shirt.jpg"},
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book.jpg"},
+                                new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/pen.jpg"},
+                                new Image {Index = 2, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
                             }
                         });
 
@@ -87,8 +87,8 @@ namespace RawCoding.Shop.UI
                             },
                             Images = new List<Image>
                             {
-                                new Image {Index = 0, Path = "book.jpg"},
-                                new Image {Index = 1, Path = "shirt.jpg"},
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book.jpg"},
+                                new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
                             }
                         });
 
@@ -105,8 +105,8 @@ namespace RawCoding.Shop.UI
                             },
                             Images = new List<Image>
                             {
-                                new Image {Index = 0, Path = "pen.jpg"},
-                                new Image {Index = 1, Path = "shirt3.jpg"},
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/pen.jpg"},
+                                new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
                             }
                         });
 
@@ -122,7 +122,7 @@ namespace RawCoding.Shop.UI
                             },
                             Images = new List<Image>
                             {
-                                new Image {Index = 0, Path = "shirt.jpg"},
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
                             }
                         });
 
@@ -163,12 +163,12 @@ namespace RawCoding.Shop.UI
                     {
                         var adminUser = new IdentityUser
                         {
-                            UserName = "Admin"
+                            UserName = "Admin",
                         };
 
                         userManger.CreateAsync(adminUser, "password").GetAwaiter().GetResult();
 
-                        var adminClaim = new Claim(ClaimTypes.Role, ShopConstants.Roles.Admin);
+                        var adminClaim = new Claim(ShopConstants.Claims.Role, ShopConstants.Roles.Admin);
 
                         userManger.AddClaimAsync(adminUser, adminClaim).GetAwaiter().GetResult();
                     }

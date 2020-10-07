@@ -82,7 +82,7 @@ namespace RawCoding.Shop.UI.Controllers
                 x.Stock.Product.Name,
                 x.Stock.Product.Series,
                 x.Stock.Product.Description,
-                DefaultImage = x.Stock.Product.Images[0],
+                DefaultImage = x.Stock.Product.Images[0].Path,
             }),
         };
     }

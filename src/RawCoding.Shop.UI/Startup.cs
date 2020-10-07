@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using RawCoding.Shop.Database;
 using Stripe;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
 using RawCoding.S3;
@@ -69,14 +72,11 @@ namespace RawCoding.Shop.UI
 
             services.AddAuthorization(config =>
             {
-                config.AddPolicy(ShopConstants.Policies.Customer, x =>
-                {
-                    x.AddAuthenticationSchemes(ShopConstants.Schemas.Guest);
-                    x.RequireAuthenticatedUser();
-                });
-            }).AddAuthorization(options =>
-            {
-                options.AddPolicy("Admin", policy => policy.RequireClaim("Role", "Admin"));
+                config.AddPolicy(ShopConstants.Policies.Customer, policy => policy
+                    .AddRequirements(new ShopRequirement(ShopConstants.Claims.Role, new[] {ShopConstants.Roles.Guest})));
+
+                config.AddPolicy(ShopConstants.Policies.Admin, policy => policy
+                    .RequireClaim(ShopConstants.Claims.Role, ShopConstants.Roles.Admin));
             });
 
             StripeConfiguration.ApiKey = _config.GetSection("Stripe")["SecretKey"];
@@ -93,7 +93,7 @@ namespace RawCoding.Shop.UI
 
             services.AddRazorPages(options =>
             {
-                options.Conventions.AuthorizeFolder("/Admin", "Admin");
+                options.Conventions.AuthorizeFolder("/Admin", ShopConstants.Policies.Admin);
                 options.Conventions.AllowAnonymousToPage("/Admin/Login");
             });
 
@@ -152,21 +152,28 @@ namespace RawCoding.Shop.UI
                 _ => "/not-found"
             };
 
-        // public class CustomerSchemeOptions : AuthenticationSchemeOptions
-        // {
-        // }
-        //
-        // public class CustomerAuthenticationHandler : AuthenticationHandler<CustomerSchemeOptions>
-        // {
-        //     public CustomerAuthenticationHandler(IOptionsMonitor<CustomerSchemeOptions> options, ILoggerFactory logger,
-        //         UrlEncoder encoder, ISystemClock clock) : base(options, logger, encoder, clock)
-        //     {
-        //     }
-        //
-        //     protected override Task<AuthenticateResult> HandleAuthenticateAsync()
-        //     {
-        //         return Task.CompletedTask(AuthenticateResult.Success(new AuthenticationTicket()));
-        //     }
-        // }
+        public class ShopRequirement : ClaimsAuthorizationRequirement, IAuthorizationRequirement
+        {
+            public ShopRequirement(string claimType, IEnumerable<string> allowedValues) : base(claimType, allowedValues)
+            {
+            }
+
+            protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ClaimsAuthorizationRequirement requirement)
+            {
+                if (context.User != null)
+                {
+                    if (context.User.HasClaim(ShopConstants.Claims.Role, ShopConstants.Roles.Admin))
+                    {
+                        context.Succeed(requirement);
+                    }
+                    else
+                    {
+                        return base.HandleRequirementAsync(context, requirement);
+                    }
+                }
+
+                return Task.CompletedTask;
+            }
+        }
     }
 }

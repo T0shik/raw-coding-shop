@@ -5,6 +5,7 @@ namespace RawCoding.S3
         Favicon,
         Png,
         Jpg,
+        Jpeg,
         Mp4,
     }
 }

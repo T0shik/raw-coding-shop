@@ -15,7 +15,7 @@
                 <div class="columns mt-4 is-mobile" v-for="item in cart.items" :key="item.stockId">
                     <div class="column">
                         <figure class="image is-square">
-                            <img :src="'/images/' + item.image" alt="">
+                            <img :src="item.image" alt="">
                         </figure>
                     </div>
                     <div class="column flex-column py-3">
