@@ -58,10 +58,7 @@ namespace RawCoding.Shop.UI
 
             services.ConfigureApplicationCookie(options => { options.LoginPath = "/Admin/Login"; });
 
-            services.AddAuthentication(options =>
-                {
-                    // options.DefaultChallengeScheme = ShopConstants.Schemas.Guest;
-                })
+            services.AddAuthentication()
                 .AddCookie(ShopConstants.Schemas.Guest,
                     config =>
                     {
@@ -73,14 +70,15 @@ namespace RawCoding.Shop.UI
             services.AddAuthorization(config =>
             {
                 config.AddPolicy(ShopConstants.Policies.Customer, policy => policy
-                    .AddRequirements(new ShopRequirement(ShopConstants.Claims.Role, new[] {ShopConstants.Roles.Guest})));
+                    .AddAuthenticationSchemes(ShopConstants.Schemas.Guest)
+                    .AddRequirements(new ShopRequirement())
+                    .RequireAuthenticatedUser());
 
                 config.AddPolicy(ShopConstants.Policies.Admin, policy => policy
                     .RequireClaim(ShopConstants.Claims.Role, ShopConstants.Roles.Admin));
             });
 
             StripeConfiguration.ApiKey = _config.GetSection("Stripe")["SecretKey"];
-
 
             services.Configure<RouteOptions>(options =>
             {
@@ -152,23 +150,16 @@ namespace RawCoding.Shop.UI
                 _ => "/not-found"
             };
 
-        public class ShopRequirement : ClaimsAuthorizationRequirement, IAuthorizationRequirement
+        public class ShopRequirement : AuthorizationHandler<ShopRequirement>, IAuthorizationRequirement
         {
-            public ShopRequirement(string claimType, IEnumerable<string> allowedValues) : base(claimType, allowedValues)
-            {
-            }
-
-            protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ClaimsAuthorizationRequirement requirement)
+            protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ShopRequirement requirement)
             {
                 if (context.User != null)
                 {
-                    if (context.User.HasClaim(ShopConstants.Claims.Role, ShopConstants.Roles.Admin))
+                    if (context.User.HasClaim(ShopConstants.Claims.Role, ShopConstants.Roles.Admin)
+                        || context.User.HasClaim(ShopConstants.Claims.Role, ShopConstants.Roles.Guest))
                     {
                         context.Succeed(requirement);
-                    }
-                    else
-                    {
-                        return base.HandleRequirementAsync(context, requirement);
                     }
                 }
 

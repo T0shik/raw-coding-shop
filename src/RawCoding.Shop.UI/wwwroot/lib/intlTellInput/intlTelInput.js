@@ -571,7 +571,6 @@
                             this.options.geoIpLookup(function(countryCode) {
                                 window.intlTelInputGlobals.autoCountry = countryCode.toLowerCase();
                                 // tell all instances the auto country is ready
-                                // TODO: this should just be the current instances
                                 // UPDATE: use setTimeout in case their geoIpLookup function calls this callback straight
                                 // away (e.g. if they have already done the geo ip lookup somewhere else). Using
                                 // setTimeout means that the current thread of execution will finish before executing

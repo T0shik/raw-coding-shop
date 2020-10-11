@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using RawCoding.Shop.Application.Emails;
 using RawCoding.Shop.Domain.Interfaces;
 using RawCoding.Shop.Domain.Models;
 
@@ -10,21 +11,38 @@ namespace RawCoding.Shop.Application.Orders
     {
         private readonly IOrderManager _orderManager;
         private readonly ICartManager _cartManager;
+        private readonly IEmailSink _emailSink;
+        private readonly IEmailTemplateFactory _emailTemplateFactory;
 
         public CreateOrder(
             IOrderManager orderManager,
-            ICartManager cartManager)
+            ICartManager cartManager,
+            IEmailSink emailSink,
+            IEmailTemplateFactory emailTemplateFactory)
         {
             _orderManager = orderManager;
             _cartManager = cartManager;
+            _emailSink = emailSink;
+            _emailTemplateFactory = emailTemplateFactory;
         }
 
-        public Task Do(Order order)
+        public async Task Do(Order order)
         {
             order.Id = CreateOrderReference();
-            // todo send email
+            await _orderManager.CreateOrder(order);
+
+            var fullOrder = _orderManager.GetOrderById(order.Id);
+            var emailMessage = await _emailTemplateFactory.RenderOrderAsync(fullOrder);
+            await _emailSink.SendAsync(new SendEmailRequest
+            {
+                To = fullOrder.Cart.Email,
+                Subject = $"Raw Coding - Purchase Reference - {fullOrder.Id}",
+                Message = emailMessage,
+                Html = true,
+            });
+
             // todo stock manager should extract the order here.
-            return Task.WhenAll(_cartManager.Close(order.CartId), _orderManager.CreateOrder(order));
+            await _cartManager.Close(order.CartId);
         }
 
         private string CreateOrderReference()

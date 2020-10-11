@@ -37,6 +37,7 @@ namespace RawCoding.Shop.Database
         public Order GetOrderById(string id)
         {
             return _ctx.Orders
+                .AsNoTracking()
                 .Include(x => x.Cart)
                 .ThenInclude(x => x.Products)
                 .ThenInclude(x => x.Stock)

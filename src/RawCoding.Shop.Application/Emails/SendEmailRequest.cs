@@ -1,6 +1,6 @@
-namespace RawCoding.Shop.UI.Workers.Email
+namespace RawCoding.Shop.Application.Emails
 {
-    public class EmailRequest
+    public class SendEmailRequest
     {
         public string To { get; set; }
         public string Subject { get; set; }
