@@ -39,7 +39,7 @@ namespace RawCoding.Shop.Application.Cart
             };
         }
 
-        public async Task<IEnumerable<T>> Do<T>(string userId, Func<CartProduct, T> selector)
+        public async Task<IEnumerable<T>> ByUserId<T>(string userId, Func<CartProduct, T> selector)
         {
             var cart = await _cartManager.GetCart(userId);
             if (cart == null)
@@ -51,14 +51,9 @@ namespace RawCoding.Shop.Application.Cart
         }
 
 
-        public Task<Domain.Models.Cart> Get(string cartId)
+        public Task<Domain.Models.Cart> ById(string cartId)
         {
             return _cartManager.GetCart(cartId);
-        }
-
-        public Domain.Models.Cart Full(string cartId)
-        {
-            return _cartManager.GetCartFull(cartId);
         }
 
         public Task<int> Id(string userId)

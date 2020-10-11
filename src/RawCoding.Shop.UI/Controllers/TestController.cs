@@ -48,43 +48,11 @@ namespace RawCoding.Shop.UI.Controllers
             {
                 Subject = "Test",
                 To = "info@raw-coding.dev",
-                Message = template.Render(Hash.FromAnonymousObject(ToAnon(order))),
+                Message = template.Render(Hash.FromAnonymousObject(EmailTemplateFactory.ConvertOrder(order))),
                 Html = true,
             });
 
             return Ok();
         }
-
-        private static object ToAnon(Order order) => new
-        {
-            order.Id,
-            order.Status,
-
-            order.Cart.Name,
-            order.Cart.Email,
-            order.Cart.Phone,
-
-            order.Cart.Address1,
-            order.Cart.Address2,
-            order.Cart.City,
-            order.Cart.Country,
-            order.Cart.PostCode,
-            order.Cart.State,
-
-            Products = order.Cart.Products.Select(x => new
-            {
-                x.Stock.Product.StockDescription,
-                StockText = x.Stock.Description,
-
-                x.Qty,
-                x.Stock.Value,
-                Total = (x.Qty * x.Stock.Value).ToMoney(),
-
-                x.Stock.Product.Name,
-                x.Stock.Product.Series,
-                x.Stock.Product.Description,
-                DefaultImage = x.Stock.Product.Images[0].Path,
-            }),
-        };
     }
 }

@@ -21,37 +21,39 @@ namespace RawCoding.Shop.UI.Workers.Email
         }
 
         public Task<string> RenderOrderAsync(Order order) =>
-            RenderTemplate("order", new
+            RenderTemplate("order", ConvertOrder(order));
+
+        public static object ConvertOrder(Order order) => new
+        {
+            order.Id,
+            order.Status,
+
+            order.Cart.Name,
+            order.Cart.Email,
+            order.Cart.Phone,
+
+            order.Cart.Address1,
+            order.Cart.Address2,
+            order.Cart.City,
+            order.Cart.Country,
+            order.Cart.PostCode,
+            order.Cart.State,
+
+            Products = order.Cart.Products.Select(x => new
             {
-                order.Id,
-                order.Status,
+                x.Stock.Product.StockDescription,
+                StockText = x.Stock.Description,
 
-                order.Cart.Name,
-                order.Cart.Email,
-                order.Cart.Phone,
+                x.Qty,
+                x.Stock.Value,
+                Total = (x.Qty * x.Stock.Value).ToMoney(),
 
-                order.Cart.Address1,
-                order.Cart.Address2,
-                order.Cart.City,
-                order.Cart.Country,
-                order.Cart.PostCode,
-                order.Cart.State,
-
-                Products = order.Cart.Products.Select(x => new
-                {
-                    x.Stock.Product.StockDescription,
-                    StockText = x.Stock.Description,
-
-                    x.Qty,
-                    x.Stock.Value,
-                    Total = (x.Qty * x.Stock.Value).ToMoney(),
-
-                    x.Stock.Product.Name,
-                    x.Stock.Product.Series,
-                    x.Stock.Product.Description,
-                    DefaultImage = x.Stock.Product.Images[0].Path,
-                }),
-            });
+                x.Stock.Product.Name,
+                x.Stock.Product.Series,
+                x.Stock.Product.Description,
+                DefaultImage = x.Stock.Product.Images[0].Path,
+            }),
+        };
 
         private async Task<string> RenderTemplate(string templateName, object seed)
         {

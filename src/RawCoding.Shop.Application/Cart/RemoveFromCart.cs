@@ -19,13 +19,13 @@ namespace RawCoding.Shop.Application.Cart
 
         public class Form
         {
-            public string CartId { get; set; }
+            public string UserId { get; set; }
             public int StockId { get; set; }
         }
 
         public async Task<BaseResponse> Do(Form request)
         {
-            var removedStock = await _cartManager.RemoveStock(request.StockId, request.CartId);
+            var removedStock = await _cartManager.RemoveStock(request.StockId, request.UserId);
             if (removedStock < 0)
             {
                 return new BaseResponse("Product not found", false);

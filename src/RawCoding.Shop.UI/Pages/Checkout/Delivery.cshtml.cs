@@ -20,7 +20,7 @@ namespace RawCoding.Shop.UI.Pages.Checkout
             [FromServices] IWebHostEnvironment env)
         {
             var userId = User.GetUserId();
-            var cart = await getCart.Get(userId);
+            var cart = await getCart.ById(userId);
             if (cart.Products.Count <= 0)
             {
                 return RedirectToPage("/Index");
