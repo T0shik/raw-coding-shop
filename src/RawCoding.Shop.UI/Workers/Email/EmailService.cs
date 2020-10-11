@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using RawCoding.Shop.Application.Emails;
 
 namespace RawCoding.Shop.UI.Workers.Email
 {
@@ -62,7 +63,7 @@ namespace RawCoding.Shop.UI.Workers.Email
                 Credentials = new NetworkCredential(settings.Account, settings.Password),
             };
         }
-        private static MailMessage CreateMessage(EmailSettings settings, EmailRequest request)
+        private static MailMessage CreateMessage(EmailSettings settings, SendEmailRequest request)
         {
             return new MailMessage(settings.SenderEmail, request.To)
             {

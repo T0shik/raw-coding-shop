@@ -6,6 +6,7 @@
     Layout = "_Layout";
 }
 
+@* TODO: MAKE THIS PRETTY *@
 <div class="text-white">
     <div>Name: @Model.Order.Cart.Name</div>
     <div>Email: @Model.Order.Cart.Email</div>
@@ -25,8 +26,3 @@
         <div>@p.Stock.Product.Name - @p.Stock.Description - @p.Qty</div>
     }
 </div>
-
-
-<environment include="Development">
-    <partial name="Shared/Emails/_OrderConfirmation" model="@Model.Order" />
-</environment>

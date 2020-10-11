@@ -26,28 +26,26 @@ namespace RawCoding.Shop.UI.Controllers
             _cartManager = cartManager;
         }
 
-        [HttpGet("guest-auth")]
         [AllowAnonymous]
+        [HttpGet("guest-auth")]
         public async Task<IActionResult> Auth(string returnUrl = null)
         {
             var userId = Guid.NewGuid().ToString();
             var identity = new ClaimsIdentity(new[]
             {
-                new Claim(ClaimTypes.Role, ShopConstants.Roles.Guest),
+                new Claim(ShopConstants.Claims.Role, ShopConstants.Roles.Guest),
                 new Claim(ClaimTypes.NameIdentifier, userId),
             }, ShopConstants.Schemas.Guest);
 
             var claimsPrinciple = new ClaimsPrincipal(identity);
 
-            var signInAsync = HttpContext.SignInAsync(
+            await HttpContext.SignInAsync(
                 ShopConstants.Schemas.Guest,
                 claimsPrinciple,
                 new AuthenticationProperties
                 {
                     IsPersistent = true
                 });
-
-            await signInAsync;
 
             return Redirect(returnUrl ?? "/");
         }

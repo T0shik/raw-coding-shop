@@ -76,7 +76,7 @@
           loading(false);
           var hiddenInput = document.createElement('input');
           hiddenInput.setAttribute('type', 'hidden');
-          hiddenInput.setAttribute('name', 'stripeToken');
+          hiddenInput.setAttribute('name', 'paymentId');
           hiddenInput.setAttribute('value', paymentIntentId);
           paymentForm.appendChild(hiddenInput);
           paymentForm.submit();

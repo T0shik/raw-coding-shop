@@ -9,10 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Admin" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="DotLiquid" Version="2.0.361" />
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
   </ItemGroup>
 

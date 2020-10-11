@@ -70,7 +70,8 @@ namespace RawCoding.Shop.Database
 
         public async Task<int> GetCartId(string userId)
         {
-            var cart = _ctx.Carts?.AsNoTracking()
+            var cart = _ctx.Carts?
+                           .AsNoTracking()
                            .FirstOrDefault(x => x.UserId == userId && !x.Closed)
                        ?? await CreateCart(userId);
 
