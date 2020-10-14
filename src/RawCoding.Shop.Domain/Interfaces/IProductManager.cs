@@ -10,8 +10,14 @@ namespace RawCoding.Shop.Domain.Interfaces
         Task<int> DeleteProduct(int id);
         Task<int> UpdateProduct(Product product);
 
-        Product GetProductById(int id);
         Product GetProductBySlug(string slug);
         IEnumerable<Product> GetProducts();
+
+        #region Admin
+
+        IEnumerable<Product> GetAdminPanelProducts();
+        Product GetAdminPanelProduct(int id);
+
+        #endregion
     }
 }

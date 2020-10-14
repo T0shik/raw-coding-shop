@@ -20,6 +20,7 @@ namespace RawCoding.Shop.UI.Workers.Email
             _env = env;
         }
 
+        // todo add qty, series, sub total, footer, font
         public Task<string> RenderOrderAsync(Order order) =>
             RenderTemplate("order", ConvertOrder(order));
 

@@ -14,6 +14,6 @@ namespace RawCoding.Shop.Application.Admin.Products
         }
 
         public IEnumerable<object> Do() =>
-            _productManager.GetProducts();
+            _productManager.GetAdminPanelProducts();
     }
 }

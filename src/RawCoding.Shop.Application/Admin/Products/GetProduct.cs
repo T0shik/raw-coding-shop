@@ -1,4 +1,5 @@
 ﻿using RawCoding.Shop.Domain.Interfaces;
+using RawCoding.Shop.Domain.Models;
 
 namespace RawCoding.Shop.Application.Admin.Products
 {
@@ -12,7 +13,7 @@ namespace RawCoding.Shop.Application.Admin.Products
             _productManager = productManager;
         }
 
-        public object Do(int id) =>
-            _productManager.GetProductById(id);
+        public Product Do(int id) =>
+            _productManager.GetAdminPanelProduct(id);
     }
 }

@@ -147,7 +147,7 @@ namespace RawCoding.Shop.UI
             code switch
             {
                 StatusCodes.Status404NotFound => "/not-found",
-                _ => "/not-found"
+                _ => "/",
             };
 
         public class ShopRequirement : AuthorizationHandler<ShopRequirement>, IAuthorizationRequirement

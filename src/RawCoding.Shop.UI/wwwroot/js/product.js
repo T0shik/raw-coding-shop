@@ -67,13 +67,17 @@ var init = function () {
         right.classList.add('nav-btn', 'right', 'is-size-2', 'is-bold', 'text-black')
         right.onclick = goRight;
         carousel.append(right);
-    } else {
-        carouselItems[0].classList.add('only')
     }
 
     if (carouselItems.length === 2) {
         screen.appendChild(carouselItems[0].cloneNode(true));
-        screen.appendChild(carouselItems[1].cloneNode(true));
+        screen.prepend(carouselItems[1].cloneNode(true));
+    } else if (carouselItems.length > 2) {
+        var last = carouselItems[carouselItems.length - 1]
+        screen.removeChild(last)
+        screen.prepend(last)
+    } else {
+        carouselItems[0].classList.add('only')
     }
 }
 init()
