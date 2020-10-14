@@ -34,14 +34,7 @@ namespace RawCoding.Shop.Database
         public Task<int> UpdateProduct(Product product)
         {
             _ctx.Products.Update(product);
-
             return _ctx.SaveChangesAsync();
-        }
-
-        public Product GetProductById(int id)
-        {
-            return _ctx.Products
-                .FirstOrDefault(x => x.Id == id);
         }
 
         public Product GetProductBySlug(string slug)
@@ -58,6 +51,18 @@ namespace RawCoding.Shop.Database
                 .Include(x => x.Stock)
                 .Include(x => x.Images)
                 .ToList();
+        }
+
+        public IEnumerable<Product> GetAdminPanelProducts()
+        {
+            return _ctx.Products.ToList();
+        }
+
+        public Product GetAdminPanelProduct(int id)
+        {
+            return _ctx.Products
+                .Include(x => x.Images)
+                .FirstOrDefault(x => x.Id == id);
         }
     }
 }

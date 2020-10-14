@@ -1,71 +1,52 @@
-﻿const url = '/api/admin/products';
+﻿var url = '/api/admin/products';
 
-const app = new Vue({
+var app = new Vue({
     el: '#app',
     data: () => ({
-        form: {
-            id: 0,
-            name: "Product Name",
-            description: "Product Description",
-            value: 100,
-            images: []
-        },
-        editing: false,
+        form: null,
         loading: false,
-        objectIndex: 0,
-        products: []
+        products: [],
+        images: [],
     }),
-    mounted() {
-        this.getProducts();
+    created() {
+        return this.getProducts();
     },
     methods: {
+        getProducts() {
+            this.loading = true;
+            return axios.get(url)
+                .then(res => this.products = res.data)
+                .catch(err => console.log(err))
+                .finally(this.resetForm)
+        },
+        newProduct() {
+            this.form = {
+                name: "",
+                description: "",
+                series: "",
+                stockDescription: "",
+            }
+        },
+        editProduct(id) {
+            this.loading = true;
+            return axios.get(url + '/' + id)
+                .then(res => this.form = res.data)
+                .catch(err => console.log(err))
+                .finally(() => this.loading = false);
+        },
         addImage(event) {
             const file = event.target.files[0];
-            this.form.images.push(file)
+            this.images.push(file)
         },
         moveImageUp(index) {
             const image = this.form.images[index]
-            this.form.images.splice(index, 1)
-            this.form.images.splice(index - 1, 0, image)
+            this.images.splice(index, 1)
+            this.images.splice(index - 1, 0, image)
         },
         moveImageDown(index) {
             const image = this.form.images[index]
-            this.form.images.splice(index, 1)
-            this.form.images.splice(index + 1, 0, image)
-        },
-        getProduct(id) {
-            this.loading = true;
-            axios.get(url + '/' + id)
-                .then(res => {
-                    console.log(res);
-                    var product = res.data;
-                    this.form = {
-                        id: product.id,
-                        name: product.name,
-                        description: product.description,
-                        value: product.value,
-                    };
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-                .then(() => {
-                    this.loading = false;
-                });
-        },
-        getProducts() {
-            this.loading = true;
-            axios.get(url)
-                .then(res => {
-                    console.log(res);
-                    this.products = res.data;
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-                .then(() => {
-                    this.loading = false;
-                });
+            this.images.splice(index, 1)
+            this.images.splice(index + 1, 0, image)
         },
         createProduct() {
             this.loading = true;
@@ -73,10 +54,11 @@ const app = new Vue({
 
             form.append('form.name', this.form.name);
             form.append('form.description', this.form.description);
-            form.append('form.value', this.form.value);
+            form.append('form.series', this.form.series);
+            form.append('form.stockDescription', this.form.stockDescription);
 
-            for (let i = 0; i < this.form.images.length; i++) {
-                form.append('form.images', this.form.images[i])
+            for (let i = 0; i < this.images.length; i++) {
+                form.append('form.images', this.images[i])
             }
 
             axios.post(url, form, {
@@ -84,32 +66,37 @@ const app = new Vue({
                     'Content-Type': 'multipart/form-data'
                 }
             })
-                .then(res => {
-                    console.log(res.data);
-                    this.products.push(res.data);
-                })
+                .then(() => this.getProducts())
                 .catch(err => {
                     console.log(err);
                 })
-                .then(() => {
-                    this.loading = false;
-                    this.editing = false;
-                });
+                .finally(this.resetForm)
         },
         updateProduct() {
             this.loading = true;
-            axios.put(url, this.form)
-                .then(res => {
-                    console.log(res.data);
-                    this.products.splice(this.objectIndex, 1, res.data);
-                })
+
+            const form = new FormData();
+
+            form.append('form.id', this.form.id);
+            form.append('form.name', this.form.name);
+            form.append('form.description', this.form.description);
+            form.append('form.series', this.form.series);
+            form.append('form.stockDescription', this.form.stockDescription);
+
+            for (let i = 0; i < this.images.length; i++) {
+                form.append('form.images', this.images[i])
+            }
+
+            axios.put(url, form, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+                .then(() => this.getProducts())
                 .catch(err => {
                     console.log(err);
                 })
-                .then(() => {
-                    this.loading = false;
-                    this.editing = false;
-                });
+                .finally(this.resetForm)
         },
         deleteProduct(id, index) {
             this.loading = true;
@@ -125,22 +112,15 @@ const app = new Vue({
                     this.loading = false;
                 });
         },
-        newProduct() {
-            this.editing = true;
-            this.form.id = 0;
-        },
-        editProduct(id, index) {
-            this.objectIndex = index;
-            this.getProduct(id);
-            this.editing = true;
-        },
-        cancel() {
-            this.editing = false;
+        resetForm() {
+            this.form = null
+            this.images = []
+            this.loading = false
         }
     },
     computed: {
         fileImages() {
-            return this.form.images.map(x => URL.createObjectURL(x))
+            return this.images.map(x => URL.createObjectURL(x))
         }
     }
 })

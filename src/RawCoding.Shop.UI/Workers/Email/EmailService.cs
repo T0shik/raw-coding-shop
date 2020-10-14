@@ -12,18 +12,15 @@ namespace RawCoding.Shop.UI.Workers.Email
 {
     public class EmailService : BackgroundService
     {
-        private readonly IServiceProvider _provider;
         private readonly IOptionsMonitor<EmailSettings> _optionsMonitor;
         private readonly ILogger<EmailService> _logger;
         private readonly IEmailQueue _emailQueue;
 
         public EmailService(
-            IServiceProvider provider,
             IOptionsMonitor<EmailSettings> optionsMonitor,
             ILogger<EmailService> logger,
             IEmailQueue emailQueue)
         {
-            _provider = provider;
             _optionsMonitor = optionsMonitor;
             _logger = logger;
             _emailQueue = emailQueue;

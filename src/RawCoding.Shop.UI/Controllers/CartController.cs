@@ -50,51 +50,6 @@ namespace RawCoding.Shop.UI.Controllers
             return Redirect(returnUrl ?? "/");
         }
 
-        [HttpGet("checkout")]
-        public async Task<IActionResult> Do(
-            [FromServices] IOptionsMonitor<StripeSettings> optionsMonitor,
-            [FromServices] GetCart getCart)
-        {
-            StripeConfiguration.ApiKey = optionsMonitor.CurrentValue.SecretKey;
-            var userId = User?.Claims?.FirstOrDefault(x => x.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
-            var options = new SessionCreateOptions
-            {
-                PaymentMethodTypes = new List<string>
-                {
-                    "card",
-                },
-                ShippingAddressCollection = new SessionShippingAddressCollectionOptions
-                {
-                    AllowedCountries = new List<string>
-                    {
-                        "CA",
-                        "GB",
-                    },
-                },
-                LineItems = (await getCart.Do(userId, x => new SessionLineItemOptions
-                {
-                    Amount = x.Stock.Value,
-                    Currency = "gbp",
-                    Name = x.Stock.Product.Name,
-                    Description = x.Stock.Description,
-                    Quantity = x.Qty,
-                })).ToList(),
-                Mode = "payment",
-                SuccessUrl = "https://localhost:5001/payment/success",
-                CancelUrl = "https://localhost:5001/payment/canceled",
-
-                Metadata = new Dictionary<string, string>
-                {
-                    {"user_id", userId},
-                },
-            };
-
-            var service = new SessionService();
-            var session = service.Create(options);
-
-            return Ok(session.Id);
-        }
-
         [HttpGet]
         public async Task<IActionResult> GetCart([FromServices] GetCart getCart)
         {
@@ -111,7 +66,6 @@ namespace RawCoding.Shop.UI.Controllers
         public async Task<IActionResult> UpdateCart(
             [FromBody] UpdateCart.Form request,
             [FromServices] UpdateCart updateCart)
-
         {
             var userId = User?.Claims?.FirstOrDefault(x => x.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
             if (string.IsNullOrEmpty(userId))
@@ -129,7 +83,7 @@ namespace RawCoding.Shop.UI.Controllers
         }
 
         [HttpDelete("{stockId}")]
-        public async Task<IActionResult> UpdateCart(int stockId, [FromServices] RemoveFromCart removeFromCart)
+        public async Task<IActionResult> DeleteFromCart(int stockId, [FromServices] RemoveFromCart removeFromCart)
         {
             var userId = User?.Claims?.FirstOrDefault(x => x.Type.Equals(ClaimTypes.NameIdentifier))?.Value;
             if (string.IsNullOrEmpty(userId))
@@ -139,7 +93,7 @@ namespace RawCoding.Shop.UI.Controllers
 
             var result = await removeFromCart.Do(new RemoveFromCart.Form
             {
-                CartId = userId,
+                UserId = userId,
                 StockId = stockId
             });
 

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,7 +11,6 @@ using RawCoding.Shop.Database;
 using Stripe;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
 using RawCoding.S3;
@@ -75,7 +73,9 @@ namespace RawCoding.Shop.UI
                     .RequireAuthenticatedUser());
 
                 config.AddPolicy(ShopConstants.Policies.Admin, policy => policy
-                    .RequireClaim(ShopConstants.Claims.Role, ShopConstants.Roles.Admin));
+                    .AddAuthenticationSchemes(IdentityConstants.ApplicationScheme)
+                    .RequireClaim(ShopConstants.Claims.Role, ShopConstants.Roles.Admin)
+                    .RequireAuthenticatedUser());
             });
 
             StripeConfiguration.ApiKey = _config.GetSection("Stripe")["SecretKey"];
@@ -147,7 +147,7 @@ namespace RawCoding.Shop.UI
             code switch
             {
                 StatusCodes.Status404NotFound => "/not-found",
-                _ => "/not-found"
+                _ => "/",
             };
 
         public class ShopRequirement : AuthorizationHandler<ShopRequirement>, IAuthorizationRequirement
