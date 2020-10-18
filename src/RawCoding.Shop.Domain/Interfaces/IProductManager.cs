@@ -7,14 +7,14 @@ namespace RawCoding.Shop.Domain.Interfaces
     public interface IProductManager
     {
         Task<int> CreateProduct(Product product);
-        Task<int> DeleteProduct(int id);
         Task<int> UpdateProduct(Product product);
 
         Product GetProductBySlug(string slug);
-        IEnumerable<Product> GetProducts();
+        IEnumerable<Product> GetFrontPageProducts();
 
         #region Admin
 
+        Task UpdateProductStock(int id, IEnumerable<Stock> stock);
         IEnumerable<Product> GetAdminPanelProducts();
         Product GetAdminPanelProduct(int id);
 

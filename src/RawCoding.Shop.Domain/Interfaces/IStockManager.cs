@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using RawCoding.Shop.Domain.Models;
 
@@ -13,5 +15,6 @@ namespace RawCoding.Shop.Domain.Interfaces
 
         Stock GetStockWithProduct(int stockId);
         IEnumerable<Stock> GetStockWithProduct(int[] stockIds);
+        IEnumerable<Stock> ListProductStock(int id);
     }
 }

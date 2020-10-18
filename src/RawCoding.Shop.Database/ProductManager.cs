@@ -45,12 +45,24 @@ namespace RawCoding.Shop.Database
                 .FirstOrDefault(x => x.Slug == slug);
         }
 
-        public IEnumerable<Product> GetProducts()
+        public IEnumerable<Product> GetFrontPageProducts()
         {
             return _ctx.Products
                 .Include(x => x.Stock)
                 .Include(x => x.Images)
+                .Where(x => x.Stock.Count > 0)
                 .ToList();
+        }
+
+        public Task UpdateProductStock(int id, IEnumerable<Stock> stocks)
+        {
+            var product = _ctx.Products
+                .Include(x => x.Stock)
+                .FirstOrDefault(x => x.Id == id);
+
+            product.Stock = stocks.ToList();
+
+            return _ctx.SaveChangesAsync();
         }
 
         public IEnumerable<Product> GetAdminPanelProducts()

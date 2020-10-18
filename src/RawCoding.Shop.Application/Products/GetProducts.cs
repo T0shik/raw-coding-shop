@@ -17,7 +17,7 @@ namespace RawCoding.Shop.Application.Products
 
         public IEnumerable<ProductViewModel> Do()
         {
-            return _productManager.GetProducts()
+            return _productManager.GetFrontPageProducts()
                 .Select(x => new ProductViewModel
                 {
                     Name = x.Name,
@@ -30,7 +30,7 @@ namespace RawCoding.Shop.Application.Products
                     OutOfStock = x.Stock.All(y => y.Qty == 0),
                     Images = x.Images.Select(y => y.Path)
                         .Take(2)
-                        .ToList()
+                        .ToList(),
                 });
         }
 

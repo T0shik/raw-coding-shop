@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RawCoding.S3;
 using RawCoding.Shop.Application.Admin.Products;
+using RawCoding.Shop.Application.Admin.Stocks;
 using RawCoding.Shop.Domain.Models;
 
 namespace RawCoding.Shop.UI.Controllers.Admin
@@ -23,12 +24,24 @@ namespace RawCoding.Shop.UI.Controllers.Admin
         }
 
         [HttpGet]
-        public IEnumerable<object> GetProducts([FromServices] GetProducts getProducts) =>
+        public IEnumerable<object> GetProducts(
+            [FromServices] GetProducts getProducts) =>
             getProducts.Do();
 
         [HttpGet("{id}")]
         public object GetProduct(int id, [FromServices] GetProduct getProduct) =>
             getProduct.Do(id);
+
+        [HttpGet("{id}/stocks")]
+        public IActionResult GetProductStock(int id, [FromServices] GetStock getStock) =>
+            Ok(getStock.ForProduct(id));
+
+
+        [HttpPut("{id}/stocks")]
+        public Task UpdateStock(int id,
+            [FromBody] IEnumerable<UpdateStock.StockForm> stocks,
+            [FromServices] UpdateStock updateStock) =>
+            updateStock.ForProduct(id, stocks);
 
         [HttpPost]
         public async Task<object> CreateProduct(
@@ -103,10 +116,5 @@ namespace RawCoding.Shop.UI.Controllers.Admin
                 yield return s3Client.SavePublicFile($"images/{fileName}", image.OpenReadStream());
             }
         }
-
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(int id, [FromServices] DeleteProduct deleteProduct) =>
-            Ok(await deleteProduct.Do(id));
     }
 }

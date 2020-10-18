@@ -7,23 +7,16 @@ namespace RawCoding.Shop.Application.Admin.Stocks
     [Service]
     public class GetStock
     {
-        private readonly IProductManager _productManager;
+        private readonly IStockManager _stockManager;
 
-        public GetStock(IProductManager productManager)
+        public GetStock(IStockManager stockManager)
         {
-            _productManager = productManager;
+            _stockManager = stockManager;
         }
 
-        public IEnumerable<Product> Do()
+        public IEnumerable<Stock> ForProduct(int id)
         {
-            return _productManager.GetProducts();
-        }
-
-        public class StockViewModel
-        {
-            public int Id { get; set; }
-            public string Description { get; set; }
-            public int Qty { get; set; }
+            return _stockManager.ListProductStock(id);
         }
     }
 }
