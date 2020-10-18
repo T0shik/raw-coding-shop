@@ -9,23 +9,28 @@ namespace RawCoding.Shop.Application.Admin.Stocks
     [Service]
     public class UpdateStock
     {
-        private readonly IStockManager _stockManager;
+        private readonly IProductManager _productManager;
 
-        public UpdateStock(IStockManager stockManager)
+        public UpdateStock(IProductManager productManager)
         {
-            _stockManager = stockManager;
+            _productManager = productManager;
         }
 
-        public async Task<IEnumerable<object>> Do(IEnumerable<Stock> stocks)
+        public class StockForm
         {
-            await _stockManager.UpdateStockRange(stocks);
+            public int Qty { get; set; }
+            public string Description { get; set; }
+            public int Value { get; set; }
+        }
 
-            return stocks.Select(x => new
+        public Task ForProduct(int productId, IEnumerable<StockForm> stocks)
+        {
+            return _productManager.UpdateProductStock(productId, stocks.Select(x => new Stock
             {
-                x.Id,
-                x.Qty,
-                x.ProductId
-            });
+                Qty = x.Qty,
+                Description = x.Description,
+                Value = x.Value,
+            }));
         }
     }
 }

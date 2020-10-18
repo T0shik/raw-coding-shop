@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using RawCoding.Shop.Domain.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using RawCoding.Shop.Domain.Interfaces;
 
@@ -58,6 +60,14 @@ namespace RawCoding.Shop.Database
                 .AsNoTracking()
                 .Where(x => stockIds.Contains(x.Id))
                 .Include(x => x.Product)
+                .ToList();
+        }
+
+        public IEnumerable<Stock> ListProductStock(int id)
+        {
+            return _ctx.Stock
+                .AsNoTracking()
+                .Where(x => x.ProductId == id)
                 .ToList();
         }
     }

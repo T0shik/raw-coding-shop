@@ -3,40 +3,61 @@
 }
 
 <div id="app">
-    <div class="columns">
-        <div class="column is-3">
-            <table class="table">
-                <tr v-for="product in products" @@click="selectProduct(product)">
-                    <td>{{product.description}}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="column is-6" v-if="selectedProduct">
-            <table class="table">
-                <tr v-for="(stock, index) in selectedProduct.stock">
-                    <td><input class="input" v-model="stock.description" /></td>
-                    <td><input class="input" v-model="stock.qty" /></td>
-                    <td><a class="has-text-danger" @@click="deleteStock(stock.id, index)">Delete</a></td>
-                </tr>
-            </table>
-            <a class="button is-warning" @@click="updateStock">
-                Update Products
-            </a>
-        </div>
-        <div class="column is-3" v-if="selectedProduct">
-            <h2 class="title">New Stock</h2>
-            <div class="field">
-                <div class="control">
-                    <input class="input" v-model="newStock.description" />
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <input class="input" v-model="newStock.qty" />
-                </div>
-            </div>
-            <a class="button is-success" @@click="addStock">Add</a>
-        </div>
+    <div v-if="!selectedProduct">
+        <table class="table">
+            <caption>Products</caption>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="product in products" @@click="selectProduct(product)">
+                <td>{{product.name}}</td>
+                <td>{{product.description}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div v-else>
+        <table class="table">
+            <caption>{{selectedProduct.name}} Stock</caption>
+            <thead>
+            <tr>
+                <td>Description</td>
+                <td>Qty</td>
+                <td>Value</td>
+                <td>
+                    <button class="button is-success" @@click="addStock">
+                        Add
+                    </button>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(s, index) in stock">
+                <td>
+                    <input class="input" v-model="s.description"/>
+                </td>
+                <td>
+                    <input class="input" v-model.number="s.qty"/>
+                </td>
+                <td>
+                    <input class="input" v-model.number="s.value"/>
+                </td>
+                <td>
+                    <a class="has-text-danger" @@click="() => stock.splice(index, 1)">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a class="button is-warning" @@click="updateStock">
+            Update Stock
+        </a>
+        <a class="button" @@click="resetForm">
+            Cancel
+        </a>
     </div>
 </div>
 
