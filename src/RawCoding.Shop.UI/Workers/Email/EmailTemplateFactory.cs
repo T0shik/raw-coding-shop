@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DotLiquid;
 using Microsoft.AspNetCore.Hosting;
 using RawCoding.Shop.Application.Emails;
+using RawCoding.Shop.Application.Projections;
 using RawCoding.Shop.Domain.Extensions;
 using RawCoding.Shop.Domain.Models;
 
@@ -21,42 +22,26 @@ namespace RawCoding.Shop.UI.Workers.Email
         }
 
         // todo add qty, series, sub total, footer, font
-        public Task<string> RenderOrderAsync(Order order) =>
-            RenderTemplate("order", ConvertOrder(order));
+        public Task<string> RenderOrderConfirmationAsync(Order order) =>
+            Compose(
+                RenderHeaderAsync(),
+                RenderTemplateAsync("order-confirmation", OrderProjections.Project(order)),
+                RenderFooterAsync()
+            );
 
-        public static object ConvertOrder(Order order) => new
-        {
-            order.Id,
-            order.Status,
+        public Task<string> RenderShippingConfirmationAsync(Order order) => Compose(
+            RenderHeaderAsync(),
+            RenderTemplateAsync("shipping-confirmation", OrderProjections.Project(order)),
+            RenderFooterAsync()
+        );
 
-            order.Cart.Name,
-            order.Cart.Email,
-            order.Cart.Phone,
+        private Task<string> RenderHeaderAsync() => RenderTemplateAsync("header");
+        private Task<string> RenderFooterAsync() => RenderTemplateAsync("footer");
 
-            order.Cart.Address1,
-            order.Cart.Address2,
-            order.Cart.City,
-            order.Cart.Country,
-            order.Cart.PostCode,
-            order.Cart.State,
+        private static async Task<string> Compose(params Task<string>[] components) =>
+            string.Concat(await Task.WhenAll(components));
 
-            Products = order.Cart.Products.Select(x => new
-            {
-                x.Stock.Product.StockDescription,
-                StockText = x.Stock.Description,
-
-                x.Qty,
-                x.Stock.Value,
-                Total = (x.Qty * x.Stock.Value).ToMoney(),
-
-                x.Stock.Product.Name,
-                x.Stock.Product.Series,
-                x.Stock.Product.Description,
-                DefaultImage = x.Stock.Product.Images[0].Path,
-            }),
-        };
-
-        private async Task<string> RenderTemplate(string templateName, object seed)
+        private async Task<string> RenderTemplateAsync(string templateName, object seed = null)
         {
             var templatePath = Path.Combine(_env.WebRootPath, "email-templates", $"{templateName}.liquid");
             if (!TemplateCache.TryGetValue(templatePath, out var template))

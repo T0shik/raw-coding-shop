@@ -32,7 +32,7 @@ namespace RawCoding.Shop.Application.Orders
             await _orderManager.CreateOrder(order);
 
             var fullOrder = _orderManager.GetOrderById(order.Id);
-            var emailMessage = await _emailTemplateFactory.RenderOrderAsync(fullOrder);
+            var emailMessage = await _emailTemplateFactory.RenderOrderConfirmationAsync(fullOrder);
             await _emailSink.SendAsync(new SendEmailRequest
             {
                 To = fullOrder.Cart.Email,

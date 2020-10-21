@@ -4,46 +4,39 @@
         status: 0,
         loading: false,
         orders: [],
-        selectedOrder: null
-    },
-    mounted() {
-        this.getOrders();
+        order: null
     },
     watch: {
-        status: function () {
-            this.getOrders();
+        status: {
+            handler: function () {
+                this.getOrders();
+            },
+            immediate: true
         }
     },
     methods: {
         getOrders() {
             this.loading = true;
-            axios.get('/orders?status=' + this.status)
-                .then(result => {
-                    this.orders = result.data;
-                    this.loading = false;
-                });
+            return axios.get('/api/admin/orders?status=' + this.status)
+                .then(result => this.orders = result.data)
+                .then(this.reset);
         },
         selectOrder(id) {
             this.loading = true;
-            axios.get('/orders/' + id)
+            return axios.get('/api/admin/orders/' + id)
                 .then(result => {
-                    this.selectedOrder = result.data;
+                    this.order = result.data;
                     this.loading = false;
                 });
         },
         updateOrder() {
             this.loading = true;
-            axios.put('/orders/' + this.selectedOrder.id, null)
-                .then(result => {
-                    this.loading = false;
-                    this.exitOrder();
-                    this.getOrders();
-                });
+            return axios.put('/api/admin/orders/' + this.order.id, null)
+                .then(this.getOrders)
         },
-        exitOrder() {
-            this.selectedOrder = null;
+        reset() {
+            this.order = null;
+            this.loading = false;
         }
-    },
-    computed: {
     }
 });

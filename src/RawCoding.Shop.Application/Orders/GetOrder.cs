@@ -1,4 +1,6 @@
-﻿using RawCoding.Shop.Domain.Interfaces;
+﻿using RawCoding.Shop.Application.Emails;
+using RawCoding.Shop.Application.Projections;
+using RawCoding.Shop.Domain.Interfaces;
 using RawCoding.Shop.Domain.Models;
 
 namespace RawCoding.Shop.Application.Orders
@@ -13,6 +15,13 @@ namespace RawCoding.Shop.Application.Orders
             _orderManager = orderManager;
         }
 
-        public Order Do(string orderId) => _orderManager.GetOrderById(orderId);
+        public Order ForUserById(string orderId) => _orderManager.GetOrderById(orderId);
+
+        public object ForAdminById(string orderId)
+        {
+            var order = _orderManager.GetOrderById(orderId);
+
+            return OrderProjections.Project(order);
+        }
     }
 }

@@ -24,13 +24,10 @@ namespace RawCoding.Shop.Database
             return _ctx.Orders.Any(x => x.Id == reference);
         }
 
-        public IEnumerable<TResult> GetOrdersByStatus<TResult>(OrderStatus status,
-            Expression<Func<Order, TResult>> selector)
+        public IEnumerable<Order> OrdersForAdminPanel(OrderStatus status)
         {
             return _ctx.Orders
-                .Include(x => x.Cart)
                 .Where(x => x.Status == status)
-                .Select(selector)
                 .ToList();
         }
 

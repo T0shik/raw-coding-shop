@@ -1,29 +1,105 @@
 ﻿@page
 
-}
-
 <div id="app">
-    <div v-if="selectedOrder === null">
+    <div v-if="order === null">
         <div class="tabs is-centered">
             <ul>
-                <li v-bind:class="{'is-active': status === 0}"><a @@click="status = 0">Pending</a></li>
-                <li v-bind:class="{'is-active': status === 1}"><a @@click="status = 1">Packed</a></li>
-                <li v-bind:class="{'is-active': status === 2}"><a @@click="status = 2">Shipped</a></li>
+                <li v-bind:class="{'is-active': status === 0}">
+                    <a @@click="status = 0">New</a>
+                </li>
+                <li v-bind:class="{'is-active': status === 1}">
+                    <a @@click="status = 1">Shipped</a>
+                </li>
             </ul>
         </div>
-        <div v-if="orders.length > 0">
-            <p v-for="order in orders">
-                <a @@click="selectOrder(order.id)">{{order.orderRef}} - {{order.email}}</a>
-            </p>
-        </div>
+        <table class="table is-hoverable is-fullwidth">
+            <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Stripe Reference</th>
+                <th>Created</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr @@click="selectOrder(order.id)" v-for="order in orders">
+                <td>{{order.id}}</td>
+                <td>{{order.stripeReference}}</td>
+                <td>{{new Date(order.created)
+                    .toISOString()
+                    .split('T')
+                    .reduce((a,b) => a + " " + b)
+                    .split('.')
+                    [0]}}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <div v-else>
-        <p>
-            <button @@click="exitOrder()">Exit</button>
-        </p>
-        <p class="title">{{selectedOrder.orderRef}}</p>
-        <p class="subtitle">{{selectedOrder.email}}</p>
-        <button @@click="updateOrder()">Process</button>
+        <div>
+            <div>
+                <label>Reference:</label><span>{{order.id}}</span>
+            </div>
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <td></td>
+                    <td>Product</td>
+                    <td>Stock</td>
+                    <td>Qty</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="product in order.products">
+                    <td>
+                        <figure class="image is-128x128">
+                            <img :src="product.defaultImage">
+                        </figure>
+                    </td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.stockDescription }} - {{ product.stockText }}</td>
+                    <td>{{ product.qty }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table class="table is-bordered is-fullwidth">
+                <thead>
+                <tr>
+                    <td>
+                        Delivery Information
+                    </td>
+                    <td>
+                        Contact Information
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ order.address1 }}, {{ order.address2 }}</td>
+                    <td>{{ order.name }}</td>
+                </tr>
+                <tr>
+                    <td>{{ order.city }}</td>
+                    <td>{{ order.email }}</td>
+                </tr>
+                <tr>
+                    <td>{{ order.country }}</td>
+                    <td>{{ order.phone }}</td>
+                </tr>
+                <tr>
+                    <td>{{ order.state }}</td>
+                </tr>
+                <tr>
+                    <td>{{ order.postCode }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4">
+            <button class="button" @@click="reset()">Exit</button>
+            <button class="button is-warning" @@click="updateOrder()">Mark as Shipped</button>
+        </div>
     </div>
 </div>
 

@@ -1,4 +1,5 @@
-﻿using RawCoding.Shop.Domain.Enums;
+﻿using System;
+using RawCoding.Shop.Domain.Enums;
 
 namespace RawCoding.Shop.Domain.Models
 {
@@ -10,5 +11,6 @@ namespace RawCoding.Shop.Domain.Models
 
         public int CartId { get; set; }
         public Cart Cart { get; set; }
+        public DateTime Created { get; set; } = DateTime.UtcNow;
     }
 }
