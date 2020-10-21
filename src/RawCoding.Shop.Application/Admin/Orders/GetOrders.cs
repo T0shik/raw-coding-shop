@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using RawCoding.Shop.Domain.Enums;
 using RawCoding.Shop.Domain.Interfaces;
+using RawCoding.Shop.Domain.Models;
 
 namespace RawCoding.Shop.Application.Admin.Orders
 {
@@ -14,13 +15,7 @@ namespace RawCoding.Shop.Application.Admin.Orders
             _orderManager = orderManager;
         }
 
-        public IEnumerable<object> Do(int status) =>
-            _orderManager.GetOrdersByStatus((OrderStatus)status,
-                x => new
-                {
-                    x.Id,
-                    OrderRef = x.Id,
-                    x.Cart.Email
-                });
+        public IEnumerable<object> ForStatus(OrderStatus status) =>
+            _orderManager.OrdersForAdminPanel(status);
     }
 }

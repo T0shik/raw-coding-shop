@@ -130,7 +130,7 @@ namespace RawCoding.Shop.UI
                         {
                             Id = "dummy",
                             StripeReference = "dummy",
-                            Status = OrderStatus.Pending,
+                            Status = OrderStatus.New,
                             Cart = new Cart
                             {
                                 DeliveryInformationComplete = true,

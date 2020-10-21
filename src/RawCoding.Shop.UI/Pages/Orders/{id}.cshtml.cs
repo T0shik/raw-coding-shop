@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using RawCoding.Shop.Application.Admin.Orders;
+using RawCoding.Shop.Application.Orders;
 using RawCoding.Shop.Domain.Models;
 
 namespace RawCoding.Shop.UI.Pages.Orders
@@ -17,7 +17,7 @@ namespace RawCoding.Shop.UI.Pages.Orders
                 return RedirectToPage("/Index");
             }
 
-            Order = getOrder.Do(id);
+            Order = getOrder.ForUserById(id);
 
             if (Order == null)
             {

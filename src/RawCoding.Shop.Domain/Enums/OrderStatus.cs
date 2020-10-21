@@ -2,8 +2,7 @@
 {
     public enum OrderStatus
     {
-        Pending,
-        Packed,
+        New,
         Shipped
     }
 }
