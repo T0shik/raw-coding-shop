@@ -3,8 +3,14 @@
         <tbody>
         <tr style="height: 55px; border-top: 1px solid lavender">
             <td colspan="4"
-                style="color: #fff; font-weight: bold; font-size: 1.5rem; text-align: center; padding-top: .5rem;">
+                style="font-family: 'Nunito', sans-serif; color: #fff; font-weight: bold; font-size: 1.5rem; text-align: center; padding-top: .5rem;">
                 Shipping Confirmation
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"
+                style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 1rem; padding-top: .5rem;">
+                Your order is on the way 🚚...
             </td>
         </tr>
 
@@ -15,47 +21,47 @@
                          alt="">
                 </td>
                 <td colspan="2" style="padding: 0 0.5rem;">
-                    <div style="color: #fff; font-weight: bold; font-size: 14px;">{{ product.Name }}</div>
+                    <div style="font-family: 'Nunito', sans-serif; color: #fff; font-weight: bold; font-size: 18px;">{{ product.Name }}</div>
                     {% if product.StockDescription and product.StockDescription != '' %}
-                        <div style="color: #fff; font-size: 12px;">{{ product.StockDescription }}
+                        <div style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 14px;">{{ product.StockDescription }}
                             : {{ product.StockText }}</div>
                     {% endif %}
-                    <div style="color: #c0c0c0; font-size: 13px;">Qty: x{{ product.Qty }}</div>
+                    <div style="font-family: 'Nunito', sans-serif; color: #c0c0c0; font-size: 15px;">Qty: x{{ product.Qty }}</div>
                 </td>
-                <td colspan="1" style="color: #fff; width: 100px; height: 100px;">
+                <td colspan="1" style="font-family: 'Nunito', sans-serif; color: #fff; width: 100px; height: 100px;">
                     {{ product.Total }}
                 </td>
             </tr>
         {% endfor %}
         <tr style="height: 55px; border-top: 1px solid lavender">
             <td colspan="2"
-                style="color: #fff; font-weight: bold; font-size: 1.4rem; padding: .5rem 2rem 0;">
+                style="font-family: 'Nunito', sans-serif; color: #fff; font-weight: bold; font-size: 1.4rem; padding: .5rem 2rem 0;">
                 Delivery Information
             </td>
             <td colspan="2"
-                style="color: #fff; font-weight: bold; font-size: 1.4rem; padding: .5rem 2rem 0;">
+                style="font-family: 'Nunito', sans-serif; color: #fff; font-weight: bold; font-size: 1.4rem; padding: .5rem 2rem 0;">
                 Contact Information
             </td>
         </tr>
         <tr>
-            <td colspan="2" style="color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Address1 }}, {{ Address2 }}</td>
-            <td colspan="2" style="color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Name }}</td>
+            <td colspan="2" style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Address1 }}, {{ Address2 }}</td>
+            <td colspan="2" style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Name }}</td>
         </tr>
         <tr>
-            <td colspan="2" style="color: #fff; font-size: 1rem; padding: 0 2rem;">{{ City }}</td>
-            <td colspan="2" style="color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Email }}</td>
+            <td colspan="2" style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 1rem; padding: 0 2rem;">{{ City }}</td>
+            <td colspan="2" style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Email }}</td>
         </tr>
         <tr>
-            <td colspan="2" style="color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Country }}</td>
-            <td colspan="2" style="color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Phone }}</td>
+            <td colspan="2" style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Country }}</td>
+            <td colspan="2" style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 1rem; padding: 0 2rem;">{{ Phone }}</td>
         </tr>
         {% if State and State != '' %}
             <tr>
-                <td colspan="4" style="color: #fff; font-size: 1rem; padding: 0 2rem;">{{ State }}</td>
+                <td colspan="4" style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 1rem; padding: 0 2rem;">{{ State }}</td>
             </tr>
         {% endif %}
         <tr>
-            <td colspan="4" style="color: #fff; font-size: 1rem; padding: 0 2rem;">{{ PostCode }}</td>
+            <td colspan="4" style="font-family: 'Nunito', sans-serif; color: #fff; font-size: 1rem; padding: 0 2rem;">{{ PostCode }}</td>
         </tr>
         </tbody>
     </table>

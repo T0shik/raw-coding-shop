@@ -40,7 +40,7 @@ namespace RawCoding.Shop.Application.Cart
                 return new BaseResponse("Not Enough Stock", false);
             }
 
-            var cart = await _cartManager.GetCart(request.UserId);
+            var cart = await _cartManager.GetCartByUserId(request.UserId);
 
             var product = cart.Products.FirstOrDefault(x => x.StockId == request.StockId);
             if (product == null)
@@ -65,7 +65,7 @@ namespace RawCoding.Shop.Application.Cart
 
         public async Task Do(string cartId, Action<Domain.Models.Cart> mutation)
         {
-            var cart = await _cartManager.GetCart(cartId);
+            var cart = await _cartManager.GetCartByUserId(cartId);
 
             mutation(cart);
 

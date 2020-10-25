@@ -45,6 +45,10 @@ namespace RawCoding.Shop.UI.Workers.Email
                 {
                     _logger.LogError(e, "Failed to send email");
                 }
+                catch (Exception e)
+                {
+                    _logger.LogError(e, "Failed to send email");
+                }
             }
         }
 
@@ -60,6 +64,7 @@ namespace RawCoding.Shop.UI.Workers.Email
                 Credentials = new NetworkCredential(settings.Account, settings.Password),
             };
         }
+
         private static MailMessage CreateMessage(EmailSettings settings, SendEmailRequest request)
         {
             return new MailMessage(settings.SenderEmail, request.To)

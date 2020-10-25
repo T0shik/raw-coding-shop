@@ -6,5 +6,6 @@ namespace RawCoding.Shop.Application.Emails
     public interface IEmailTemplateFactory
     {
         public Task<string> RenderOrderConfirmationAsync(Order order);
+        public Task<string> RenderShippingConfirmationAsync(Order order);
     }
 }

@@ -10,9 +10,9 @@ namespace RawCoding.Shop.Domain.Interfaces
         bool OrderReferenceExists(string reference);
 
         Order GetOrderById(string id);
+        Task UpdateOrder(Order order);
 
         Task<int> CreateOrder(Order order);
-        Task<int> AdvanceOrder(string id);
 
         IEnumerable<Order> OrdersForAdminPanel(OrderStatus status);
     }

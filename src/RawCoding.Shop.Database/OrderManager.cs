@@ -34,25 +34,25 @@ namespace RawCoding.Shop.Database
         public Order GetOrderById(string id)
         {
             return _ctx.Orders
-                .AsNoTracking()
+                .Where(x => x.Id == id)
                 .Include(x => x.Cart)
                 .ThenInclude(x => x.Products)
                 .ThenInclude(x => x.Stock)
                 .ThenInclude(x => x.Product)
                 .ThenInclude(x => x.Images)
-                .FirstOrDefault(order => order.Id == id);
+                .SingleOrDefault();
+        }
+
+        public Task UpdateOrder(Order order)
+        {
+            _ctx.Orders.Attach(order);
+            _ctx.Entry(order).State = EntityState.Modified;
+            return _ctx.SaveChangesAsync();
         }
 
         public Task<int> CreateOrder(Order order)
         {
             _ctx.Orders.Add(order);
-
-            return _ctx.SaveChangesAsync();
-        }
-
-        public Task<int> AdvanceOrder(string id)
-        {
-            _ctx.Orders.FirstOrDefault(x => x.Id == id).Status++;
 
             return _ctx.SaveChangesAsync();
         }

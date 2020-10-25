@@ -17,15 +17,10 @@ namespace RawCoding.Shop.UI.Controllers.Admin
             Ok(getOrder.ForAdminById(id));
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateOrder(string id, [FromServices] UpdateOrder updateOrder)
+        public async Task<IActionResult> ShipOrder(string id, [FromServices] ProcessOrder processOrder)
         {
-            var success = await updateOrder.DoAsync(id) > 0;
-            if (success)
-            {
-                return Ok();
-            }
-
-            return BadRequest();
+            await processOrder.Ship(id);
+            return Ok();
         }
     }
 }

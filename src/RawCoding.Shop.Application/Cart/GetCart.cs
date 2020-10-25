@@ -41,7 +41,7 @@ namespace RawCoding.Shop.Application.Cart
 
         public async Task<IEnumerable<T>> ByUserId<T>(string userId, Func<CartProduct, T> selector)
         {
-            var cart = await _cartManager.GetCart(userId);
+            var cart = await _cartManager.GetCartByUserId(userId);
             if (cart == null)
             {
                 return Enumerable.Empty<T>();
@@ -53,7 +53,7 @@ namespace RawCoding.Shop.Application.Cart
 
         public Task<Domain.Models.Cart> ById(string cartId)
         {
-            return _cartManager.GetCart(cartId);
+            return _cartManager.GetCartByUserId(cartId);
         }
 
         public Task<int> Id(string userId)
