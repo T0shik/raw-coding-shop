@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotLiquid;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using RawCoding.Shop.Application.Emails;
 using RawCoding.Shop.Application.Projections;
 using RawCoding.Shop.Domain.Extensions;
@@ -21,7 +22,6 @@ namespace RawCoding.Shop.UI.Workers.Email
             _env = env;
         }
 
-        // todo add qty, series, sub total, footer, font
         public Task<string> RenderOrderConfirmationAsync(Order order) =>
             Compose(
                 RenderHeaderAsync(),
@@ -44,7 +44,7 @@ namespace RawCoding.Shop.UI.Workers.Email
         private async Task<string> RenderTemplateAsync(string templateName, object seed = null)
         {
             var templatePath = Path.Combine(_env.WebRootPath, "email-templates", $"{templateName}.liquid");
-            if (!TemplateCache.TryGetValue(templatePath, out var template))
+            if (_env.IsDevelopment() || !TemplateCache.TryGetValue(templatePath, out var template))
             {
                 var templateString = await File.ReadAllTextAsync(templatePath);
                 TemplateCache[templatePath] = template = Template.Parse(templateString);

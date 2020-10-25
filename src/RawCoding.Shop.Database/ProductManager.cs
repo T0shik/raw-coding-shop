@@ -40,6 +40,7 @@ namespace RawCoding.Shop.Database
         public Product GetProductBySlug(string slug)
         {
             return _ctx.Products
+                .AsNoTracking()
                 .Include(x => x.Stock)
                 .Include(x => x.Images)
                 .FirstOrDefault(x => x.Slug == slug);
@@ -48,9 +49,9 @@ namespace RawCoding.Shop.Database
         public IEnumerable<Product> GetFrontPageProducts()
         {
             return _ctx.Products
+                .Where(x => x.Stock.Count > 0)
                 .Include(x => x.Stock)
                 .Include(x => x.Images)
-                .Where(x => x.Stock.Count > 0)
                 .ToList();
         }
 

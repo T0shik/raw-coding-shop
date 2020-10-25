@@ -48,9 +48,9 @@ namespace RawCoding.Shop.UI.Controllers
 
             await emailSink.SendAsync(new SendEmailRequest
             {
-                Subject = "Test",
+                Subject = $"Order Placed, {order.Id}",
                 To = "info@raw-coding.dev",
-                Message = await etf.RenderOrderConfirmationAsync(order),// template.Render(Hash.FromAnonymousObject(OrderProjections.Project(order))),
+                Message = await etf.RenderShippingConfirmationAsync(order),// template.Render(Hash.FromAnonymousObject(OrderProjections.Project(order))),
                 Html = true,
             });
 

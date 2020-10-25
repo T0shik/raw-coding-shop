@@ -31,7 +31,7 @@ namespace RawCoding.Shop.UI.Pages.Checkout
             if (env.IsDevelopment())
             {
                 Form.Name = "test";
-                Form.Email = "test@test.com";
+                Form.Email = "info@raw-coding.dev";
                 Form.Phone = "7845556789";
                 Form.Address1 = "Test";
                 Form.Address2 = "";

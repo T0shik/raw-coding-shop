@@ -16,19 +16,7 @@ namespace RawCoding.Shop.Database
             _ctx = ctx;
         }
 
-        public Task Close(int cartId)
-        {
-            var cart = _ctx.Carts.FirstOrDefault(x => x.Id == cartId);
-            if (cart == null)
-            {
-                return Task.CompletedTask;
-            }
-
-            cart.Closed = true;
-            return _ctx.SaveChangesAsync();
-        }
-
-        public async Task<Cart> CreateCart(string cartId)
+        private async Task<Cart> CreateCart(string cartId)
         {
             var cart = new Cart
             {
@@ -78,14 +66,15 @@ namespace RawCoding.Shop.Database
             return cart.Id;
         }
 
-        public Task<bool> Empty(string userId)
+        public Task<Cart> GetCartById(int cartId)
         {
             return _ctx.Carts
                 .Include(x => x.Products)
-                .AnyAsync(x => !x.Closed && x.UserId == userId && x.Products.Count == 0);
+                .ThenInclude(x => x.Stock)
+                .FirstOrDefaultAsync(x => x.Id == cartId);
         }
 
-        public Task<Cart> GetCart(string userId)
+        public Task<Cart> GetCartByUserId(string userId)
         {
             var cart = _ctx.Carts
                 .Include(x => x.Products)
@@ -101,17 +90,6 @@ namespace RawCoding.Shop.Database
                 .ThenInclude(x => x.Stock)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.UserId == userId && !x.Closed);
-        }
-
-        public Cart GetCartFull(string userId)
-        {
-            return _ctx.Carts
-                .Include(x => x.Products)
-                .ThenInclude(x => x.Stock)
-                .ThenInclude(x => x.Product)
-                .ThenInclude(x => x.Images)
-                .AsNoTracking()
-                .FirstOrDefault(x => x.UserId == userId && !x.Closed);
         }
 
         public IList<CartProduct> GetCartProducts(int cartId)

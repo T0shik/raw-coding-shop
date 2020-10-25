@@ -91,8 +91,8 @@ namespace RawCoding.Shop.UI
 
             services.AddRazorPages(options =>
             {
-                // options.Conventions.AuthorizeFolder("/Admin", ShopConstants.Policies.Admin);
-                // options.Conventions.AllowAnonymousToPage("/Admin/Login");
+                options.Conventions.AuthorizeFolder("/Admin", ShopConstants.Policies.Admin);
+                options.Conventions.AllowAnonymousToPage("/Admin/Login");
             });
 
             services.AddApplicationServices()
