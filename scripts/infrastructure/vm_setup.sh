@@ -12,7 +12,7 @@ sudo ufw allow 'OpenSSH'
 # setup github actions account
 sudo adduser <ci_cd_username>
 sudo mkdir /var/app
-sudo chown -R <ci_cd_username>:<ci_cd_username> /var/app
+setfacl -R -m u:<ci_cd_username>:rwx /var/app
 sudo mkdir /home/<ci_cd_username>/.ssh
 sudo mkdir /home/<ci_cd_username>/.ssh/authorized_keys # <- put ssh public key here
 
