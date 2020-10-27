@@ -11,30 +11,30 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.109
-      - name: Install dependencies
+      - name: Install Dependencies
         run: dotnet restore
-      - name: Build Dotnet Core App
+      - name: Build App
         run: dotnet publish -c Release --no-restore
-      - name: Move Systemd service
-        run: mv ./scripts/environment/* ./MoistBot/bin/Release/netcoreapp3.1/publish/
-      - name: Update Json Secrets
+      - name: Move Environment Files
+        run: mv ./scripts/environment/*  ./src/RawCoding.Shop.UI/bin/Release/netcoreapp3.1/publish/
+      - name: Inject Secrets
         uses: microsoft/variable-substitution@v1
         with:
-          files: './MoistBot/bin/Release/netcoreapp3.1/publish/appsettings.Production.json'
+          files: './src/RawCoding.Shop.UI/bin/Release/netcoreapp3.1/publish/appsettings.Production.json'
         env:
-          ConnectionStrings.DefaultConnection : ${{ secrets.POSTGRESQL_CONNECTION_STRING }}
-          StripeSettings.PublicKey : ${{ secrets.STRIPE_PUBLIC }}
-          StripeSettings.SecretKey : ${{ secrets.STRIPE_SECRET }}
-          EmailSettings.Account : ${{ secrets.GMAIL_SMTP_ACCOUNT }}
-          EmailSettings.Password : ${{ secrets.GMAIL_SMTP_PASSWORD }}
-          S3StorageSettings.AccessKey : ${{ secrets.LINODE_S3_ACCESS }}
-          S3StorageSettings.SecretKey : ${{ secrets.LINODE_S3_SECRET }}
+          ConnectionStrings.DefaultConnection: ${{ secrets.POSTGRESQL_CONNECTION_STRING }}
+          StripeSettings.PublicKey: ${{ secrets.STRIPE_PUBLIC }}
+          StripeSettings.SecretKey: ${{ secrets.STRIPE_SECRET }}
+          EmailSettings.Account: ${{ secrets.GMAIL_SMTP_ACCOUNT }}
+          EmailSettings.Password: ${{ secrets.GMAIL_SMTP_PASSWORD }}
+          S3StorageSettings.AccessKey: ${{ secrets.LINODE_S3_ACCESS }}
+          S3StorageSettings.SecretKey: ${{ secrets.LINODE_S3_SECRET }}
       - name: Push To Linode
         run: |
           mkdir ~/.ssh
           echo "$my_ssh_key" > ~/.ssh/gh_actions_key
           chmod 600 ~/.ssh/gh_actions_key
-          rsync -avz -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" ./MoistBot/bin/Release/netcoreapp3.1/publish/* github_actions@"$target_ip":/var/app/shop
+          rsync -avz -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" ./src/RawCoding.Shop.UI/bin/Release/netcoreapp3.1/publish/* github_actions@"$target_ip":/var/app/shop
         env:
           my_ssh_key: ${{ secrets.LINODE_SSH }}
           target_ip: ${{ secrets.LINODE_VM_IP }}
