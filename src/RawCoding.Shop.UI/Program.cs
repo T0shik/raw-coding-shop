@@ -5,7 +5,6 @@ using System.Security.Claims;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RawCoding.Shop.Database;
@@ -27,137 +26,137 @@ namespace RawCoding.Shop.UI
                 var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 var userManger = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-                // context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
                 if (env.IsDevelopment())
                 {
-                    context.Add(new Product
+                    if (!context.Products.Any())
                     {
-                        Name = "Test",
-                        Description = "Test Product",
-                        Series = "Original",
-                        Slug = "original-test",
-                        StockDescription = "Size",
-                        Stock = new List<Stock>
+                        var stock1 = new Stock {Description = "Small", Value = 1000, Qty = 100,};
+                        var stock2 = new Stock {Description = "Medium", Value = 1000, Qty = 100,};
+                        var stock3 = new Stock {Description = "Large", Value = 1000, Qty = 1,};
+                        context.Add(new Product
                         {
-                            new Stock {Description = "Small", Value = 1000, Qty = 100,},
-                            new Stock {Description = "Medium", Value = 1000, Qty = 100,},
-                            new Stock {Description = "Large", Value = 1000, Qty = 1,},
-                        },
-                        Images = new List<Image>
-                        {
-                            new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book.jpg"},
-                            new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book2.jpg"},
-                            new Image {Index = 2, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/pen.jpg"},
-                            new Image {Index = 3, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
-                        }
-                    });
-
-                    context.Add(new Product
-                    {
-                        Name = "Out Of Stock",
-                        Description = "Test Out Of Stock Product",
-                        Series = "Original",
-                        Slug = "original-out-of-stock",
-                        StockDescription = "Size",
-                        Stock = new List<Stock>
-                        {
-                            new Stock {Description = "Small", Value = 1000, Qty = 0,},
-                            new Stock {Description = "Medium", Value = 1000, Qty = 0,},
-                            new Stock {Description = "Large", Value = 1000, Qty = 0,},
-                        },
-                        Images = new List<Image>
-                        {
-                            new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book.jpg"},
-                            new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/pen.jpg"},
-                            new Image {Index = 2, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
-                        }
-                    });
-
-
-                    context.Add(new Product
-                    {
-                        Name = "Limited",
-                        Description = "Test Limited Product",
-                        Series = "Original",
-                        Slug = "original-limited",
-                        StockDescription = "Size",
-                        Stock = new List<Stock>
-                        {
-                            new Stock {Description = "Small", Value = 1000, Qty = 10,},
-                            new Stock {Description = "Medium", Value = 1000, Qty = 0,},
-                        },
-                        Images = new List<Image>
-                        {
-                            new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book.jpg"},
-                            new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
-                        }
-                    });
-
-                    context.Add(new Product
-                    {
-                        Name = "Test2",
-                        Description = "Test Product 22",
-
-                        Series = "Original",
-                        Slug = "original-test2",
-                        Stock = new List<Stock>
-                        {
-                            new Stock {Value = 2220, Description = "Default", Qty = 100,},
-                        },
-                        Images = new List<Image>
-                        {
-                            new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/pen.jpg"},
-                            new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
-                        }
-                    });
-
-                    context.Add(new Product
-                    {
-                        Name = "Test 33",
-                        Description = "Test Product 313",
-                        Series = "Original",
-                        Slug = "original-test-33",
-                        Stock = new List<Stock>
-                        {
-                            new Stock {Value = 333, Description = "Default", Qty = 100,},
-                        },
-                        Images = new List<Image>
-                        {
-                            new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
-                        }
-                    });
-
-                    context.Add(new Order
-                    {
-                        Id = "dummy",
-                        StripeReference = "dummy",
-                        Status = OrderStatus.New,
-                        Cart = new Cart
-                        {
-                            DeliveryInformationComplete = true,
-                            Closed = true,
-
-                            Name = nameof(Cart.Name),
-                            Email = "info@raw-coding.dev",
-                            Phone = nameof(Cart.Phone),
-
-                            Address1 = nameof(Cart.Address1),
-                            Address2 = nameof(Cart.Address2),
-                            City = nameof(Cart.City),
-                            Country = nameof(Cart.Country),
-                            PostCode = nameof(Cart.PostCode),
-                            State = nameof(Cart.State),
-
-                            Products = new List<CartProduct>
+                            Name = "Test",
+                            Description = "Test Product",
+                            Series = "Original",
+                            Slug = "original-test",
+                            StockDescription = "Size",
+                            Stock = new List<Stock> {stock1, stock2, stock3},
+                            Images = new List<Image>
                             {
-                                new CartProduct {StockId = 1, Qty = 1},
-                                new CartProduct {StockId = 2, Qty = 3},
-                                new CartProduct {StockId = 3, Qty = 6},
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book.jpg"},
+                                new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book2.jpg"},
+                                new Image {Index = 2, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/pen.jpg"},
+                                new Image {Index = 3, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
                             },
-                        },
-                    });
+                        });
 
-                    context.SaveChanges();
+                        context.Add(new Product
+                        {
+                            Name = "Out Of Stock",
+                            Description = "Test Out Of Stock Product",
+                            Series = "Original",
+                            Slug = "original-out-of-stock",
+                            StockDescription = "Size",
+                            Stock = new List<Stock>
+                            {
+                                new Stock {Description = "Small", Value = 1000, Qty = 0,},
+                                new Stock {Description = "Medium", Value = 1000, Qty = 0,},
+                                new Stock {Description = "Large", Value = 1000, Qty = 0,},
+                            },
+                            Images = new List<Image>
+                            {
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book.jpg"},
+                                new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/pen.jpg"},
+                                new Image {Index = 2, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
+                            },
+                        });
+
+
+                        context.Add(new Product
+                        {
+                            Name = "Limited",
+                            Description = "Test Limited Product",
+                            Series = "Original",
+                            Slug = "original-limited",
+                            StockDescription = "Size",
+                            Stock = new List<Stock>
+                            {
+                                new Stock {Description = "Small", Value = 1000, Qty = 10,},
+                                new Stock {Description = "Medium", Value = 1000, Qty = 0,},
+                            },
+                            Images = new List<Image>
+                            {
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/book.jpg"},
+                                new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
+                            },
+                        });
+
+                        context.Add(new Product
+                        {
+                            Name = "Test2",
+                            Description = "Test Product 22",
+
+                            Series = "Original",
+                            Slug = "original-test2",
+                            Stock = new List<Stock>
+                            {
+                                new Stock {Value = 2220, Description = "Default", Qty = 100,},
+                            },
+                            Images = new List<Image>
+                            {
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/pen.jpg"},
+                                new Image {Index = 1, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
+                            },
+                        });
+
+                        context.Add(new Product
+                        {
+                            Name = "Test 33",
+                            Description = "Test Product 313",
+                            Series = "Original",
+                            Slug = "original-test-33",
+                            Stock = new List<Stock>
+                            {
+                                new Stock {Value = 333, Description = "Default", Qty = 100,},
+                            },
+                            Images = new List<Image>
+                            {
+                                new Image {Index = 0, Path = "https://aw-test-bucket.eu-central-1.linodeobjects.com/raw-coding-shop/test-images/shirt.jpg"},
+                            },
+                        });
+                        context.SaveChanges();
+
+                        context.Add(new Order
+                        {
+                            Id = "dummy",
+                            StripeReference = "dummy",
+                            Status = OrderStatus.New,
+                            Cart = new Cart
+                            {
+                                DeliveryInformationComplete = true,
+                                Closed = true,
+
+                                Name = nameof(Cart.Name),
+                                Email = "info@raw-coding.dev",
+                                Phone = nameof(Cart.Phone),
+
+                                Address1 = nameof(Cart.Address1),
+                                Address2 = nameof(Cart.Address2),
+                                City = nameof(Cart.City),
+                                Country = nameof(Cart.Country),
+                                PostCode = nameof(Cart.PostCode),
+                                State = nameof(Cart.State),
+
+                                Products = new List<CartProduct>
+                                {
+                                    new CartProduct {StockId = stock1.Id, Qty = 1},
+                                    new CartProduct {StockId = stock2.Id, Qty = 3},
+                                    new CartProduct {StockId = stock3.Id, Qty = 6},
+                                },
+                            },
+                        });
+                        context.SaveChanges();
+                    }
                 }
 
                 if (!context.Users.Any())

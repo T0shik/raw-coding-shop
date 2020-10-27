@@ -5,6 +5,5 @@ namespace RawCoding.Shop.UI
     {
         public string PublicKey { get; set; }
         public string SecretKey { get; set; }
-        public string SigningSecret { get; set; }
     }
 }

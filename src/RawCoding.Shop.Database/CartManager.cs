@@ -77,8 +77,9 @@ namespace RawCoding.Shop.Database
         public Task<Cart> GetCartByUserId(string userId)
         {
             var cart = _ctx.Carts
+                .Where(x => x.UserId == userId && !x.Closed)
                 .Include(x => x.Products)
-                .FirstOrDefault(x => x.UserId == userId && !x.Closed);
+                .FirstOrDefault();
 
             return cart == null ? CreateCart(userId) : Task.FromResult(cart);
         }
@@ -86,10 +87,11 @@ namespace RawCoding.Shop.Database
         public Task<Cart> GetCartWithStock(string userId)
         {
             return _ctx.Carts
+                .AsNoTracking()
+                .Where(x => x.UserId == userId && !x.Closed)
                 .Include(x => x.Products)
                 .ThenInclude(x => x.Stock)
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.UserId == userId && !x.Closed);
+                .FirstOrDefaultAsync();
         }
 
         public IList<CartProduct> GetCartProducts(int cartId)

@@ -15,6 +15,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BC1D261E-978
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawCoding.S3", "src\RawCoding.S3\RawCoding.S3.csproj", "{E7B45C3C-6A12-4C0C-98B9-E9F291538183}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A47E753C-BC76-48E3-87DA-25F5213A58DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{EACE2E27-243E-4700-A6FB-1135E9E9A419}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{2A4D4ED0-77FD-435C-8750-217F8B99E85F}"
+ProjectSection(SolutionItems) = preProject
+	.github\workflows\build_and_deploy_to_linode.yaml = .github\workflows\build_and_deploy_to_linode.yaml
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{C3996228-19AD-4CBD-9BF4-FCF7399144BD}"
+ProjectSection(SolutionItems) = preProject
+	scripts\infrastructure\vm_setup.sh = scripts\infrastructure\vm_setup.sh
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9C461E62-4811-4CA3-902D-F87515427A1B}"
+ProjectSection(SolutionItems) = preProject
+	scripts\tests\shop-test-email.http = scripts\tests\shop-test-email.http
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "environment", "environment", "{6BD435CB-7F0F-4E75-A294-A9E12527DAA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +75,9 @@ Global
 		{0A3078DA-AE09-40B9-BD97-5587B1775CED} = {BC1D261E-9786-4893-8A08-539A4EC7C1FC}
 		{E628C214-3BF7-4BC6-A329-603229F2BAAA} = {BC1D261E-9786-4893-8A08-539A4EC7C1FC}
 		{E7B45C3C-6A12-4C0C-98B9-E9F291538183} = {BC1D261E-9786-4893-8A08-539A4EC7C1FC}
+		{2A4D4ED0-77FD-435C-8750-217F8B99E85F} = {EACE2E27-243E-4700-A6FB-1135E9E9A419}
+		{C3996228-19AD-4CBD-9BF4-FCF7399144BD} = {A47E753C-BC76-48E3-87DA-25F5213A58DB}
+		{9C461E62-4811-4CA3-902D-F87515427A1B} = {A47E753C-BC76-48E3-87DA-25F5213A58DB}
+		{6BD435CB-7F0F-4E75-A294-A9E12527DAA8} = {A47E753C-BC76-48E3-87DA-25F5213A58DB}
 	EndGlobalSection
 EndGlobal
