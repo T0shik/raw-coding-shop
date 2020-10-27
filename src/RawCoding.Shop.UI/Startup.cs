@@ -39,11 +39,20 @@ namespace RawCoding.Shop.UI
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // todo data protection
             services.Configure<StripeSettings>(_config.GetSection(nameof(StripeSettings)));
 
-            // services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(_config["DefaultConnection"]));
+            services.AddDbContext<ApplicationDbContext>(options => options
+                .UseNpgsql(_config.GetConnectionString("DefaultConnection")));
+            // if (_env.IsProduction())
+            // {
+            // }
+            // else
+            // {
+            //     services.AddDbContext<ApplicationDbContext>(options => options
+            //         .UseInMemoryDatabase("Dev"));
+            // }
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Dev"));
             // todo configure for prod
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
                 {
@@ -54,7 +63,11 @@ namespace RawCoding.Shop.UI
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.ConfigureApplicationCookie(options => { options.LoginPath = "/Admin/Login"; });
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Domain = _config["CookieDomain"];
+                options.LoginPath = "/Admin/Login";
+            });
 
             services.AddAuthentication()
                 .AddCookie(ShopConstants.Schemas.Guest,

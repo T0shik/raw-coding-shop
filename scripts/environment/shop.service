@@ -1,0 +1,16 @@
+[Unit]
+Description=Raw Coding Shop Serivce
+
+[Service]
+WorkingDirectory=/var/app/shop
+ExecStart=/usr/bin/dotnet /var/app/shop/RawCoding.Shop.UI.dll
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=raw-coding-shop
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
