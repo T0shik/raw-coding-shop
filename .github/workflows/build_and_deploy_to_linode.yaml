@@ -29,6 +29,7 @@ jobs:
           EmailSettings.Password: ${{ secrets.GMAIL_SMTP_PASSWORD }}
           S3StorageSettings.AccessKey: ${{ secrets.LINODE_S3_ACCESS }}
           S3StorageSettings.SecretKey: ${{ secrets.LINODE_S3_SECRET }}
+          AdminPassword: ${{ secrets.SHOP_ADMIN_PASSWORD }}
       - name: Push To Linode
         run: |
           echo "$ssh_key" > ~/ssh_key

@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RawCoding.Shop.Database;
@@ -25,6 +26,7 @@ namespace RawCoding.Shop.UI
                 var env = scope.ServiceProvider.GetRequiredService<IWebHostEnvironment>();
                 var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 var userManger = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
 
                 if (env.IsDevelopment())
                 {
@@ -166,7 +168,7 @@ namespace RawCoding.Shop.UI
                         UserName = "Admin",
                     };
 
-                    userManger.CreateAsync(adminUser, "password").GetAwaiter().GetResult();
+                    userManger.CreateAsync(adminUser, config["AdminPassword"]).GetAwaiter().GetResult();
 
                     var adminClaim = new Claim(ShopConstants.Claims.Role, ShopConstants.Roles.Admin);
 

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,7 @@ using RawCoding.Shop.Database;
 using Stripe;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
 using RawCoding.S3;
@@ -42,6 +44,13 @@ namespace RawCoding.Shop.UI
             // todo data protection
             services.Configure<StripeSettings>(_config.GetSection(nameof(StripeSettings)));
 
+            if (_env.IsProduction())
+            {
+                services.AddDataProtection()
+                    .SetApplicationName("RawCoding.Shop")
+                    .PersistKeysToFileSystem(new DirectoryInfo(_config["DataProtectionKeys"]));
+            }
+
             services.AddDbContext<ApplicationDbContext>(options => options
                 .UseNpgsql(_config.GetConnectionString("DefaultConnection")));
             // if (_env.IsProduction())
@@ -63,16 +72,17 @@ namespace RawCoding.Shop.UI
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.ConfigureApplicationCookie(options =>
+            services.ConfigureApplicationCookie(config =>
             {
-                options.Cookie.Domain = _config["CookieDomain"];
-                options.LoginPath = "/Admin/Login";
+                config.Cookie.Domain = _config["CookieDomain"];
+                config.LoginPath = "/Admin/Login";
             });
 
             services.AddAuthentication()
                 .AddCookie(ShopConstants.Schemas.Guest,
                     config =>
                     {
+                        config.Cookie.Domain = _config["CookieDomain"];
                         config.Cookie.Name = ShopConstants.Schemas.Guest;
                         config.ExpireTimeSpan = TimeSpan.FromDays(365);
                         config.LoginPath = "/api/cart/guest-auth";

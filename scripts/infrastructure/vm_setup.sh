@@ -16,7 +16,6 @@ setfacl -R -m u:<ci_cd_username>:rwx /var/app
 sudo mkdir /home/<ci_cd_username>/.ssh
 sudo mkdir /home/<ci_cd_username>/.ssh/authorized_keys # <- put ssh public key here
 
-
 # dotnet core 3.1
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -30,11 +29,20 @@ echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" 
 sudo apt-get update
 sudo apt-get install -y postgresql-12
 
+
+sudo passwd postgres
+sudo service postgresql start
+
+createdb <db_name>
+createuser --no-createdb --login --pwprompt <username>
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO <username>; # in <db_name>
+
 # nginx
 sudo apt-get install nginx
 
 # firewall
 sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTPS'
 
-sudo passwd postgres
-sudo service postgresql start
+# certbot
+sudo snap install --classic certbot
