@@ -31,11 +31,11 @@ jobs:
           S3StorageSettings.SecretKey: ${{ secrets.LINODE_S3_SECRET }}
       - name: Push To Linode
         run: |
-          mkdir ~/.ssh
-          echo "$my_ssh_key" > ~/.ssh/gh_actions_key
+          echo "$ssh_key" > ~/gh_actions_key
+          echo "$ssh_password" > ~/gh_actions_ssh_password
           chmod 600 ~/.ssh/gh_actions_key
-          rsync -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" -avrz ./src/RawCoding.Shop.UI/bin/Release/netcoreapp3.1/publish/* github_actions@"$target_ip":/var/app/shop
+          rsync -e "ssh -i ~/gh_actions_key -o StrictHostKeyChecking=no" --password-file=~/gh_actions_ssh_password -avrz ./src/RawCoding.Shop.UI/bin/Release/netcoreapp3.1/publish/* github_actions@"$target_ip":/var/app/shop
         env:
-          my_ssh_key: ${{ secrets.LINODE_SSH }}
+          ssh_key: ${{ secrets.LINODE_SSH }}
+          ssh_password: ${{ secrets.LINODE_SSH_PASSWORD }}
           target_ip: ${{ secrets.LINODE_VM_IP }}
-          RSYNC_PASSWORD: ${{ secrets.LINODE_SSH_PASSWORD }}
