@@ -4,6 +4,7 @@ namespace RawCoding.Shop.Domain.Models
 {
     public class Product
     {
+        // todo: staged / published
         public int Id { get; set; }
         public string Name { get; set; }
         public string Series { get; set; }
