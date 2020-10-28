@@ -33,7 +33,8 @@ jobs:
         run: |
           echo "$ssh_key" > ~/gh_actions_key
           echo "$ssh_password" > ~/gh_actions_ssh_password
-          chmod 600 ~/.ssh/gh_actions_key
+          chmod 600 ~/gh_actions_key
+          chmod 600 ~/gh_actions_ssh_password
           rsync -e "ssh -i ~/gh_actions_key -o StrictHostKeyChecking=no" --password-file=~/gh_actions_ssh_password -avrz ./src/RawCoding.Shop.UI/bin/Release/netcoreapp3.1/publish/* github_actions@"$target_ip":/var/app/shop
         env:
           ssh_key: ${{ secrets.LINODE_SSH }}
